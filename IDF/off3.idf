@@ -1,0 +1,3822 @@
+!- Windows Line endings 
+
+Version,
+    9.0;                      !- Version Identifier
+
+SimulationControl,
+    No,                       !- Do Zone Sizing Calculation
+    No,                       !- Do System Sizing Calculation
+    No,                       !- Do Plant Sizing Calculation
+    No,                       !- Run Simulation for Sizing Periods
+    Yes;                      !- Run Simulation for Weather File Run Periods
+
+Building,
+    bldg,                     !- Name
+    0,                        !- North Axis
+    City,                     !- Terrain
+    0.04,                     !- Loads Convergence Tolerance Value
+    0.4,                      !- Temperature Convergence Tolerance Value
+    FullInteriorAndExterior,    !- Solar Distribution
+    25,                       !- Maximum Number of Warmup Days
+    6;                        !- Minimum Number of Warmup Days
+
+Timestep,
+    1;                        !- Number of Timesteps per Hour
+
+Site:Location,
+    DENVER_STAPLETON_CO_USA_WMO_724690,    !- Name
+    39.77,                    !- Latitude
+    -104.87,                  !- Longitude
+    -7,                       !- Time Zone
+    1611;                     !- Elevation
+
+SizingPeriod:DesignDay,
+    Summer Design Day in Untitled,    !- Name
+    7,                        !- Month
+    15,                       !- Day of Month
+    SummerDesignDay,          !- Day Type
+    32,                       !- Maximum DryBulb Temperature
+    7.9,                      !- Daily DryBulb Temperature Range
+    ,                         !- DryBulb Temperature Range Modifier Type
+    ,                         !- DryBulb Temperature Range Modifier Day Schedule Name
+    WetBulb,                  !- Humidity Condition Type
+    25.2,                     !- Wetbulb or DewPoint at Maximum DryBulb
+    ,                         !- Humidity Condition Day Schedule Name
+    ,                         !- Humidity Ratio at Maximum DryBulb
+    ,                         !- Enthalpy at Maximum DryBulb
+    ,                         !- Daily WetBulb Temperature Range
+    101097,                   !- Barometric Pressure
+    0,                        !- Wind Speed
+    0,                        !- Wind Direction
+    No,                       !- Rain Indicator
+    No,                       !- Snow Indicator
+    No,                       !- Daylight Saving Time Indicator
+    ,                         !- Solar Model Indicator
+    ,                         !- Beam Solar Day Schedule Name
+    ,                         !- Diffuse Solar Day Schedule Name
+    ,                         !- ASHRAE Clear Sky Optical Depth for Beam Irradiance taub
+    ,                         !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance taud
+    0.98;                     !- Sky Clearness
+
+SizingPeriod:DesignDay,
+    Winter Design Day in Untitled,    !- Name
+    1,                        !- Month
+    15,                       !- Day of Month
+    WinterDesignDay,          !- Day Type
+    -13.9,                    !- Maximum DryBulb Temperature
+    0,                        !- Daily DryBulb Temperature Range
+    ,                         !- DryBulb Temperature Range Modifier Type
+    ,                         !- DryBulb Temperature Range Modifier Day Schedule Name
+    WetBulb,                  !- Humidity Condition Type
+    -13.9,                    !- Wetbulb or DewPoint at Maximum DryBulb
+    ,                         !- Humidity Condition Day Schedule Name
+    ,                         !- Humidity Ratio at Maximum DryBulb
+    ,                         !- Enthalpy at Maximum DryBulb
+    ,                         !- Daily WetBulb Temperature Range
+    101097,                   !- Barometric Pressure
+    9.4,                      !- Wind Speed
+    0,                        !- Wind Direction
+    No,                       !- Rain Indicator
+    No,                       !- Snow Indicator
+    No,                       !- Daylight Saving Time Indicator
+    ,                         !- Solar Model Indicator
+    ,                         !- Beam Solar Day Schedule Name
+    ,                         !- Diffuse Solar Day Schedule Name
+    ,                         !- ASHRAE Clear Sky Optical Depth for Beam Irradiance taub
+    ,                         !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance taud
+    0;                        !- Sky Clearness
+
+RunPeriod,
+    ,                         !- Name
+    1,                        !- Begin Month
+    1,                        !- Begin Day of Month
+    ,                         !- Begin Year
+    12,                       !- End Month
+    31,                       !- End Day of Month
+    ,                         !- End Year
+    Wednesday,                !- Day of Week for Start Day
+    Yes,                      !- Use Weather File Holidays and Special Days
+    Yes,                      !- Use Weather File Daylight Saving Period
+    No,                       !- Apply Weekend Holiday Rule
+    Yes,                      !- Use Weather File Rain Indicators
+    Yes;                      !- Use Weather File Snow Indicators
+
+ScheduleTypeLimits,
+    Any Number;               !- Name
+
+ScheduleTypeLimits,
+    Fraction,                 !- Name
+    0,                        !- Lower Limit Value
+    1,                        !- Upper Limit Value
+    CONTINUOUS;               !- Numeric Type
+
+ScheduleTypeLimits,
+    Temperature,              !- Name
+    -60,                      !- Lower Limit Value
+    200,                      !- Upper Limit Value
+    CONTINUOUS;               !- Numeric Type
+
+ScheduleTypeLimits,
+    Control Type,             !- Name
+    0,                        !- Lower Limit Value
+    4,                        !- Upper Limit Value
+    DISCRETE;                 !- Numeric Type
+
+ScheduleTypeLimits,
+    On/Off,                   !- Name
+    0,                        !- Lower Limit Value
+    1,                        !- Upper Limit Value
+    DISCRETE;                 !- Numeric Type
+
+Schedule:Day:Hourly,
+    0,                        !- Name
+    Any Number,               !- Schedule Type Limits Name
+    0,                        !- Hour 1
+    0,                        !- Hour 2
+    0,                        !- Hour 3
+    0,                        !- Hour 4
+    0,                        !- Hour 5
+    0,                        !- Hour 6
+    0,                        !- Hour 7
+    0,                        !- Hour 8
+    0,                        !- Hour 9
+    0,                        !- Hour 10
+    0,                        !- Hour 11
+    0,                        !- Hour 12
+    0,                        !- Hour 13
+    0,                        !- Hour 14
+    0,                        !- Hour 15
+    0,                        !- Hour 16
+    0,                        !- Hour 17
+    0,                        !- Hour 18
+    0,                        !- Hour 19
+    0,                        !- Hour 20
+    0,                        !- Hour 21
+    0,                        !- Hour 22
+    0,                        !- Hour 23
+    0;                        !- Hour 24
+
+Schedule:Day:Hourly,
+    50,                       !- Name
+    Any Number,               !- Schedule Type Limits Name
+    50,                       !- Hour 1
+    50,                       !- Hour 2
+    50,                       !- Hour 3
+    50,                       !- Hour 4
+    50,                       !- Hour 5
+    50,                       !- Hour 6
+    50,                       !- Hour 7
+    50,                       !- Hour 8
+    50,                       !- Hour 9
+    50,                       !- Hour 10
+    50,                       !- Hour 11
+    50,                       !- Hour 12
+    50,                       !- Hour 13
+    50,                       !- Hour 14
+    50,                       !- Hour 15
+    50,                       !- Hour 16
+    50,                       !- Hour 17
+    50,                       !- Hour 18
+    50,                       !- Hour 19
+    50,                       !- Hour 20
+    50,                       !- Hour 21
+    50,                       !- Hour 22
+    50,                       !- Hour 23
+    50;                       !- Hour 24
+
+Schedule:Day:Hourly,
+    Off,                      !- Name
+    Fraction,                 !- Schedule Type Limits Name
+    0,                        !- Hour 1
+    0,                        !- Hour 2
+    0,                        !- Hour 3
+    0,                        !- Hour 4
+    0,                        !- Hour 5
+    0,                        !- Hour 6
+    0,                        !- Hour 7
+    0,                        !- Hour 8
+    0,                        !- Hour 9
+    0,                        !- Hour 10
+    0,                        !- Hour 11
+    0,                        !- Hour 12
+    0,                        !- Hour 13
+    0,                        !- Hour 14
+    0,                        !- Hour 15
+    0,                        !- Hour 16
+    0,                        !- Hour 17
+    0,                        !- Hour 18
+    0,                        !- Hour 19
+    0,                        !- Hour 20
+    0,                        !- Hour 21
+    0,                        !- Hour 22
+    0,                        !- Hour 23
+    0;                        !- Hour 24
+
+Schedule:Day:Hourly,
+    Summer Control Type Day Sch,    !- Name
+    Control Type,             !- Schedule Type Limits Name
+    4,                        !- Hour 1
+    4,                        !- Hour 2
+    4,                        !- Hour 3
+    4,                        !- Hour 4
+    4,                        !- Hour 5
+    4,                        !- Hour 6
+    4,                        !- Hour 7
+    4,                        !- Hour 8
+    4,                        !- Hour 9
+    4,                        !- Hour 10
+    4,                        !- Hour 11
+    4,                        !- Hour 12
+    4,                        !- Hour 13
+    4,                        !- Hour 14
+    4,                        !- Hour 15
+    4,                        !- Hour 16
+    4,                        !- Hour 17
+    4,                        !- Hour 18
+    4,                        !- Hour 19
+    4,                        !- Hour 20
+    4,                        !- Hour 21
+    4,                        !- Hour 22
+    4,                        !- Hour 23
+    4;                        !- Hour 24
+
+Schedule:Day:Hourly,
+    Winter Control Type Day Sch,    !- Name
+    Control Type,             !- Schedule Type Limits Name
+    4,                        !- Hour 1
+    4,                        !- Hour 2
+    4,                        !- Hour 3
+    4,                        !- Hour 4
+    4,                        !- Hour 5
+    4,                        !- Hour 6
+    4,                        !- Hour 7
+    4,                        !- Hour 8
+    4,                        !- Hour 9
+    4,                        !- Hour 10
+    4,                        !- Hour 11
+    4,                        !- Hour 12
+    4,                        !- Hour 13
+    4,                        !- Hour 14
+    4,                        !- Hour 15
+    4,                        !- Hour 16
+    4,                        !- Hour 17
+    4,                        !- Hour 18
+    4,                        !- Hour 19
+    4,                        !- Hour 20
+    4,                        !- Hour 21
+    4,                        !- Hour 22
+    4,                        !- Hour 23
+    4;                        !- Hour 24
+
+Schedule:Day:Hourly,
+    Summer Control Type Day Sch - cool,    !- Name
+    Control Type,             !- Schedule Type Limits Name
+    2,                        !- Hour 1
+    2,                        !- Hour 2
+    2,                        !- Hour 3
+    2,                        !- Hour 4
+    2,                        !- Hour 5
+    2,                        !- Hour 6
+    2,                        !- Hour 7
+    2,                        !- Hour 8
+    2,                        !- Hour 9
+    2,                        !- Hour 10
+    2,                        !- Hour 11
+    2,                        !- Hour 12
+    2,                        !- Hour 13
+    2,                        !- Hour 14
+    2,                        !- Hour 15
+    2,                        !- Hour 16
+    2,                        !- Hour 17
+    2,                        !- Hour 18
+    2,                        !- Hour 19
+    2,                        !- Hour 20
+    2,                        !- Hour 21
+    2,                        !- Hour 22
+    2,                        !- Hour 23
+    2;                        !- Hour 24
+
+Schedule:Day:Hourly,
+    Winter Control Type Day Sch - heat,    !- Name
+    Control Type,             !- Schedule Type Limits Name
+    1,                        !- Hour 1
+    1,                        !- Hour 2
+    1,                        !- Hour 3
+    1,                        !- Hour 4
+    1,                        !- Hour 5
+    1,                        !- Hour 6
+    1,                        !- Hour 7
+    1,                        !- Hour 8
+    1,                        !- Hour 9
+    1,                        !- Hour 10
+    1,                        !- Hour 11
+    1,                        !- Hour 12
+    1,                        !- Hour 13
+    1,                        !- Hour 14
+    1,                        !- Hour 15
+    1,                        !- Hour 16
+    1,                        !- Hour 17
+    1,                        !- Hour 18
+    1,                        !- Hour 19
+    1,                        !- Hour 20
+    1,                        !- Hour 21
+    1,                        !- Hour 22
+    1,                        !- Hour 23
+    1;                        !- Hour 24
+
+Schedule:Week:Daily,
+    Off,                      !- Name
+    Off,                      !- Sunday ScheduleDay Name
+    Off,                      !- Monday ScheduleDay Name
+    Off,                      !- Tuesday ScheduleDay Name
+    Off,                      !- Wednesday ScheduleDay Name
+    Off,                      !- Thursday ScheduleDay Name
+    Off,                      !- Friday ScheduleDay Name
+    Off,                      !- Saturday ScheduleDay Name
+    Off,                      !- Holiday ScheduleDay Name
+    Off,                      !- SummerDesignDay ScheduleDay Name
+    Off,                      !- WinterDesignDay ScheduleDay Name
+    Off,                      !- CustomDay1 ScheduleDay Name
+    Off;                      !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Summer Control Type Week Sch,    !- Name
+    Summer Control Type Day Sch,    !- Sunday ScheduleDay Name
+    Summer Control Type Day Sch,    !- Monday ScheduleDay Name
+    Summer Control Type Day Sch,    !- Tuesday ScheduleDay Name
+    Summer Control Type Day Sch,    !- Wednesday ScheduleDay Name
+    Summer Control Type Day Sch,    !- Thursday ScheduleDay Name
+    Summer Control Type Day Sch,    !- Friday ScheduleDay Name
+    Summer Control Type Day Sch,    !- Saturday ScheduleDay Name
+    Summer Control Type Day Sch,    !- Holiday ScheduleDay Name
+    Summer Control Type Day Sch,    !- SummerDesignDay ScheduleDay Name
+    Summer Control Type Day Sch,    !- WinterDesignDay ScheduleDay Name
+    Summer Control Type Day Sch,    !- CustomDay1 ScheduleDay Name
+    Summer Control Type Day Sch;    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Winter Control Type Week Sch,    !- Name
+    Winter Control Type Day Sch,    !- Sunday ScheduleDay Name
+    Winter Control Type Day Sch,    !- Monday ScheduleDay Name
+    Winter Control Type Day Sch,    !- Tuesday ScheduleDay Name
+    Winter Control Type Day Sch,    !- Wednesday ScheduleDay Name
+    Winter Control Type Day Sch,    !- Thursday ScheduleDay Name
+    Winter Control Type Day Sch,    !- Friday ScheduleDay Name
+    Winter Control Type Day Sch,    !- Saturday ScheduleDay Name
+    Winter Control Type Day Sch,    !- Holiday ScheduleDay Name
+    Winter Control Type Day Sch,    !- SummerDesignDay ScheduleDay Name
+    Winter Control Type Day Sch,    !- WinterDesignDay ScheduleDay Name
+    Winter Control Type Day Sch,    !- CustomDay1 ScheduleDay Name
+    Winter Control Type Day Sch;    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Summer Control Type Week Sch - cool,    !- Name
+    Summer Control Type Day Sch - cool,    !- Sunday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- Monday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- Tuesday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- Wednesday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- Thursday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- Friday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- Saturday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- Holiday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- SummerDesignDay ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- WinterDesignDay ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- CustomDay1 ScheduleDay Name
+    Summer Control Type Day Sch - cool;    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Winter Control Type Week Sch - heat,    !- Name
+    Winter Control Type Day Sch - heat,    !- Sunday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- Monday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- Tuesday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- Wednesday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- Thursday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- Friday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- Saturday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- Holiday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- SummerDesignDay ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- WinterDesignDay ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- CustomDay1 ScheduleDay Name
+    Winter Control Type Day Sch - heat;    !- CustomDay2 ScheduleDay Name
+
+Schedule:Year,
+    Zone Control Type Sched,    !- Name
+    Control Type,             !- Schedule Type Limits Name
+    Winter Control Type Week Sch,    !- ScheduleWeek Name 1
+    1,                        !- Start Month 1
+    1,                        !- Start Day 1
+    3,                        !- End Month 1
+    31,                       !- End Day 1
+    Summer Control Type Week Sch,    !- ScheduleWeek Name 2
+    4,                        !- Start Month 2
+    1,                        !- Start Day 2
+    9,                        !- End Month 2
+    30,                       !- End Day 2
+    Winter Control Type Week Sch,    !- ScheduleWeek Name 3
+    10,                       !- Start Month 3
+    1,                        !- Start Day 3
+    12,                       !- End Month 3
+    31;                       !- End Day 3
+
+Schedule:Compact,
+    On,                       !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    1;                        !- Field 4
+
+Schedule:Compact,
+    Off,                      !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    0;                        !- Field 4
+
+Schedule:Compact,
+    Work efficiency,          !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    0;                        !- Field 4
+
+Schedule:Compact,
+    OpaqueShade,              !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    0;                        !- Field 4
+
+Schedule:Compact,
+    Zone Comfort Control Type Sched,    !- Name
+    Control Type,             !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    4;                        !- Field 4
+
+Schedule:Compact,
+    Design Days Only,         !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: SummerDesignDay WinterDesignDay,    !- Field 2
+    Until: 24:00,             !- Field 3
+    1,                        !- Field 4
+    For: AllOtherDays,        !- Field 5
+    Until: 24:00,             !- Field 6
+    0;                        !- Field 7
+
+Schedule:Compact,
+    AirVelocitySchedule,      !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    .137;                     !- Field 4
+
+Schedule:Compact,
+    2,                        !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    1;                        !- Field 4
+
+Schedule:Compact,
+    7,                        !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    0;                        !- Field 4
+
+Schedule:Compact,
+    10034,                    !- Name
+    Fraction,                 !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    0,                        !- Field 4
+    Until: 02:00,             !- Field 5
+    0,                        !- Field 6
+    Until: 03:00,             !- Field 7
+    0,                        !- Field 8
+    Until: 04:00,             !- Field 9
+    0,                        !- Field 10
+    Until: 05:00,             !- Field 11
+    0,                        !- Field 12
+    Until: 06:00,             !- Field 13
+    0,                        !- Field 14
+    Until: 07:00,             !- Field 15
+    0.1,                      !- Field 16
+    Until: 08:00,             !- Field 17
+    0.2,                      !- Field 18
+    Until: 09:00,             !- Field 19
+    0.95,                     !- Field 20
+    Until: 10:00,             !- Field 21
+    0.95,                     !- Field 22
+    Until: 11:00,             !- Field 23
+    0.95,                     !- Field 24
+    Until: 12:00,             !- Field 25
+    0.95,                     !- Field 26
+    Until: 13:00,             !- Field 27
+    0.5,                      !- Field 28
+    Until: 14:00,             !- Field 29
+    0.95,                     !- Field 30
+    Until: 15:00,             !- Field 31
+    0.95,                     !- Field 32
+    Until: 16:00,             !- Field 33
+    0.95,                     !- Field 34
+    Until: 17:00,             !- Field 35
+    0.95,                     !- Field 36
+    Until: 18:00,             !- Field 37
+    0.7,                      !- Field 38
+    Until: 19:00,             !- Field 39
+    0.4,                      !- Field 40
+    Until: 20:00,             !- Field 41
+    0.4,                      !- Field 42
+    Until: 21:00,             !- Field 43
+    0.1,                      !- Field 44
+    Until: 22:00,             !- Field 45
+    0.1,                      !- Field 46
+    Until: 23:00,             !- Field 47
+    0.05,                     !- Field 48
+    Until: 24:00,             !- Field 49
+    0.05,                     !- Field 50
+    For: Saturday,            !- Field 51
+    Until: 01:00,             !- Field 52
+    0,                        !- Field 53
+    Until: 02:00,             !- Field 54
+    0,                        !- Field 55
+    Until: 03:00,             !- Field 56
+    0,                        !- Field 57
+    Until: 04:00,             !- Field 58
+    0,                        !- Field 59
+    Until: 05:00,             !- Field 60
+    0,                        !- Field 61
+    Until: 06:00,             !- Field 62
+    0,                        !- Field 63
+    Until: 07:00,             !- Field 64
+    0.1,                      !- Field 65
+    Until: 08:00,             !- Field 66
+    0.1,                      !- Field 67
+    Until: 09:00,             !- Field 68
+    0.5,                      !- Field 69
+    Until: 10:00,             !- Field 70
+    0.5,                      !- Field 71
+    Until: 11:00,             !- Field 72
+    0.5,                      !- Field 73
+    Until: 12:00,             !- Field 74
+    0.5,                      !- Field 75
+    Until: 13:00,             !- Field 76
+    0.5,                      !- Field 77
+    Until: 14:00,             !- Field 78
+    0.5,                      !- Field 79
+    Until: 15:00,             !- Field 80
+    0.1,                      !- Field 81
+    Until: 16:00,             !- Field 82
+    0.1,                      !- Field 83
+    Until: 17:00,             !- Field 84
+    0.1,                      !- Field 85
+    Until: 18:00,             !- Field 86
+    0,                        !- Field 87
+    Until: 19:00,             !- Field 88
+    0,                        !- Field 89
+    Until: 20:00,             !- Field 90
+    0,                        !- Field 91
+    Until: 21:00,             !- Field 92
+    0,                        !- Field 93
+    Until: 22:00,             !- Field 94
+    0,                        !- Field 95
+    Until: 23:00,             !- Field 96
+    0,                        !- Field 97
+    Until: 24:00,             !- Field 98
+    0,                        !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    0,                        !- Field 102
+    Until: 02:00,             !- Field 103
+    0,                        !- Field 104
+    Until: 03:00,             !- Field 105
+    0,                        !- Field 106
+    Until: 04:00,             !- Field 107
+    0,                        !- Field 108
+    Until: 05:00,             !- Field 109
+    0,                        !- Field 110
+    Until: 06:00,             !- Field 111
+    0,                        !- Field 112
+    Until: 07:00,             !- Field 113
+    0,                        !- Field 114
+    Until: 08:00,             !- Field 115
+    0,                        !- Field 116
+    Until: 09:00,             !- Field 117
+    0,                        !- Field 118
+    Until: 10:00,             !- Field 119
+    0,                        !- Field 120
+    Until: 11:00,             !- Field 121
+    0,                        !- Field 122
+    Until: 12:00,             !- Field 123
+    0,                        !- Field 124
+    Until: 13:00,             !- Field 125
+    0,                        !- Field 126
+    Until: 14:00,             !- Field 127
+    0,                        !- Field 128
+    Until: 15:00,             !- Field 129
+    0,                        !- Field 130
+    Until: 16:00,             !- Field 131
+    0,                        !- Field 132
+    Until: 17:00,             !- Field 133
+    0,                        !- Field 134
+    Until: 18:00,             !- Field 135
+    0,                        !- Field 136
+    Until: 19:00,             !- Field 137
+    0,                        !- Field 138
+    Until: 20:00,             !- Field 139
+    0,                        !- Field 140
+    Until: 21:00,             !- Field 141
+    0,                        !- Field 142
+    Until: 22:00,             !- Field 143
+    0,                        !- Field 144
+    Until: 23:00,             !- Field 145
+    0,                        !- Field 146
+    Until: 24:00,             !- Field 147
+    0;                        !- Field 148
+
+Schedule:Compact,
+    10035,                    !- Name
+    Fraction,                 !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    0.05,                     !- Field 4
+    Until: 02:00,             !- Field 5
+    0.05,                     !- Field 6
+    Until: 03:00,             !- Field 7
+    0.05,                     !- Field 8
+    Until: 04:00,             !- Field 9
+    0.05,                     !- Field 10
+    Until: 05:00,             !- Field 11
+    0.05,                     !- Field 12
+    Until: 06:00,             !- Field 13
+    0.1,                      !- Field 14
+    Until: 07:00,             !- Field 15
+    0.1,                      !- Field 16
+    Until: 08:00,             !- Field 17
+    0.3,                      !- Field 18
+    Until: 09:00,             !- Field 19
+    0.9,                      !- Field 20
+    Until: 10:00,             !- Field 21
+    0.9,                      !- Field 22
+    Until: 11:00,             !- Field 23
+    0.9,                      !- Field 24
+    Until: 12:00,             !- Field 25
+    0.9,                      !- Field 26
+    Until: 13:00,             !- Field 27
+    0.9,                      !- Field 28
+    Until: 14:00,             !- Field 29
+    0.9,                      !- Field 30
+    Until: 15:00,             !- Field 31
+    0.9,                      !- Field 32
+    Until: 16:00,             !- Field 33
+    0.9,                      !- Field 34
+    Until: 17:00,             !- Field 35
+    0.9,                      !- Field 36
+    Until: 18:00,             !- Field 37
+    0.7,                      !- Field 38
+    Until: 19:00,             !- Field 39
+    0.5,                      !- Field 40
+    Until: 20:00,             !- Field 41
+    0.5,                      !- Field 42
+    Until: 21:00,             !- Field 43
+    0.3,                      !- Field 44
+    Until: 22:00,             !- Field 45
+    0.3,                      !- Field 46
+    Until: 23:00,             !- Field 47
+    0.1,                      !- Field 48
+    Until: 24:00,             !- Field 49
+    0.05,                     !- Field 50
+    For: Saturday,            !- Field 51
+    Until: 01:00,             !- Field 52
+    0.05,                     !- Field 53
+    Until: 02:00,             !- Field 54
+    0.05,                     !- Field 55
+    Until: 03:00,             !- Field 56
+    0.05,                     !- Field 57
+    Until: 04:00,             !- Field 58
+    0.05,                     !- Field 59
+    Until: 05:00,             !- Field 60
+    0.05,                     !- Field 61
+    Until: 06:00,             !- Field 62
+    0.05,                     !- Field 63
+    Until: 07:00,             !- Field 64
+    0.1,                      !- Field 65
+    Until: 08:00,             !- Field 66
+    0.1,                      !- Field 67
+    Until: 09:00,             !- Field 68
+    0.5,                      !- Field 69
+    Until: 10:00,             !- Field 70
+    0.5,                      !- Field 71
+    Until: 11:00,             !- Field 72
+    0.5,                      !- Field 73
+    Until: 12:00,             !- Field 74
+    0.5,                      !- Field 75
+    Until: 13:00,             !- Field 76
+    0.5,                      !- Field 77
+    Until: 14:00,             !- Field 78
+    0.5,                      !- Field 79
+    Until: 15:00,             !- Field 80
+    0.15,                     !- Field 81
+    Until: 16:00,             !- Field 82
+    0.15,                     !- Field 83
+    Until: 17:00,             !- Field 84
+    0.15,                     !- Field 85
+    Until: 18:00,             !- Field 86
+    0.05,                     !- Field 87
+    Until: 19:00,             !- Field 88
+    0.05,                     !- Field 89
+    Until: 20:00,             !- Field 90
+    0.05,                     !- Field 91
+    Until: 21:00,             !- Field 92
+    0.05,                     !- Field 93
+    Until: 22:00,             !- Field 94
+    0.05,                     !- Field 95
+    Until: 23:00,             !- Field 96
+    0.05,                     !- Field 97
+    Until: 24:00,             !- Field 98
+    0.05,                     !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    0.05,                     !- Field 102
+    Until: 02:00,             !- Field 103
+    0.05,                     !- Field 104
+    Until: 03:00,             !- Field 105
+    0.05,                     !- Field 106
+    Until: 04:00,             !- Field 107
+    0.05,                     !- Field 108
+    Until: 05:00,             !- Field 109
+    0.05,                     !- Field 110
+    Until: 06:00,             !- Field 111
+    0.05,                     !- Field 112
+    Until: 07:00,             !- Field 113
+    0.05,                     !- Field 114
+    Until: 08:00,             !- Field 115
+    0.05,                     !- Field 116
+    Until: 09:00,             !- Field 117
+    0.05,                     !- Field 118
+    Until: 10:00,             !- Field 119
+    0.05,                     !- Field 120
+    Until: 11:00,             !- Field 121
+    0.05,                     !- Field 122
+    Until: 12:00,             !- Field 123
+    0.05,                     !- Field 124
+    Until: 13:00,             !- Field 125
+    0.05,                     !- Field 126
+    Until: 14:00,             !- Field 127
+    0.05,                     !- Field 128
+    Until: 15:00,             !- Field 129
+    0.05,                     !- Field 130
+    Until: 16:00,             !- Field 131
+    0.05,                     !- Field 132
+    Until: 17:00,             !- Field 133
+    0.05,                     !- Field 134
+    Until: 18:00,             !- Field 135
+    0.05,                     !- Field 136
+    Until: 19:00,             !- Field 137
+    0.05,                     !- Field 138
+    Until: 20:00,             !- Field 139
+    0.05,                     !- Field 140
+    Until: 21:00,             !- Field 141
+    0.05,                     !- Field 142
+    Until: 22:00,             !- Field 143
+    0.05,                     !- Field 144
+    Until: 23:00,             !- Field 145
+    0.05,                     !- Field 146
+    Until: 24:00,             !- Field 147
+    0.05;                     !- Field 148
+
+Schedule:Compact,
+    10036,                    !- Name
+    Fraction,                 !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    0.4,                      !- Field 4
+    Until: 02:00,             !- Field 5
+    0.4,                      !- Field 6
+    Until: 03:00,             !- Field 7
+    0.4,                      !- Field 8
+    Until: 04:00,             !- Field 9
+    0.4,                      !- Field 10
+    Until: 05:00,             !- Field 11
+    0.4,                      !- Field 12
+    Until: 06:00,             !- Field 13
+    0.4,                      !- Field 14
+    Until: 07:00,             !- Field 15
+    0.4,                      !- Field 16
+    Until: 08:00,             !- Field 17
+    0.4,                      !- Field 18
+    Until: 09:00,             !- Field 19
+    0.9,                      !- Field 20
+    Until: 10:00,             !- Field 21
+    0.9,                      !- Field 22
+    Until: 11:00,             !- Field 23
+    0.9,                      !- Field 24
+    Until: 12:00,             !- Field 25
+    0.9,                      !- Field 26
+    Until: 13:00,             !- Field 27
+    0.8,                      !- Field 28
+    Until: 14:00,             !- Field 29
+    0.9,                      !- Field 30
+    Until: 15:00,             !- Field 31
+    0.9,                      !- Field 32
+    Until: 16:00,             !- Field 33
+    0.9,                      !- Field 34
+    Until: 17:00,             !- Field 35
+    0.9,                      !- Field 36
+    Until: 18:00,             !- Field 37
+    0.8,                      !- Field 38
+    Until: 19:00,             !- Field 39
+    0.6,                      !- Field 40
+    Until: 20:00,             !- Field 41
+    0.6,                      !- Field 42
+    Until: 21:00,             !- Field 43
+    0.5,                      !- Field 44
+    Until: 22:00,             !- Field 45
+    0.5,                      !- Field 46
+    Until: 23:00,             !- Field 47
+    0.4,                      !- Field 48
+    Until: 24:00,             !- Field 49
+    0.4,                      !- Field 50
+    For: Saturday,            !- Field 51
+    Until: 01:00,             !- Field 52
+    0.3,                      !- Field 53
+    Until: 02:00,             !- Field 54
+    0.3,                      !- Field 55
+    Until: 03:00,             !- Field 56
+    0.3,                      !- Field 57
+    Until: 04:00,             !- Field 58
+    0.3,                      !- Field 59
+    Until: 05:00,             !- Field 60
+    0.3,                      !- Field 61
+    Until: 06:00,             !- Field 62
+    0.3,                      !- Field 63
+    Until: 07:00,             !- Field 64
+    0.4,                      !- Field 65
+    Until: 08:00,             !- Field 66
+    0.4,                      !- Field 67
+    Until: 09:00,             !- Field 68
+    0.5,                      !- Field 69
+    Until: 10:00,             !- Field 70
+    0.5,                      !- Field 71
+    Until: 11:00,             !- Field 72
+    0.5,                      !- Field 73
+    Until: 12:00,             !- Field 74
+    0.5,                      !- Field 75
+    Until: 13:00,             !- Field 76
+    0.5,                      !- Field 77
+    Until: 14:00,             !- Field 78
+    0.5,                      !- Field 79
+    Until: 15:00,             !- Field 80
+    0.35,                     !- Field 81
+    Until: 16:00,             !- Field 82
+    0.35,                     !- Field 83
+    Until: 17:00,             !- Field 84
+    0.35,                     !- Field 85
+    Until: 18:00,             !- Field 86
+    0.3,                      !- Field 87
+    Until: 19:00,             !- Field 88
+    0.3,                      !- Field 89
+    Until: 20:00,             !- Field 90
+    0.3,                      !- Field 91
+    Until: 21:00,             !- Field 92
+    0.3,                      !- Field 93
+    Until: 22:00,             !- Field 94
+    0.3,                      !- Field 95
+    Until: 23:00,             !- Field 96
+    0.3,                      !- Field 97
+    Until: 24:00,             !- Field 98
+    0.3,                      !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    0.3,                      !- Field 102
+    Until: 02:00,             !- Field 103
+    0.3,                      !- Field 104
+    Until: 03:00,             !- Field 105
+    0.3,                      !- Field 106
+    Until: 04:00,             !- Field 107
+    0.3,                      !- Field 108
+    Until: 05:00,             !- Field 109
+    0.3,                      !- Field 110
+    Until: 06:00,             !- Field 111
+    0.3,                      !- Field 112
+    Until: 07:00,             !- Field 113
+    0.3,                      !- Field 114
+    Until: 08:00,             !- Field 115
+    0.3,                      !- Field 116
+    Until: 09:00,             !- Field 117
+    0.3,                      !- Field 118
+    Until: 10:00,             !- Field 119
+    0.3,                      !- Field 120
+    Until: 11:00,             !- Field 121
+    0.3,                      !- Field 122
+    Until: 12:00,             !- Field 123
+    0.3,                      !- Field 124
+    Until: 13:00,             !- Field 125
+    0.3,                      !- Field 126
+    Until: 14:00,             !- Field 127
+    0.3,                      !- Field 128
+    Until: 15:00,             !- Field 129
+    0.3,                      !- Field 130
+    Until: 16:00,             !- Field 131
+    0.3,                      !- Field 132
+    Until: 17:00,             !- Field 133
+    0.3,                      !- Field 134
+    Until: 18:00,             !- Field 135
+    0.3,                      !- Field 136
+    Until: 19:00,             !- Field 137
+    0.3,                      !- Field 138
+    Until: 20:00,             !- Field 139
+    0.3,                      !- Field 140
+    Until: 21:00,             !- Field 141
+    0.3,                      !- Field 142
+    Until: 22:00,             !- Field 143
+    0.3,                      !- Field 144
+    Until: 23:00,             !- Field 145
+    0.3,                      !- Field 146
+    Until: 24:00,             !- Field 147
+    0.3;                      !- Field 148
+
+Schedule:Compact,
+    Activity Schedule 30917,    !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    127;                      !- Field 4
+
+Schedule:Compact,
+    Clothing Schedule 30917,    !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 4/1,             !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    1,                        !- Field 4
+    Through: 9/30,            !- Field 5
+    For: AllDays,             !- Field 6
+    Until: 24:00,             !- Field 7
+    .5,                       !- Field 8
+    Through: 12/31,           !- Field 9
+    For: AllDays,             !- Field 10
+    Until: 24:00,             !- Field 11
+    1;                        !- Field 12
+
+Schedule:Compact,
+    DHW Supply Temperature Block1:Zone1,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    45;                       !- Field 4
+
+Schedule:Compact,
+    DHW Mains Temperature Block1:Zone1,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    15;                       !- Field 4
+
+Schedule:Compact,
+    Activity Schedule 30963,    !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    114.3;                    !- Field 4
+
+Schedule:Compact,
+    Clothing Schedule 30963,    !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 4/1,             !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    1,                        !- Field 4
+    Through: 9/30,            !- Field 5
+    For: AllDays,             !- Field 6
+    Until: 24:00,             !- Field 7
+    .5,                       !- Field 8
+    Through: 12/31,           !- Field 9
+    For: AllDays,             !- Field 10
+    Until: 24:00,             !- Field 11
+    1;                        !- Field 12
+
+Schedule:Compact,
+    DHW Supply Temperature Block2:Zone1,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    45;                       !- Field 4
+
+Schedule:Compact,
+    DHW Mains Temperature Block2:Zone1,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    15;                       !- Field 4
+
+Schedule:Compact,
+    Activity Schedule 31015,    !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    114.3;                    !- Field 4
+
+Schedule:Compact,
+    Clothing Schedule 31015,    !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 4/1,             !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    1,                        !- Field 4
+    Through: 9/30,            !- Field 5
+    For: AllDays,             !- Field 6
+    Until: 24:00,             !- Field 7
+    .5,                       !- Field 8
+    Through: 12/31,           !- Field 9
+    For: AllDays,             !- Field 10
+    Until: 24:00,             !- Field 11
+    1;                        !- Field 12
+
+Schedule:Compact,
+    DHW Supply Temperature Block3:Zone1,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    45;                       !- Field 4
+
+Schedule:Compact,
+    DHW Mains Temperature Block3:Zone1,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    15;                       !- Field 4
+
+Schedule:Compact,
+    Activity Schedule 31069,    !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    114.3;                    !- Field 4
+
+Schedule:Compact,
+    Clothing Schedule 31069,    !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 4/1,             !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    1,                        !- Field 4
+    Through: 9/30,            !- Field 5
+    For: AllDays,             !- Field 6
+    Until: 24:00,             !- Field 7
+    .5,                       !- Field 8
+    Through: 12/31,           !- Field 9
+    For: AllDays,             !- Field 10
+    Until: 24:00,             !- Field 11
+    1;                        !- Field 12
+
+Schedule:Compact,
+    DHW Supply Temperature Block4:Zone1,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    45;                       !- Field 4
+
+Schedule:Compact,
+    DHW Mains Temperature Block4:Zone1,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    15;                       !- Field 4
+
+Schedule:Compact,
+    Heating SP Sch,           !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    -50,                      !- Field 4
+    Until: 02:00,             !- Field 5
+    -50,                      !- Field 6
+    Until: 03:00,             !- Field 7
+    -50,                      !- Field 8
+    Until: 04:00,             !- Field 9
+    -50,                      !- Field 10
+    Until: 05:00,             !- Field 11
+    -50,                      !- Field 12
+    Until: 06:00,             !- Field 13
+    -50,                      !- Field 14
+    Until: 07:00,             !- Field 15
+    21,                       !- Field 16
+    Until: 08:00,             !- Field 17
+    21,                       !- Field 18
+    Until: 09:00,             !- Field 19
+    21,                       !- Field 20
+    Until: 10:00,             !- Field 21
+    21,                       !- Field 22
+    Until: 11:00,             !- Field 23
+    21,                       !- Field 24
+    Until: 12:00,             !- Field 25
+    21,                       !- Field 26
+    Until: 13:00,             !- Field 27
+    21,                       !- Field 28
+    Until: 14:00,             !- Field 29
+    21,                       !- Field 30
+    Until: 15:00,             !- Field 31
+    21,                       !- Field 32
+    Until: 16:00,             !- Field 33
+    21,                       !- Field 34
+    Until: 17:00,             !- Field 35
+    21,                       !- Field 36
+    Until: 18:00,             !- Field 37
+    21,                       !- Field 38
+    Until: 19:00,             !- Field 39
+    21,                       !- Field 40
+    Until: 20:00,             !- Field 41
+    21,                       !- Field 42
+    Until: 21:00,             !- Field 43
+    21,                       !- Field 44
+    Until: 22:00,             !- Field 45
+    21,                       !- Field 46
+    Until: 23:00,             !- Field 47
+    -50,                      !- Field 48
+    Until: 24:00,             !- Field 49
+    -50,                      !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    -50,                      !- Field 53
+    Until: 02:00,             !- Field 54
+    -50,                      !- Field 55
+    Until: 03:00,             !- Field 56
+    -50,                      !- Field 57
+    Until: 04:00,             !- Field 58
+    -50,                      !- Field 59
+    Until: 05:00,             !- Field 60
+    -50,                      !- Field 61
+    Until: 06:00,             !- Field 62
+    -50,                      !- Field 63
+    Until: 07:00,             !- Field 64
+    21,                       !- Field 65
+    Until: 08:00,             !- Field 66
+    21,                       !- Field 67
+    Until: 09:00,             !- Field 68
+    21,                       !- Field 69
+    Until: 10:00,             !- Field 70
+    21,                       !- Field 71
+    Until: 11:00,             !- Field 72
+    21,                       !- Field 73
+    Until: 12:00,             !- Field 74
+    21,                       !- Field 75
+    Until: 13:00,             !- Field 76
+    21,                       !- Field 77
+    Until: 14:00,             !- Field 78
+    21,                       !- Field 79
+    Until: 15:00,             !- Field 80
+    21,                       !- Field 81
+    Until: 16:00,             !- Field 82
+    21,                       !- Field 83
+    Until: 17:00,             !- Field 84
+    21,                       !- Field 85
+    Until: 18:00,             !- Field 86
+    21,                       !- Field 87
+    Until: 19:00,             !- Field 88
+    -50,                      !- Field 89
+    Until: 20:00,             !- Field 90
+    -50,                      !- Field 91
+    Until: 21:00,             !- Field 92
+    -50,                      !- Field 93
+    Until: 22:00,             !- Field 94
+    -50,                      !- Field 95
+    Until: 23:00,             !- Field 96
+    -50,                      !- Field 97
+    Until: 24:00,             !- Field 98
+    -50,                      !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    -50,                      !- Field 102
+    Until: 02:00,             !- Field 103
+    -50,                      !- Field 104
+    Until: 03:00,             !- Field 105
+    -50,                      !- Field 106
+    Until: 04:00,             !- Field 107
+    -50,                      !- Field 108
+    Until: 05:00,             !- Field 109
+    -50,                      !- Field 110
+    Until: 06:00,             !- Field 111
+    -50,                      !- Field 112
+    Until: 07:00,             !- Field 113
+    -50,                      !- Field 114
+    Until: 08:00,             !- Field 115
+    -50,                      !- Field 116
+    Until: 09:00,             !- Field 117
+    -50,                      !- Field 118
+    Until: 10:00,             !- Field 119
+    -50,                      !- Field 120
+    Until: 11:00,             !- Field 121
+    -50,                      !- Field 122
+    Until: 12:00,             !- Field 123
+    -50,                      !- Field 124
+    Until: 13:00,             !- Field 125
+    -50,                      !- Field 126
+    Until: 14:00,             !- Field 127
+    -50,                      !- Field 128
+    Until: 15:00,             !- Field 129
+    -50,                      !- Field 130
+    Until: 16:00,             !- Field 131
+    -50,                      !- Field 132
+    Until: 17:00,             !- Field 133
+    -50,                      !- Field 134
+    Until: 18:00,             !- Field 135
+    -50,                      !- Field 136
+    Until: 19:00,             !- Field 137
+    -50,                      !- Field 138
+    Until: 20:00,             !- Field 139
+    -50,                      !- Field 140
+    Until: 21:00,             !- Field 141
+    -50,                      !- Field 142
+    Until: 22:00,             !- Field 143
+    -50,                      !- Field 144
+    Until: 23:00,             !- Field 145
+    -50,                      !- Field 146
+    Until: 24:00,             !- Field 147
+    -50;                      !- Field 148
+
+Schedule:Compact,
+    Block1:Zone1 Heating Availability Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    0,                        !- Field 4
+    Until: 02:00,             !- Field 5
+    0,                        !- Field 6
+    Until: 03:00,             !- Field 7
+    0,                        !- Field 8
+    Until: 04:00,             !- Field 9
+    0,                        !- Field 10
+    Until: 05:00,             !- Field 11
+    0,                        !- Field 12
+    Until: 06:00,             !- Field 13
+    0,                        !- Field 14
+    Until: 07:00,             !- Field 15
+    1,                        !- Field 16
+    Until: 08:00,             !- Field 17
+    1,                        !- Field 18
+    Until: 09:00,             !- Field 19
+    1,                        !- Field 20
+    Until: 10:00,             !- Field 21
+    1,                        !- Field 22
+    Until: 11:00,             !- Field 23
+    1,                        !- Field 24
+    Until: 12:00,             !- Field 25
+    1,                        !- Field 26
+    Until: 13:00,             !- Field 27
+    1,                        !- Field 28
+    Until: 14:00,             !- Field 29
+    1,                        !- Field 30
+    Until: 15:00,             !- Field 31
+    1,                        !- Field 32
+    Until: 16:00,             !- Field 33
+    1,                        !- Field 34
+    Until: 17:00,             !- Field 35
+    1,                        !- Field 36
+    Until: 18:00,             !- Field 37
+    1,                        !- Field 38
+    Until: 19:00,             !- Field 39
+    1,                        !- Field 40
+    Until: 20:00,             !- Field 41
+    1,                        !- Field 42
+    Until: 21:00,             !- Field 43
+    1,                        !- Field 44
+    Until: 22:00,             !- Field 45
+    1,                        !- Field 46
+    Until: 23:00,             !- Field 47
+    0,                        !- Field 48
+    Until: 24:00,             !- Field 49
+    0,                        !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    0,                        !- Field 53
+    Until: 02:00,             !- Field 54
+    0,                        !- Field 55
+    Until: 03:00,             !- Field 56
+    0,                        !- Field 57
+    Until: 04:00,             !- Field 58
+    0,                        !- Field 59
+    Until: 05:00,             !- Field 60
+    0,                        !- Field 61
+    Until: 06:00,             !- Field 62
+    0,                        !- Field 63
+    Until: 07:00,             !- Field 64
+    1,                        !- Field 65
+    Until: 08:00,             !- Field 66
+    1,                        !- Field 67
+    Until: 09:00,             !- Field 68
+    1,                        !- Field 69
+    Until: 10:00,             !- Field 70
+    1,                        !- Field 71
+    Until: 11:00,             !- Field 72
+    1,                        !- Field 73
+    Until: 12:00,             !- Field 74
+    1,                        !- Field 75
+    Until: 13:00,             !- Field 76
+    1,                        !- Field 77
+    Until: 14:00,             !- Field 78
+    1,                        !- Field 79
+    Until: 15:00,             !- Field 80
+    1,                        !- Field 81
+    Until: 16:00,             !- Field 82
+    1,                        !- Field 83
+    Until: 17:00,             !- Field 84
+    1,                        !- Field 85
+    Until: 18:00,             !- Field 86
+    1,                        !- Field 87
+    Until: 19:00,             !- Field 88
+    0,                        !- Field 89
+    Until: 20:00,             !- Field 90
+    0,                        !- Field 91
+    Until: 21:00,             !- Field 92
+    0,                        !- Field 93
+    Until: 22:00,             !- Field 94
+    0,                        !- Field 95
+    Until: 23:00,             !- Field 96
+    0,                        !- Field 97
+    Until: 24:00,             !- Field 98
+    0,                        !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    0,                        !- Field 102
+    Until: 02:00,             !- Field 103
+    0,                        !- Field 104
+    Until: 03:00,             !- Field 105
+    0,                        !- Field 106
+    Until: 04:00,             !- Field 107
+    0,                        !- Field 108
+    Until: 05:00,             !- Field 109
+    0,                        !- Field 110
+    Until: 06:00,             !- Field 111
+    0,                        !- Field 112
+    Until: 07:00,             !- Field 113
+    0,                        !- Field 114
+    Until: 08:00,             !- Field 115
+    0,                        !- Field 116
+    Until: 09:00,             !- Field 117
+    0,                        !- Field 118
+    Until: 10:00,             !- Field 119
+    0,                        !- Field 120
+    Until: 11:00,             !- Field 121
+    0,                        !- Field 122
+    Until: 12:00,             !- Field 123
+    0,                        !- Field 124
+    Until: 13:00,             !- Field 125
+    0,                        !- Field 126
+    Until: 14:00,             !- Field 127
+    0,                        !- Field 128
+    Until: 15:00,             !- Field 129
+    0,                        !- Field 130
+    Until: 16:00,             !- Field 131
+    0,                        !- Field 132
+    Until: 17:00,             !- Field 133
+    0,                        !- Field 134
+    Until: 18:00,             !- Field 135
+    0,                        !- Field 136
+    Until: 19:00,             !- Field 137
+    0,                        !- Field 138
+    Until: 20:00,             !- Field 139
+    0,                        !- Field 140
+    Until: 21:00,             !- Field 141
+    0,                        !- Field 142
+    Until: 22:00,             !- Field 143
+    0,                        !- Field 144
+    Until: 23:00,             !- Field 145
+    0,                        !- Field 146
+    Until: 24:00,             !- Field 147
+    0;                        !- Field 148
+
+Schedule:Compact,
+    Cooling SP Sch,           !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    100,                      !- Field 4
+    Until: 02:00,             !- Field 5
+    100,                      !- Field 6
+    Until: 03:00,             !- Field 7
+    100,                      !- Field 8
+    Until: 04:00,             !- Field 9
+    100,                      !- Field 10
+    Until: 05:00,             !- Field 11
+    100,                      !- Field 12
+    Until: 06:00,             !- Field 13
+    100,                      !- Field 14
+    Until: 07:00,             !- Field 15
+    24,                       !- Field 16
+    Until: 08:00,             !- Field 17
+    24,                       !- Field 18
+    Until: 09:00,             !- Field 19
+    24,                       !- Field 20
+    Until: 10:00,             !- Field 21
+    24,                       !- Field 22
+    Until: 11:00,             !- Field 23
+    24,                       !- Field 24
+    Until: 12:00,             !- Field 25
+    24,                       !- Field 26
+    Until: 13:00,             !- Field 27
+    24,                       !- Field 28
+    Until: 14:00,             !- Field 29
+    24,                       !- Field 30
+    Until: 15:00,             !- Field 31
+    24,                       !- Field 32
+    Until: 16:00,             !- Field 33
+    24,                       !- Field 34
+    Until: 17:00,             !- Field 35
+    24,                       !- Field 36
+    Until: 18:00,             !- Field 37
+    24,                       !- Field 38
+    Until: 19:00,             !- Field 39
+    24,                       !- Field 40
+    Until: 20:00,             !- Field 41
+    24,                       !- Field 42
+    Until: 21:00,             !- Field 43
+    24,                       !- Field 44
+    Until: 22:00,             !- Field 45
+    24,                       !- Field 46
+    Until: 23:00,             !- Field 47
+    100,                      !- Field 48
+    Until: 24:00,             !- Field 49
+    100,                      !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    100,                      !- Field 53
+    Until: 02:00,             !- Field 54
+    100,                      !- Field 55
+    Until: 03:00,             !- Field 56
+    100,                      !- Field 57
+    Until: 04:00,             !- Field 58
+    100,                      !- Field 59
+    Until: 05:00,             !- Field 60
+    100,                      !- Field 61
+    Until: 06:00,             !- Field 62
+    100,                      !- Field 63
+    Until: 07:00,             !- Field 64
+    24,                       !- Field 65
+    Until: 08:00,             !- Field 66
+    24,                       !- Field 67
+    Until: 09:00,             !- Field 68
+    24,                       !- Field 69
+    Until: 10:00,             !- Field 70
+    24,                       !- Field 71
+    Until: 11:00,             !- Field 72
+    24,                       !- Field 73
+    Until: 12:00,             !- Field 74
+    24,                       !- Field 75
+    Until: 13:00,             !- Field 76
+    24,                       !- Field 77
+    Until: 14:00,             !- Field 78
+    24,                       !- Field 79
+    Until: 15:00,             !- Field 80
+    24,                       !- Field 81
+    Until: 16:00,             !- Field 82
+    24,                       !- Field 83
+    Until: 17:00,             !- Field 84
+    24,                       !- Field 85
+    Until: 18:00,             !- Field 86
+    24,                       !- Field 87
+    Until: 19:00,             !- Field 88
+    100,                      !- Field 89
+    Until: 20:00,             !- Field 90
+    100,                      !- Field 91
+    Until: 21:00,             !- Field 92
+    100,                      !- Field 93
+    Until: 22:00,             !- Field 94
+    100,                      !- Field 95
+    Until: 23:00,             !- Field 96
+    100,                      !- Field 97
+    Until: 24:00,             !- Field 98
+    100,                      !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    100,                      !- Field 102
+    Until: 02:00,             !- Field 103
+    100,                      !- Field 104
+    Until: 03:00,             !- Field 105
+    100,                      !- Field 106
+    Until: 04:00,             !- Field 107
+    100,                      !- Field 108
+    Until: 05:00,             !- Field 109
+    100,                      !- Field 110
+    Until: 06:00,             !- Field 111
+    100,                      !- Field 112
+    Until: 07:00,             !- Field 113
+    100,                      !- Field 114
+    Until: 08:00,             !- Field 115
+    100,                      !- Field 116
+    Until: 09:00,             !- Field 117
+    100,                      !- Field 118
+    Until: 10:00,             !- Field 119
+    100,                      !- Field 120
+    Until: 11:00,             !- Field 121
+    100,                      !- Field 122
+    Until: 12:00,             !- Field 123
+    100,                      !- Field 124
+    Until: 13:00,             !- Field 125
+    100,                      !- Field 126
+    Until: 14:00,             !- Field 127
+    100,                      !- Field 128
+    Until: 15:00,             !- Field 129
+    100,                      !- Field 130
+    Until: 16:00,             !- Field 131
+    100,                      !- Field 132
+    Until: 17:00,             !- Field 133
+    100,                      !- Field 134
+    Until: 18:00,             !- Field 135
+    100,                      !- Field 136
+    Until: 19:00,             !- Field 137
+    100,                      !- Field 138
+    Until: 20:00,             !- Field 139
+    100,                      !- Field 140
+    Until: 21:00,             !- Field 141
+    100,                      !- Field 142
+    Until: 22:00,             !- Field 143
+    100,                      !- Field 144
+    Until: 23:00,             !- Field 145
+    100,                      !- Field 146
+    Until: 24:00,             !- Field 147
+    100;                      !- Field 148
+
+Schedule:Compact,
+    Block1:Zone1 Cooling Availability Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    0,                        !- Field 4
+    Until: 02:00,             !- Field 5
+    0,                        !- Field 6
+    Until: 03:00,             !- Field 7
+    0,                        !- Field 8
+    Until: 04:00,             !- Field 9
+    0,                        !- Field 10
+    Until: 05:00,             !- Field 11
+    0,                        !- Field 12
+    Until: 06:00,             !- Field 13
+    0,                        !- Field 14
+    Until: 07:00,             !- Field 15
+    1,                        !- Field 16
+    Until: 08:00,             !- Field 17
+    1,                        !- Field 18
+    Until: 09:00,             !- Field 19
+    1,                        !- Field 20
+    Until: 10:00,             !- Field 21
+    1,                        !- Field 22
+    Until: 11:00,             !- Field 23
+    1,                        !- Field 24
+    Until: 12:00,             !- Field 25
+    1,                        !- Field 26
+    Until: 13:00,             !- Field 27
+    1,                        !- Field 28
+    Until: 14:00,             !- Field 29
+    1,                        !- Field 30
+    Until: 15:00,             !- Field 31
+    1,                        !- Field 32
+    Until: 16:00,             !- Field 33
+    1,                        !- Field 34
+    Until: 17:00,             !- Field 35
+    1,                        !- Field 36
+    Until: 18:00,             !- Field 37
+    1,                        !- Field 38
+    Until: 19:00,             !- Field 39
+    1,                        !- Field 40
+    Until: 20:00,             !- Field 41
+    1,                        !- Field 42
+    Until: 21:00,             !- Field 43
+    1,                        !- Field 44
+    Until: 22:00,             !- Field 45
+    1,                        !- Field 46
+    Until: 23:00,             !- Field 47
+    0,                        !- Field 48
+    Until: 24:00,             !- Field 49
+    0,                        !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    0,                        !- Field 53
+    Until: 02:00,             !- Field 54
+    0,                        !- Field 55
+    Until: 03:00,             !- Field 56
+    0,                        !- Field 57
+    Until: 04:00,             !- Field 58
+    0,                        !- Field 59
+    Until: 05:00,             !- Field 60
+    0,                        !- Field 61
+    Until: 06:00,             !- Field 62
+    0,                        !- Field 63
+    Until: 07:00,             !- Field 64
+    1,                        !- Field 65
+    Until: 08:00,             !- Field 66
+    1,                        !- Field 67
+    Until: 09:00,             !- Field 68
+    1,                        !- Field 69
+    Until: 10:00,             !- Field 70
+    1,                        !- Field 71
+    Until: 11:00,             !- Field 72
+    1,                        !- Field 73
+    Until: 12:00,             !- Field 74
+    1,                        !- Field 75
+    Until: 13:00,             !- Field 76
+    1,                        !- Field 77
+    Until: 14:00,             !- Field 78
+    1,                        !- Field 79
+    Until: 15:00,             !- Field 80
+    1,                        !- Field 81
+    Until: 16:00,             !- Field 82
+    1,                        !- Field 83
+    Until: 17:00,             !- Field 84
+    1,                        !- Field 85
+    Until: 18:00,             !- Field 86
+    1,                        !- Field 87
+    Until: 19:00,             !- Field 88
+    0,                        !- Field 89
+    Until: 20:00,             !- Field 90
+    0,                        !- Field 91
+    Until: 21:00,             !- Field 92
+    0,                        !- Field 93
+    Until: 22:00,             !- Field 94
+    0,                        !- Field 95
+    Until: 23:00,             !- Field 96
+    0,                        !- Field 97
+    Until: 24:00,             !- Field 98
+    0,                        !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    0,                        !- Field 102
+    Until: 02:00,             !- Field 103
+    0,                        !- Field 104
+    Until: 03:00,             !- Field 105
+    0,                        !- Field 106
+    Until: 04:00,             !- Field 107
+    0,                        !- Field 108
+    Until: 05:00,             !- Field 109
+    0,                        !- Field 110
+    Until: 06:00,             !- Field 111
+    0,                        !- Field 112
+    Until: 07:00,             !- Field 113
+    0,                        !- Field 114
+    Until: 08:00,             !- Field 115
+    0,                        !- Field 116
+    Until: 09:00,             !- Field 117
+    0,                        !- Field 118
+    Until: 10:00,             !- Field 119
+    0,                        !- Field 120
+    Until: 11:00,             !- Field 121
+    0,                        !- Field 122
+    Until: 12:00,             !- Field 123
+    0,                        !- Field 124
+    Until: 13:00,             !- Field 125
+    0,                        !- Field 126
+    Until: 14:00,             !- Field 127
+    0,                        !- Field 128
+    Until: 15:00,             !- Field 129
+    0,                        !- Field 130
+    Until: 16:00,             !- Field 131
+    0,                        !- Field 132
+    Until: 17:00,             !- Field 133
+    0,                        !- Field 134
+    Until: 18:00,             !- Field 135
+    0,                        !- Field 136
+    Until: 19:00,             !- Field 137
+    0,                        !- Field 138
+    Until: 20:00,             !- Field 139
+    0,                        !- Field 140
+    Until: 21:00,             !- Field 141
+    0,                        !- Field 142
+    Until: 22:00,             !- Field 143
+    0,                        !- Field 144
+    Until: 23:00,             !- Field 145
+    0,                        !- Field 146
+    Until: 24:00,             !- Field 147
+    0;                        !- Field 148
+
+Schedule:Compact,
+    Block2:Zone1 Heating SP Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    -50,                      !- Field 4
+    Until: 02:00,             !- Field 5
+    -50,                      !- Field 6
+    Until: 03:00,             !- Field 7
+    -50,                      !- Field 8
+    Until: 04:00,             !- Field 9
+    -50,                      !- Field 10
+    Until: 05:00,             !- Field 11
+    -50,                      !- Field 12
+    Until: 06:00,             !- Field 13
+    -50,                      !- Field 14
+    Until: 07:00,             !- Field 15
+    19.0892,                  !- Field 16
+    Until: 08:00,             !- Field 17
+    19.0892,                  !- Field 18
+    Until: 09:00,             !- Field 19
+    19.0892,                  !- Field 20
+    Until: 10:00,             !- Field 21
+    19.0892,                  !- Field 22
+    Until: 11:00,             !- Field 23
+    19.0892,                  !- Field 24
+    Until: 12:00,             !- Field 25
+    19.0892,                  !- Field 26
+    Until: 13:00,             !- Field 27
+    19.0892,                  !- Field 28
+    Until: 14:00,             !- Field 29
+    19.0892,                  !- Field 30
+    Until: 15:00,             !- Field 31
+    19.0892,                  !- Field 32
+    Until: 16:00,             !- Field 33
+    19.0892,                  !- Field 34
+    Until: 17:00,             !- Field 35
+    19.0892,                  !- Field 36
+    Until: 18:00,             !- Field 37
+    19.0892,                  !- Field 38
+    Until: 19:00,             !- Field 39
+    19.0892,                  !- Field 40
+    Until: 20:00,             !- Field 41
+    19.0892,                  !- Field 42
+    Until: 21:00,             !- Field 43
+    19.0892,                  !- Field 44
+    Until: 22:00,             !- Field 45
+    19.0892,                  !- Field 46
+    Until: 23:00,             !- Field 47
+    -50,                      !- Field 48
+    Until: 24:00,             !- Field 49
+    -50,                      !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    -50,                      !- Field 53
+    Until: 02:00,             !- Field 54
+    -50,                      !- Field 55
+    Until: 03:00,             !- Field 56
+    -50,                      !- Field 57
+    Until: 04:00,             !- Field 58
+    -50,                      !- Field 59
+    Until: 05:00,             !- Field 60
+    -50,                      !- Field 61
+    Until: 06:00,             !- Field 62
+    -50,                      !- Field 63
+    Until: 07:00,             !- Field 64
+    19.0892,                  !- Field 65
+    Until: 08:00,             !- Field 66
+    19.0892,                  !- Field 67
+    Until: 09:00,             !- Field 68
+    19.0892,                  !- Field 69
+    Until: 10:00,             !- Field 70
+    19.0892,                  !- Field 71
+    Until: 11:00,             !- Field 72
+    19.0892,                  !- Field 73
+    Until: 12:00,             !- Field 74
+    19.0892,                  !- Field 75
+    Until: 13:00,             !- Field 76
+    19.0892,                  !- Field 77
+    Until: 14:00,             !- Field 78
+    19.0892,                  !- Field 79
+    Until: 15:00,             !- Field 80
+    19.0892,                  !- Field 81
+    Until: 16:00,             !- Field 82
+    19.0892,                  !- Field 83
+    Until: 17:00,             !- Field 84
+    19.0892,                  !- Field 85
+    Until: 18:00,             !- Field 86
+    19.0892,                  !- Field 87
+    Until: 19:00,             !- Field 88
+    -50,                      !- Field 89
+    Until: 20:00,             !- Field 90
+    -50,                      !- Field 91
+    Until: 21:00,             !- Field 92
+    -50,                      !- Field 93
+    Until: 22:00,             !- Field 94
+    -50,                      !- Field 95
+    Until: 23:00,             !- Field 96
+    -50,                      !- Field 97
+    Until: 24:00,             !- Field 98
+    -50,                      !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    -50,                      !- Field 102
+    Until: 02:00,             !- Field 103
+    -50,                      !- Field 104
+    Until: 03:00,             !- Field 105
+    -50,                      !- Field 106
+    Until: 04:00,             !- Field 107
+    -50,                      !- Field 108
+    Until: 05:00,             !- Field 109
+    -50,                      !- Field 110
+    Until: 06:00,             !- Field 111
+    -50,                      !- Field 112
+    Until: 07:00,             !- Field 113
+    -50,                      !- Field 114
+    Until: 08:00,             !- Field 115
+    -50,                      !- Field 116
+    Until: 09:00,             !- Field 117
+    -50,                      !- Field 118
+    Until: 10:00,             !- Field 119
+    -50,                      !- Field 120
+    Until: 11:00,             !- Field 121
+    -50,                      !- Field 122
+    Until: 12:00,             !- Field 123
+    -50,                      !- Field 124
+    Until: 13:00,             !- Field 125
+    -50,                      !- Field 126
+    Until: 14:00,             !- Field 127
+    -50,                      !- Field 128
+    Until: 15:00,             !- Field 129
+    -50,                      !- Field 130
+    Until: 16:00,             !- Field 131
+    -50,                      !- Field 132
+    Until: 17:00,             !- Field 133
+    -50,                      !- Field 134
+    Until: 18:00,             !- Field 135
+    -50,                      !- Field 136
+    Until: 19:00,             !- Field 137
+    -50,                      !- Field 138
+    Until: 20:00,             !- Field 139
+    -50,                      !- Field 140
+    Until: 21:00,             !- Field 141
+    -50,                      !- Field 142
+    Until: 22:00,             !- Field 143
+    -50,                      !- Field 144
+    Until: 23:00,             !- Field 145
+    -50,                      !- Field 146
+    Until: 24:00,             !- Field 147
+    -50;                      !- Field 148
+
+Schedule:Compact,
+    Block2:Zone1 Heating Availability Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    0,                        !- Field 4
+    Until: 02:00,             !- Field 5
+    0,                        !- Field 6
+    Until: 03:00,             !- Field 7
+    0,                        !- Field 8
+    Until: 04:00,             !- Field 9
+    0,                        !- Field 10
+    Until: 05:00,             !- Field 11
+    0,                        !- Field 12
+    Until: 06:00,             !- Field 13
+    0,                        !- Field 14
+    Until: 07:00,             !- Field 15
+    1,                        !- Field 16
+    Until: 08:00,             !- Field 17
+    1,                        !- Field 18
+    Until: 09:00,             !- Field 19
+    1,                        !- Field 20
+    Until: 10:00,             !- Field 21
+    1,                        !- Field 22
+    Until: 11:00,             !- Field 23
+    1,                        !- Field 24
+    Until: 12:00,             !- Field 25
+    1,                        !- Field 26
+    Until: 13:00,             !- Field 27
+    1,                        !- Field 28
+    Until: 14:00,             !- Field 29
+    1,                        !- Field 30
+    Until: 15:00,             !- Field 31
+    1,                        !- Field 32
+    Until: 16:00,             !- Field 33
+    1,                        !- Field 34
+    Until: 17:00,             !- Field 35
+    1,                        !- Field 36
+    Until: 18:00,             !- Field 37
+    1,                        !- Field 38
+    Until: 19:00,             !- Field 39
+    1,                        !- Field 40
+    Until: 20:00,             !- Field 41
+    1,                        !- Field 42
+    Until: 21:00,             !- Field 43
+    1,                        !- Field 44
+    Until: 22:00,             !- Field 45
+    1,                        !- Field 46
+    Until: 23:00,             !- Field 47
+    0,                        !- Field 48
+    Until: 24:00,             !- Field 49
+    0,                        !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    0,                        !- Field 53
+    Until: 02:00,             !- Field 54
+    0,                        !- Field 55
+    Until: 03:00,             !- Field 56
+    0,                        !- Field 57
+    Until: 04:00,             !- Field 58
+    0,                        !- Field 59
+    Until: 05:00,             !- Field 60
+    0,                        !- Field 61
+    Until: 06:00,             !- Field 62
+    0,                        !- Field 63
+    Until: 07:00,             !- Field 64
+    1,                        !- Field 65
+    Until: 08:00,             !- Field 66
+    1,                        !- Field 67
+    Until: 09:00,             !- Field 68
+    1,                        !- Field 69
+    Until: 10:00,             !- Field 70
+    1,                        !- Field 71
+    Until: 11:00,             !- Field 72
+    1,                        !- Field 73
+    Until: 12:00,             !- Field 74
+    1,                        !- Field 75
+    Until: 13:00,             !- Field 76
+    1,                        !- Field 77
+    Until: 14:00,             !- Field 78
+    1,                        !- Field 79
+    Until: 15:00,             !- Field 80
+    1,                        !- Field 81
+    Until: 16:00,             !- Field 82
+    1,                        !- Field 83
+    Until: 17:00,             !- Field 84
+    1,                        !- Field 85
+    Until: 18:00,             !- Field 86
+    1,                        !- Field 87
+    Until: 19:00,             !- Field 88
+    0,                        !- Field 89
+    Until: 20:00,             !- Field 90
+    0,                        !- Field 91
+    Until: 21:00,             !- Field 92
+    0,                        !- Field 93
+    Until: 22:00,             !- Field 94
+    0,                        !- Field 95
+    Until: 23:00,             !- Field 96
+    0,                        !- Field 97
+    Until: 24:00,             !- Field 98
+    0,                        !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    0,                        !- Field 102
+    Until: 02:00,             !- Field 103
+    0,                        !- Field 104
+    Until: 03:00,             !- Field 105
+    0,                        !- Field 106
+    Until: 04:00,             !- Field 107
+    0,                        !- Field 108
+    Until: 05:00,             !- Field 109
+    0,                        !- Field 110
+    Until: 06:00,             !- Field 111
+    0,                        !- Field 112
+    Until: 07:00,             !- Field 113
+    0,                        !- Field 114
+    Until: 08:00,             !- Field 115
+    0,                        !- Field 116
+    Until: 09:00,             !- Field 117
+    0,                        !- Field 118
+    Until: 10:00,             !- Field 119
+    0,                        !- Field 120
+    Until: 11:00,             !- Field 121
+    0,                        !- Field 122
+    Until: 12:00,             !- Field 123
+    0,                        !- Field 124
+    Until: 13:00,             !- Field 125
+    0,                        !- Field 126
+    Until: 14:00,             !- Field 127
+    0,                        !- Field 128
+    Until: 15:00,             !- Field 129
+    0,                        !- Field 130
+    Until: 16:00,             !- Field 131
+    0,                        !- Field 132
+    Until: 17:00,             !- Field 133
+    0,                        !- Field 134
+    Until: 18:00,             !- Field 135
+    0,                        !- Field 136
+    Until: 19:00,             !- Field 137
+    0,                        !- Field 138
+    Until: 20:00,             !- Field 139
+    0,                        !- Field 140
+    Until: 21:00,             !- Field 141
+    0,                        !- Field 142
+    Until: 22:00,             !- Field 143
+    0,                        !- Field 144
+    Until: 23:00,             !- Field 145
+    0,                        !- Field 146
+    Until: 24:00,             !- Field 147
+    0;                        !- Field 148
+
+Schedule:Compact,
+    Block2:Zone1 Cooling SP Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    100,                      !- Field 4
+    Until: 02:00,             !- Field 5
+    100,                      !- Field 6
+    Until: 03:00,             !- Field 7
+    100,                      !- Field 8
+    Until: 04:00,             !- Field 9
+    100,                      !- Field 10
+    Until: 05:00,             !- Field 11
+    100,                      !- Field 12
+    Until: 06:00,             !- Field 13
+    100,                      !- Field 14
+    Until: 07:00,             !- Field 15
+    27.3497,                  !- Field 16
+    Until: 08:00,             !- Field 17
+    27.3497,                  !- Field 18
+    Until: 09:00,             !- Field 19
+    27.3497,                  !- Field 20
+    Until: 10:00,             !- Field 21
+    27.3497,                  !- Field 22
+    Until: 11:00,             !- Field 23
+    27.3497,                  !- Field 24
+    Until: 12:00,             !- Field 25
+    27.3497,                  !- Field 26
+    Until: 13:00,             !- Field 27
+    27.3497,                  !- Field 28
+    Until: 14:00,             !- Field 29
+    27.3497,                  !- Field 30
+    Until: 15:00,             !- Field 31
+    27.3497,                  !- Field 32
+    Until: 16:00,             !- Field 33
+    27.3497,                  !- Field 34
+    Until: 17:00,             !- Field 35
+    27.3497,                  !- Field 36
+    Until: 18:00,             !- Field 37
+    27.3497,                  !- Field 38
+    Until: 19:00,             !- Field 39
+    27.3497,                  !- Field 40
+    Until: 20:00,             !- Field 41
+    27.3497,                  !- Field 42
+    Until: 21:00,             !- Field 43
+    27.3497,                  !- Field 44
+    Until: 22:00,             !- Field 45
+    27.3497,                  !- Field 46
+    Until: 23:00,             !- Field 47
+    100,                      !- Field 48
+    Until: 24:00,             !- Field 49
+    100,                      !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    100,                      !- Field 53
+    Until: 02:00,             !- Field 54
+    100,                      !- Field 55
+    Until: 03:00,             !- Field 56
+    100,                      !- Field 57
+    Until: 04:00,             !- Field 58
+    100,                      !- Field 59
+    Until: 05:00,             !- Field 60
+    100,                      !- Field 61
+    Until: 06:00,             !- Field 62
+    100,                      !- Field 63
+    Until: 07:00,             !- Field 64
+    27.3497,                  !- Field 65
+    Until: 08:00,             !- Field 66
+    27.3497,                  !- Field 67
+    Until: 09:00,             !- Field 68
+    27.3497,                  !- Field 69
+    Until: 10:00,             !- Field 70
+    27.3497,                  !- Field 71
+    Until: 11:00,             !- Field 72
+    27.3497,                  !- Field 73
+    Until: 12:00,             !- Field 74
+    27.3497,                  !- Field 75
+    Until: 13:00,             !- Field 76
+    27.3497,                  !- Field 77
+    Until: 14:00,             !- Field 78
+    27.3497,                  !- Field 79
+    Until: 15:00,             !- Field 80
+    27.3497,                  !- Field 81
+    Until: 16:00,             !- Field 82
+    27.3497,                  !- Field 83
+    Until: 17:00,             !- Field 84
+    27.3497,                  !- Field 85
+    Until: 18:00,             !- Field 86
+    27.3497,                  !- Field 87
+    Until: 19:00,             !- Field 88
+    100,                      !- Field 89
+    Until: 20:00,             !- Field 90
+    100,                      !- Field 91
+    Until: 21:00,             !- Field 92
+    100,                      !- Field 93
+    Until: 22:00,             !- Field 94
+    100,                      !- Field 95
+    Until: 23:00,             !- Field 96
+    100,                      !- Field 97
+    Until: 24:00,             !- Field 98
+    100,                      !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    100,                      !- Field 102
+    Until: 02:00,             !- Field 103
+    100,                      !- Field 104
+    Until: 03:00,             !- Field 105
+    100,                      !- Field 106
+    Until: 04:00,             !- Field 107
+    100,                      !- Field 108
+    Until: 05:00,             !- Field 109
+    100,                      !- Field 110
+    Until: 06:00,             !- Field 111
+    100,                      !- Field 112
+    Until: 07:00,             !- Field 113
+    100,                      !- Field 114
+    Until: 08:00,             !- Field 115
+    100,                      !- Field 116
+    Until: 09:00,             !- Field 117
+    100,                      !- Field 118
+    Until: 10:00,             !- Field 119
+    100,                      !- Field 120
+    Until: 11:00,             !- Field 121
+    100,                      !- Field 122
+    Until: 12:00,             !- Field 123
+    100,                      !- Field 124
+    Until: 13:00,             !- Field 125
+    100,                      !- Field 126
+    Until: 14:00,             !- Field 127
+    100,                      !- Field 128
+    Until: 15:00,             !- Field 129
+    100,                      !- Field 130
+    Until: 16:00,             !- Field 131
+    100,                      !- Field 132
+    Until: 17:00,             !- Field 133
+    100,                      !- Field 134
+    Until: 18:00,             !- Field 135
+    100,                      !- Field 136
+    Until: 19:00,             !- Field 137
+    100,                      !- Field 138
+    Until: 20:00,             !- Field 139
+    100,                      !- Field 140
+    Until: 21:00,             !- Field 141
+    100,                      !- Field 142
+    Until: 22:00,             !- Field 143
+    100,                      !- Field 144
+    Until: 23:00,             !- Field 145
+    100,                      !- Field 146
+    Until: 24:00,             !- Field 147
+    100;                      !- Field 148
+
+Schedule:Compact,
+    Block2:Zone1 Cooling Availability Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    0,                        !- Field 4
+    Until: 02:00,             !- Field 5
+    0,                        !- Field 6
+    Until: 03:00,             !- Field 7
+    0,                        !- Field 8
+    Until: 04:00,             !- Field 9
+    0,                        !- Field 10
+    Until: 05:00,             !- Field 11
+    0,                        !- Field 12
+    Until: 06:00,             !- Field 13
+    0,                        !- Field 14
+    Until: 07:00,             !- Field 15
+    1,                        !- Field 16
+    Until: 08:00,             !- Field 17
+    1,                        !- Field 18
+    Until: 09:00,             !- Field 19
+    1,                        !- Field 20
+    Until: 10:00,             !- Field 21
+    1,                        !- Field 22
+    Until: 11:00,             !- Field 23
+    1,                        !- Field 24
+    Until: 12:00,             !- Field 25
+    1,                        !- Field 26
+    Until: 13:00,             !- Field 27
+    1,                        !- Field 28
+    Until: 14:00,             !- Field 29
+    1,                        !- Field 30
+    Until: 15:00,             !- Field 31
+    1,                        !- Field 32
+    Until: 16:00,             !- Field 33
+    1,                        !- Field 34
+    Until: 17:00,             !- Field 35
+    1,                        !- Field 36
+    Until: 18:00,             !- Field 37
+    1,                        !- Field 38
+    Until: 19:00,             !- Field 39
+    1,                        !- Field 40
+    Until: 20:00,             !- Field 41
+    1,                        !- Field 42
+    Until: 21:00,             !- Field 43
+    1,                        !- Field 44
+    Until: 22:00,             !- Field 45
+    1,                        !- Field 46
+    Until: 23:00,             !- Field 47
+    0,                        !- Field 48
+    Until: 24:00,             !- Field 49
+    0,                        !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    0,                        !- Field 53
+    Until: 02:00,             !- Field 54
+    0,                        !- Field 55
+    Until: 03:00,             !- Field 56
+    0,                        !- Field 57
+    Until: 04:00,             !- Field 58
+    0,                        !- Field 59
+    Until: 05:00,             !- Field 60
+    0,                        !- Field 61
+    Until: 06:00,             !- Field 62
+    0,                        !- Field 63
+    Until: 07:00,             !- Field 64
+    1,                        !- Field 65
+    Until: 08:00,             !- Field 66
+    1,                        !- Field 67
+    Until: 09:00,             !- Field 68
+    1,                        !- Field 69
+    Until: 10:00,             !- Field 70
+    1,                        !- Field 71
+    Until: 11:00,             !- Field 72
+    1,                        !- Field 73
+    Until: 12:00,             !- Field 74
+    1,                        !- Field 75
+    Until: 13:00,             !- Field 76
+    1,                        !- Field 77
+    Until: 14:00,             !- Field 78
+    1,                        !- Field 79
+    Until: 15:00,             !- Field 80
+    1,                        !- Field 81
+    Until: 16:00,             !- Field 82
+    1,                        !- Field 83
+    Until: 17:00,             !- Field 84
+    1,                        !- Field 85
+    Until: 18:00,             !- Field 86
+    1,                        !- Field 87
+    Until: 19:00,             !- Field 88
+    0,                        !- Field 89
+    Until: 20:00,             !- Field 90
+    0,                        !- Field 91
+    Until: 21:00,             !- Field 92
+    0,                        !- Field 93
+    Until: 22:00,             !- Field 94
+    0,                        !- Field 95
+    Until: 23:00,             !- Field 96
+    0,                        !- Field 97
+    Until: 24:00,             !- Field 98
+    0,                        !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    0,                        !- Field 102
+    Until: 02:00,             !- Field 103
+    0,                        !- Field 104
+    Until: 03:00,             !- Field 105
+    0,                        !- Field 106
+    Until: 04:00,             !- Field 107
+    0,                        !- Field 108
+    Until: 05:00,             !- Field 109
+    0,                        !- Field 110
+    Until: 06:00,             !- Field 111
+    0,                        !- Field 112
+    Until: 07:00,             !- Field 113
+    0,                        !- Field 114
+    Until: 08:00,             !- Field 115
+    0,                        !- Field 116
+    Until: 09:00,             !- Field 117
+    0,                        !- Field 118
+    Until: 10:00,             !- Field 119
+    0,                        !- Field 120
+    Until: 11:00,             !- Field 121
+    0,                        !- Field 122
+    Until: 12:00,             !- Field 123
+    0,                        !- Field 124
+    Until: 13:00,             !- Field 125
+    0,                        !- Field 126
+    Until: 14:00,             !- Field 127
+    0,                        !- Field 128
+    Until: 15:00,             !- Field 129
+    0,                        !- Field 130
+    Until: 16:00,             !- Field 131
+    0,                        !- Field 132
+    Until: 17:00,             !- Field 133
+    0,                        !- Field 134
+    Until: 18:00,             !- Field 135
+    0,                        !- Field 136
+    Until: 19:00,             !- Field 137
+    0,                        !- Field 138
+    Until: 20:00,             !- Field 139
+    0,                        !- Field 140
+    Until: 21:00,             !- Field 141
+    0,                        !- Field 142
+    Until: 22:00,             !- Field 143
+    0,                        !- Field 144
+    Until: 23:00,             !- Field 145
+    0,                        !- Field 146
+    Until: 24:00,             !- Field 147
+    0;                        !- Field 148
+
+Schedule:Compact,
+    Block3:Zone1 Heating SP Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    -50,                      !- Field 4
+    Until: 02:00,             !- Field 5
+    -50,                      !- Field 6
+    Until: 03:00,             !- Field 7
+    -50,                      !- Field 8
+    Until: 04:00,             !- Field 9
+    -50,                      !- Field 10
+    Until: 05:00,             !- Field 11
+    -50,                      !- Field 12
+    Until: 06:00,             !- Field 13
+    -50,                      !- Field 14
+    Until: 07:00,             !- Field 15
+    19.0892,                  !- Field 16
+    Until: 08:00,             !- Field 17
+    19.0892,                  !- Field 18
+    Until: 09:00,             !- Field 19
+    19.0892,                  !- Field 20
+    Until: 10:00,             !- Field 21
+    19.0892,                  !- Field 22
+    Until: 11:00,             !- Field 23
+    19.0892,                  !- Field 24
+    Until: 12:00,             !- Field 25
+    19.0892,                  !- Field 26
+    Until: 13:00,             !- Field 27
+    19.0892,                  !- Field 28
+    Until: 14:00,             !- Field 29
+    19.0892,                  !- Field 30
+    Until: 15:00,             !- Field 31
+    19.0892,                  !- Field 32
+    Until: 16:00,             !- Field 33
+    19.0892,                  !- Field 34
+    Until: 17:00,             !- Field 35
+    19.0892,                  !- Field 36
+    Until: 18:00,             !- Field 37
+    19.0892,                  !- Field 38
+    Until: 19:00,             !- Field 39
+    19.0892,                  !- Field 40
+    Until: 20:00,             !- Field 41
+    19.0892,                  !- Field 42
+    Until: 21:00,             !- Field 43
+    19.0892,                  !- Field 44
+    Until: 22:00,             !- Field 45
+    19.0892,                  !- Field 46
+    Until: 23:00,             !- Field 47
+    -50,                      !- Field 48
+    Until: 24:00,             !- Field 49
+    -50,                      !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    -50,                      !- Field 53
+    Until: 02:00,             !- Field 54
+    -50,                      !- Field 55
+    Until: 03:00,             !- Field 56
+    -50,                      !- Field 57
+    Until: 04:00,             !- Field 58
+    -50,                      !- Field 59
+    Until: 05:00,             !- Field 60
+    -50,                      !- Field 61
+    Until: 06:00,             !- Field 62
+    -50,                      !- Field 63
+    Until: 07:00,             !- Field 64
+    19.0892,                  !- Field 65
+    Until: 08:00,             !- Field 66
+    19.0892,                  !- Field 67
+    Until: 09:00,             !- Field 68
+    19.0892,                  !- Field 69
+    Until: 10:00,             !- Field 70
+    19.0892,                  !- Field 71
+    Until: 11:00,             !- Field 72
+    19.0892,                  !- Field 73
+    Until: 12:00,             !- Field 74
+    19.0892,                  !- Field 75
+    Until: 13:00,             !- Field 76
+    19.0892,                  !- Field 77
+    Until: 14:00,             !- Field 78
+    19.0892,                  !- Field 79
+    Until: 15:00,             !- Field 80
+    19.0892,                  !- Field 81
+    Until: 16:00,             !- Field 82
+    19.0892,                  !- Field 83
+    Until: 17:00,             !- Field 84
+    19.0892,                  !- Field 85
+    Until: 18:00,             !- Field 86
+    19.0892,                  !- Field 87
+    Until: 19:00,             !- Field 88
+    -50,                      !- Field 89
+    Until: 20:00,             !- Field 90
+    -50,                      !- Field 91
+    Until: 21:00,             !- Field 92
+    -50,                      !- Field 93
+    Until: 22:00,             !- Field 94
+    -50,                      !- Field 95
+    Until: 23:00,             !- Field 96
+    -50,                      !- Field 97
+    Until: 24:00,             !- Field 98
+    -50,                      !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    -50,                      !- Field 102
+    Until: 02:00,             !- Field 103
+    -50,                      !- Field 104
+    Until: 03:00,             !- Field 105
+    -50,                      !- Field 106
+    Until: 04:00,             !- Field 107
+    -50,                      !- Field 108
+    Until: 05:00,             !- Field 109
+    -50,                      !- Field 110
+    Until: 06:00,             !- Field 111
+    -50,                      !- Field 112
+    Until: 07:00,             !- Field 113
+    -50,                      !- Field 114
+    Until: 08:00,             !- Field 115
+    -50,                      !- Field 116
+    Until: 09:00,             !- Field 117
+    -50,                      !- Field 118
+    Until: 10:00,             !- Field 119
+    -50,                      !- Field 120
+    Until: 11:00,             !- Field 121
+    -50,                      !- Field 122
+    Until: 12:00,             !- Field 123
+    -50,                      !- Field 124
+    Until: 13:00,             !- Field 125
+    -50,                      !- Field 126
+    Until: 14:00,             !- Field 127
+    -50,                      !- Field 128
+    Until: 15:00,             !- Field 129
+    -50,                      !- Field 130
+    Until: 16:00,             !- Field 131
+    -50,                      !- Field 132
+    Until: 17:00,             !- Field 133
+    -50,                      !- Field 134
+    Until: 18:00,             !- Field 135
+    -50,                      !- Field 136
+    Until: 19:00,             !- Field 137
+    -50,                      !- Field 138
+    Until: 20:00,             !- Field 139
+    -50,                      !- Field 140
+    Until: 21:00,             !- Field 141
+    -50,                      !- Field 142
+    Until: 22:00,             !- Field 143
+    -50,                      !- Field 144
+    Until: 23:00,             !- Field 145
+    -50,                      !- Field 146
+    Until: 24:00,             !- Field 147
+    -50;                      !- Field 148
+
+Schedule:Compact,
+    Block3:Zone1 Heating Availability Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    0,                        !- Field 4
+    Until: 02:00,             !- Field 5
+    0,                        !- Field 6
+    Until: 03:00,             !- Field 7
+    0,                        !- Field 8
+    Until: 04:00,             !- Field 9
+    0,                        !- Field 10
+    Until: 05:00,             !- Field 11
+    0,                        !- Field 12
+    Until: 06:00,             !- Field 13
+    0,                        !- Field 14
+    Until: 07:00,             !- Field 15
+    1,                        !- Field 16
+    Until: 08:00,             !- Field 17
+    1,                        !- Field 18
+    Until: 09:00,             !- Field 19
+    1,                        !- Field 20
+    Until: 10:00,             !- Field 21
+    1,                        !- Field 22
+    Until: 11:00,             !- Field 23
+    1,                        !- Field 24
+    Until: 12:00,             !- Field 25
+    1,                        !- Field 26
+    Until: 13:00,             !- Field 27
+    1,                        !- Field 28
+    Until: 14:00,             !- Field 29
+    1,                        !- Field 30
+    Until: 15:00,             !- Field 31
+    1,                        !- Field 32
+    Until: 16:00,             !- Field 33
+    1,                        !- Field 34
+    Until: 17:00,             !- Field 35
+    1,                        !- Field 36
+    Until: 18:00,             !- Field 37
+    1,                        !- Field 38
+    Until: 19:00,             !- Field 39
+    1,                        !- Field 40
+    Until: 20:00,             !- Field 41
+    1,                        !- Field 42
+    Until: 21:00,             !- Field 43
+    1,                        !- Field 44
+    Until: 22:00,             !- Field 45
+    1,                        !- Field 46
+    Until: 23:00,             !- Field 47
+    0,                        !- Field 48
+    Until: 24:00,             !- Field 49
+    0,                        !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    0,                        !- Field 53
+    Until: 02:00,             !- Field 54
+    0,                        !- Field 55
+    Until: 03:00,             !- Field 56
+    0,                        !- Field 57
+    Until: 04:00,             !- Field 58
+    0,                        !- Field 59
+    Until: 05:00,             !- Field 60
+    0,                        !- Field 61
+    Until: 06:00,             !- Field 62
+    0,                        !- Field 63
+    Until: 07:00,             !- Field 64
+    1,                        !- Field 65
+    Until: 08:00,             !- Field 66
+    1,                        !- Field 67
+    Until: 09:00,             !- Field 68
+    1,                        !- Field 69
+    Until: 10:00,             !- Field 70
+    1,                        !- Field 71
+    Until: 11:00,             !- Field 72
+    1,                        !- Field 73
+    Until: 12:00,             !- Field 74
+    1,                        !- Field 75
+    Until: 13:00,             !- Field 76
+    1,                        !- Field 77
+    Until: 14:00,             !- Field 78
+    1,                        !- Field 79
+    Until: 15:00,             !- Field 80
+    1,                        !- Field 81
+    Until: 16:00,             !- Field 82
+    1,                        !- Field 83
+    Until: 17:00,             !- Field 84
+    1,                        !- Field 85
+    Until: 18:00,             !- Field 86
+    1,                        !- Field 87
+    Until: 19:00,             !- Field 88
+    0,                        !- Field 89
+    Until: 20:00,             !- Field 90
+    0,                        !- Field 91
+    Until: 21:00,             !- Field 92
+    0,                        !- Field 93
+    Until: 22:00,             !- Field 94
+    0,                        !- Field 95
+    Until: 23:00,             !- Field 96
+    0,                        !- Field 97
+    Until: 24:00,             !- Field 98
+    0,                        !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    0,                        !- Field 102
+    Until: 02:00,             !- Field 103
+    0,                        !- Field 104
+    Until: 03:00,             !- Field 105
+    0,                        !- Field 106
+    Until: 04:00,             !- Field 107
+    0,                        !- Field 108
+    Until: 05:00,             !- Field 109
+    0,                        !- Field 110
+    Until: 06:00,             !- Field 111
+    0,                        !- Field 112
+    Until: 07:00,             !- Field 113
+    0,                        !- Field 114
+    Until: 08:00,             !- Field 115
+    0,                        !- Field 116
+    Until: 09:00,             !- Field 117
+    0,                        !- Field 118
+    Until: 10:00,             !- Field 119
+    0,                        !- Field 120
+    Until: 11:00,             !- Field 121
+    0,                        !- Field 122
+    Until: 12:00,             !- Field 123
+    0,                        !- Field 124
+    Until: 13:00,             !- Field 125
+    0,                        !- Field 126
+    Until: 14:00,             !- Field 127
+    0,                        !- Field 128
+    Until: 15:00,             !- Field 129
+    0,                        !- Field 130
+    Until: 16:00,             !- Field 131
+    0,                        !- Field 132
+    Until: 17:00,             !- Field 133
+    0,                        !- Field 134
+    Until: 18:00,             !- Field 135
+    0,                        !- Field 136
+    Until: 19:00,             !- Field 137
+    0,                        !- Field 138
+    Until: 20:00,             !- Field 139
+    0,                        !- Field 140
+    Until: 21:00,             !- Field 141
+    0,                        !- Field 142
+    Until: 22:00,             !- Field 143
+    0,                        !- Field 144
+    Until: 23:00,             !- Field 145
+    0,                        !- Field 146
+    Until: 24:00,             !- Field 147
+    0;                        !- Field 148
+
+Schedule:Compact,
+    Block3:Zone1 Cooling SP Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    100,                      !- Field 4
+    Until: 02:00,             !- Field 5
+    100,                      !- Field 6
+    Until: 03:00,             !- Field 7
+    100,                      !- Field 8
+    Until: 04:00,             !- Field 9
+    100,                      !- Field 10
+    Until: 05:00,             !- Field 11
+    100,                      !- Field 12
+    Until: 06:00,             !- Field 13
+    100,                      !- Field 14
+    Until: 07:00,             !- Field 15
+    27.3497,                  !- Field 16
+    Until: 08:00,             !- Field 17
+    27.3497,                  !- Field 18
+    Until: 09:00,             !- Field 19
+    27.3497,                  !- Field 20
+    Until: 10:00,             !- Field 21
+    27.3497,                  !- Field 22
+    Until: 11:00,             !- Field 23
+    27.3497,                  !- Field 24
+    Until: 12:00,             !- Field 25
+    27.3497,                  !- Field 26
+    Until: 13:00,             !- Field 27
+    27.3497,                  !- Field 28
+    Until: 14:00,             !- Field 29
+    27.3497,                  !- Field 30
+    Until: 15:00,             !- Field 31
+    27.3497,                  !- Field 32
+    Until: 16:00,             !- Field 33
+    27.3497,                  !- Field 34
+    Until: 17:00,             !- Field 35
+    27.3497,                  !- Field 36
+    Until: 18:00,             !- Field 37
+    27.3497,                  !- Field 38
+    Until: 19:00,             !- Field 39
+    27.3497,                  !- Field 40
+    Until: 20:00,             !- Field 41
+    27.3497,                  !- Field 42
+    Until: 21:00,             !- Field 43
+    27.3497,                  !- Field 44
+    Until: 22:00,             !- Field 45
+    27.3497,                  !- Field 46
+    Until: 23:00,             !- Field 47
+    100,                      !- Field 48
+    Until: 24:00,             !- Field 49
+    100,                      !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    100,                      !- Field 53
+    Until: 02:00,             !- Field 54
+    100,                      !- Field 55
+    Until: 03:00,             !- Field 56
+    100,                      !- Field 57
+    Until: 04:00,             !- Field 58
+    100,                      !- Field 59
+    Until: 05:00,             !- Field 60
+    100,                      !- Field 61
+    Until: 06:00,             !- Field 62
+    100,                      !- Field 63
+    Until: 07:00,             !- Field 64
+    27.3497,                  !- Field 65
+    Until: 08:00,             !- Field 66
+    27.3497,                  !- Field 67
+    Until: 09:00,             !- Field 68
+    27.3497,                  !- Field 69
+    Until: 10:00,             !- Field 70
+    27.3497,                  !- Field 71
+    Until: 11:00,             !- Field 72
+    27.3497,                  !- Field 73
+    Until: 12:00,             !- Field 74
+    27.3497,                  !- Field 75
+    Until: 13:00,             !- Field 76
+    27.3497,                  !- Field 77
+    Until: 14:00,             !- Field 78
+    27.3497,                  !- Field 79
+    Until: 15:00,             !- Field 80
+    27.3497,                  !- Field 81
+    Until: 16:00,             !- Field 82
+    27.3497,                  !- Field 83
+    Until: 17:00,             !- Field 84
+    27.3497,                  !- Field 85
+    Until: 18:00,             !- Field 86
+    27.3497,                  !- Field 87
+    Until: 19:00,             !- Field 88
+    100,                      !- Field 89
+    Until: 20:00,             !- Field 90
+    100,                      !- Field 91
+    Until: 21:00,             !- Field 92
+    100,                      !- Field 93
+    Until: 22:00,             !- Field 94
+    100,                      !- Field 95
+    Until: 23:00,             !- Field 96
+    100,                      !- Field 97
+    Until: 24:00,             !- Field 98
+    100,                      !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    100,                      !- Field 102
+    Until: 02:00,             !- Field 103
+    100,                      !- Field 104
+    Until: 03:00,             !- Field 105
+    100,                      !- Field 106
+    Until: 04:00,             !- Field 107
+    100,                      !- Field 108
+    Until: 05:00,             !- Field 109
+    100,                      !- Field 110
+    Until: 06:00,             !- Field 111
+    100,                      !- Field 112
+    Until: 07:00,             !- Field 113
+    100,                      !- Field 114
+    Until: 08:00,             !- Field 115
+    100,                      !- Field 116
+    Until: 09:00,             !- Field 117
+    100,                      !- Field 118
+    Until: 10:00,             !- Field 119
+    100,                      !- Field 120
+    Until: 11:00,             !- Field 121
+    100,                      !- Field 122
+    Until: 12:00,             !- Field 123
+    100,                      !- Field 124
+    Until: 13:00,             !- Field 125
+    100,                      !- Field 126
+    Until: 14:00,             !- Field 127
+    100,                      !- Field 128
+    Until: 15:00,             !- Field 129
+    100,                      !- Field 130
+    Until: 16:00,             !- Field 131
+    100,                      !- Field 132
+    Until: 17:00,             !- Field 133
+    100,                      !- Field 134
+    Until: 18:00,             !- Field 135
+    100,                      !- Field 136
+    Until: 19:00,             !- Field 137
+    100,                      !- Field 138
+    Until: 20:00,             !- Field 139
+    100,                      !- Field 140
+    Until: 21:00,             !- Field 141
+    100,                      !- Field 142
+    Until: 22:00,             !- Field 143
+    100,                      !- Field 144
+    Until: 23:00,             !- Field 145
+    100,                      !- Field 146
+    Until: 24:00,             !- Field 147
+    100;                      !- Field 148
+
+Schedule:Compact,
+    Block3:Zone1 Cooling Availability Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    0,                        !- Field 4
+    Until: 02:00,             !- Field 5
+    0,                        !- Field 6
+    Until: 03:00,             !- Field 7
+    0,                        !- Field 8
+    Until: 04:00,             !- Field 9
+    0,                        !- Field 10
+    Until: 05:00,             !- Field 11
+    0,                        !- Field 12
+    Until: 06:00,             !- Field 13
+    0,                        !- Field 14
+    Until: 07:00,             !- Field 15
+    1,                        !- Field 16
+    Until: 08:00,             !- Field 17
+    1,                        !- Field 18
+    Until: 09:00,             !- Field 19
+    1,                        !- Field 20
+    Until: 10:00,             !- Field 21
+    1,                        !- Field 22
+    Until: 11:00,             !- Field 23
+    1,                        !- Field 24
+    Until: 12:00,             !- Field 25
+    1,                        !- Field 26
+    Until: 13:00,             !- Field 27
+    1,                        !- Field 28
+    Until: 14:00,             !- Field 29
+    1,                        !- Field 30
+    Until: 15:00,             !- Field 31
+    1,                        !- Field 32
+    Until: 16:00,             !- Field 33
+    1,                        !- Field 34
+    Until: 17:00,             !- Field 35
+    1,                        !- Field 36
+    Until: 18:00,             !- Field 37
+    1,                        !- Field 38
+    Until: 19:00,             !- Field 39
+    1,                        !- Field 40
+    Until: 20:00,             !- Field 41
+    1,                        !- Field 42
+    Until: 21:00,             !- Field 43
+    1,                        !- Field 44
+    Until: 22:00,             !- Field 45
+    1,                        !- Field 46
+    Until: 23:00,             !- Field 47
+    0,                        !- Field 48
+    Until: 24:00,             !- Field 49
+    0,                        !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    0,                        !- Field 53
+    Until: 02:00,             !- Field 54
+    0,                        !- Field 55
+    Until: 03:00,             !- Field 56
+    0,                        !- Field 57
+    Until: 04:00,             !- Field 58
+    0,                        !- Field 59
+    Until: 05:00,             !- Field 60
+    0,                        !- Field 61
+    Until: 06:00,             !- Field 62
+    0,                        !- Field 63
+    Until: 07:00,             !- Field 64
+    1,                        !- Field 65
+    Until: 08:00,             !- Field 66
+    1,                        !- Field 67
+    Until: 09:00,             !- Field 68
+    1,                        !- Field 69
+    Until: 10:00,             !- Field 70
+    1,                        !- Field 71
+    Until: 11:00,             !- Field 72
+    1,                        !- Field 73
+    Until: 12:00,             !- Field 74
+    1,                        !- Field 75
+    Until: 13:00,             !- Field 76
+    1,                        !- Field 77
+    Until: 14:00,             !- Field 78
+    1,                        !- Field 79
+    Until: 15:00,             !- Field 80
+    1,                        !- Field 81
+    Until: 16:00,             !- Field 82
+    1,                        !- Field 83
+    Until: 17:00,             !- Field 84
+    1,                        !- Field 85
+    Until: 18:00,             !- Field 86
+    1,                        !- Field 87
+    Until: 19:00,             !- Field 88
+    0,                        !- Field 89
+    Until: 20:00,             !- Field 90
+    0,                        !- Field 91
+    Until: 21:00,             !- Field 92
+    0,                        !- Field 93
+    Until: 22:00,             !- Field 94
+    0,                        !- Field 95
+    Until: 23:00,             !- Field 96
+    0,                        !- Field 97
+    Until: 24:00,             !- Field 98
+    0,                        !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    0,                        !- Field 102
+    Until: 02:00,             !- Field 103
+    0,                        !- Field 104
+    Until: 03:00,             !- Field 105
+    0,                        !- Field 106
+    Until: 04:00,             !- Field 107
+    0,                        !- Field 108
+    Until: 05:00,             !- Field 109
+    0,                        !- Field 110
+    Until: 06:00,             !- Field 111
+    0,                        !- Field 112
+    Until: 07:00,             !- Field 113
+    0,                        !- Field 114
+    Until: 08:00,             !- Field 115
+    0,                        !- Field 116
+    Until: 09:00,             !- Field 117
+    0,                        !- Field 118
+    Until: 10:00,             !- Field 119
+    0,                        !- Field 120
+    Until: 11:00,             !- Field 121
+    0,                        !- Field 122
+    Until: 12:00,             !- Field 123
+    0,                        !- Field 124
+    Until: 13:00,             !- Field 125
+    0,                        !- Field 126
+    Until: 14:00,             !- Field 127
+    0,                        !- Field 128
+    Until: 15:00,             !- Field 129
+    0,                        !- Field 130
+    Until: 16:00,             !- Field 131
+    0,                        !- Field 132
+    Until: 17:00,             !- Field 133
+    0,                        !- Field 134
+    Until: 18:00,             !- Field 135
+    0,                        !- Field 136
+    Until: 19:00,             !- Field 137
+    0,                        !- Field 138
+    Until: 20:00,             !- Field 139
+    0,                        !- Field 140
+    Until: 21:00,             !- Field 141
+    0,                        !- Field 142
+    Until: 22:00,             !- Field 143
+    0,                        !- Field 144
+    Until: 23:00,             !- Field 145
+    0,                        !- Field 146
+    Until: 24:00,             !- Field 147
+    0;                        !- Field 148
+
+Schedule:Compact,
+    Block4:Zone1 Heating SP Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    -50,                      !- Field 4
+    Until: 02:00,             !- Field 5
+    -50,                      !- Field 6
+    Until: 03:00,             !- Field 7
+    -50,                      !- Field 8
+    Until: 04:00,             !- Field 9
+    -50,                      !- Field 10
+    Until: 05:00,             !- Field 11
+    -50,                      !- Field 12
+    Until: 06:00,             !- Field 13
+    -50,                      !- Field 14
+    Until: 07:00,             !- Field 15
+    19.0892,                  !- Field 16
+    Until: 08:00,             !- Field 17
+    19.0892,                  !- Field 18
+    Until: 09:00,             !- Field 19
+    19.0892,                  !- Field 20
+    Until: 10:00,             !- Field 21
+    19.0892,                  !- Field 22
+    Until: 11:00,             !- Field 23
+    19.0892,                  !- Field 24
+    Until: 12:00,             !- Field 25
+    19.0892,                  !- Field 26
+    Until: 13:00,             !- Field 27
+    19.0892,                  !- Field 28
+    Until: 14:00,             !- Field 29
+    19.0892,                  !- Field 30
+    Until: 15:00,             !- Field 31
+    19.0892,                  !- Field 32
+    Until: 16:00,             !- Field 33
+    19.0892,                  !- Field 34
+    Until: 17:00,             !- Field 35
+    19.0892,                  !- Field 36
+    Until: 18:00,             !- Field 37
+    19.0892,                  !- Field 38
+    Until: 19:00,             !- Field 39
+    19.0892,                  !- Field 40
+    Until: 20:00,             !- Field 41
+    19.0892,                  !- Field 42
+    Until: 21:00,             !- Field 43
+    19.0892,                  !- Field 44
+    Until: 22:00,             !- Field 45
+    19.0892,                  !- Field 46
+    Until: 23:00,             !- Field 47
+    -50,                      !- Field 48
+    Until: 24:00,             !- Field 49
+    -50,                      !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    -50,                      !- Field 53
+    Until: 02:00,             !- Field 54
+    -50,                      !- Field 55
+    Until: 03:00,             !- Field 56
+    -50,                      !- Field 57
+    Until: 04:00,             !- Field 58
+    -50,                      !- Field 59
+    Until: 05:00,             !- Field 60
+    -50,                      !- Field 61
+    Until: 06:00,             !- Field 62
+    -50,                      !- Field 63
+    Until: 07:00,             !- Field 64
+    19.0892,                  !- Field 65
+    Until: 08:00,             !- Field 66
+    19.0892,                  !- Field 67
+    Until: 09:00,             !- Field 68
+    19.0892,                  !- Field 69
+    Until: 10:00,             !- Field 70
+    19.0892,                  !- Field 71
+    Until: 11:00,             !- Field 72
+    19.0892,                  !- Field 73
+    Until: 12:00,             !- Field 74
+    19.0892,                  !- Field 75
+    Until: 13:00,             !- Field 76
+    19.0892,                  !- Field 77
+    Until: 14:00,             !- Field 78
+    19.0892,                  !- Field 79
+    Until: 15:00,             !- Field 80
+    19.0892,                  !- Field 81
+    Until: 16:00,             !- Field 82
+    19.0892,                  !- Field 83
+    Until: 17:00,             !- Field 84
+    19.0892,                  !- Field 85
+    Until: 18:00,             !- Field 86
+    19.0892,                  !- Field 87
+    Until: 19:00,             !- Field 88
+    -50,                      !- Field 89
+    Until: 20:00,             !- Field 90
+    -50,                      !- Field 91
+    Until: 21:00,             !- Field 92
+    -50,                      !- Field 93
+    Until: 22:00,             !- Field 94
+    -50,                      !- Field 95
+    Until: 23:00,             !- Field 96
+    -50,                      !- Field 97
+    Until: 24:00,             !- Field 98
+    -50,                      !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    -50,                      !- Field 102
+    Until: 02:00,             !- Field 103
+    -50,                      !- Field 104
+    Until: 03:00,             !- Field 105
+    -50,                      !- Field 106
+    Until: 04:00,             !- Field 107
+    -50,                      !- Field 108
+    Until: 05:00,             !- Field 109
+    -50,                      !- Field 110
+    Until: 06:00,             !- Field 111
+    -50,                      !- Field 112
+    Until: 07:00,             !- Field 113
+    -50,                      !- Field 114
+    Until: 08:00,             !- Field 115
+    -50,                      !- Field 116
+    Until: 09:00,             !- Field 117
+    -50,                      !- Field 118
+    Until: 10:00,             !- Field 119
+    -50,                      !- Field 120
+    Until: 11:00,             !- Field 121
+    -50,                      !- Field 122
+    Until: 12:00,             !- Field 123
+    -50,                      !- Field 124
+    Until: 13:00,             !- Field 125
+    -50,                      !- Field 126
+    Until: 14:00,             !- Field 127
+    -50,                      !- Field 128
+    Until: 15:00,             !- Field 129
+    -50,                      !- Field 130
+    Until: 16:00,             !- Field 131
+    -50,                      !- Field 132
+    Until: 17:00,             !- Field 133
+    -50,                      !- Field 134
+    Until: 18:00,             !- Field 135
+    -50,                      !- Field 136
+    Until: 19:00,             !- Field 137
+    -50,                      !- Field 138
+    Until: 20:00,             !- Field 139
+    -50,                      !- Field 140
+    Until: 21:00,             !- Field 141
+    -50,                      !- Field 142
+    Until: 22:00,             !- Field 143
+    -50,                      !- Field 144
+    Until: 23:00,             !- Field 145
+    -50,                      !- Field 146
+    Until: 24:00,             !- Field 147
+    -50;                      !- Field 148
+
+Schedule:Compact,
+    Block4:Zone1 Heating Availability Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    0,                        !- Field 4
+    Until: 02:00,             !- Field 5
+    0,                        !- Field 6
+    Until: 03:00,             !- Field 7
+    0,                        !- Field 8
+    Until: 04:00,             !- Field 9
+    0,                        !- Field 10
+    Until: 05:00,             !- Field 11
+    0,                        !- Field 12
+    Until: 06:00,             !- Field 13
+    0,                        !- Field 14
+    Until: 07:00,             !- Field 15
+    1,                        !- Field 16
+    Until: 08:00,             !- Field 17
+    1,                        !- Field 18
+    Until: 09:00,             !- Field 19
+    1,                        !- Field 20
+    Until: 10:00,             !- Field 21
+    1,                        !- Field 22
+    Until: 11:00,             !- Field 23
+    1,                        !- Field 24
+    Until: 12:00,             !- Field 25
+    1,                        !- Field 26
+    Until: 13:00,             !- Field 27
+    1,                        !- Field 28
+    Until: 14:00,             !- Field 29
+    1,                        !- Field 30
+    Until: 15:00,             !- Field 31
+    1,                        !- Field 32
+    Until: 16:00,             !- Field 33
+    1,                        !- Field 34
+    Until: 17:00,             !- Field 35
+    1,                        !- Field 36
+    Until: 18:00,             !- Field 37
+    1,                        !- Field 38
+    Until: 19:00,             !- Field 39
+    1,                        !- Field 40
+    Until: 20:00,             !- Field 41
+    1,                        !- Field 42
+    Until: 21:00,             !- Field 43
+    1,                        !- Field 44
+    Until: 22:00,             !- Field 45
+    1,                        !- Field 46
+    Until: 23:00,             !- Field 47
+    0,                        !- Field 48
+    Until: 24:00,             !- Field 49
+    0,                        !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    0,                        !- Field 53
+    Until: 02:00,             !- Field 54
+    0,                        !- Field 55
+    Until: 03:00,             !- Field 56
+    0,                        !- Field 57
+    Until: 04:00,             !- Field 58
+    0,                        !- Field 59
+    Until: 05:00,             !- Field 60
+    0,                        !- Field 61
+    Until: 06:00,             !- Field 62
+    0,                        !- Field 63
+    Until: 07:00,             !- Field 64
+    1,                        !- Field 65
+    Until: 08:00,             !- Field 66
+    1,                        !- Field 67
+    Until: 09:00,             !- Field 68
+    1,                        !- Field 69
+    Until: 10:00,             !- Field 70
+    1,                        !- Field 71
+    Until: 11:00,             !- Field 72
+    1,                        !- Field 73
+    Until: 12:00,             !- Field 74
+    1,                        !- Field 75
+    Until: 13:00,             !- Field 76
+    1,                        !- Field 77
+    Until: 14:00,             !- Field 78
+    1,                        !- Field 79
+    Until: 15:00,             !- Field 80
+    1,                        !- Field 81
+    Until: 16:00,             !- Field 82
+    1,                        !- Field 83
+    Until: 17:00,             !- Field 84
+    1,                        !- Field 85
+    Until: 18:00,             !- Field 86
+    1,                        !- Field 87
+    Until: 19:00,             !- Field 88
+    0,                        !- Field 89
+    Until: 20:00,             !- Field 90
+    0,                        !- Field 91
+    Until: 21:00,             !- Field 92
+    0,                        !- Field 93
+    Until: 22:00,             !- Field 94
+    0,                        !- Field 95
+    Until: 23:00,             !- Field 96
+    0,                        !- Field 97
+    Until: 24:00,             !- Field 98
+    0,                        !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    0,                        !- Field 102
+    Until: 02:00,             !- Field 103
+    0,                        !- Field 104
+    Until: 03:00,             !- Field 105
+    0,                        !- Field 106
+    Until: 04:00,             !- Field 107
+    0,                        !- Field 108
+    Until: 05:00,             !- Field 109
+    0,                        !- Field 110
+    Until: 06:00,             !- Field 111
+    0,                        !- Field 112
+    Until: 07:00,             !- Field 113
+    0,                        !- Field 114
+    Until: 08:00,             !- Field 115
+    0,                        !- Field 116
+    Until: 09:00,             !- Field 117
+    0,                        !- Field 118
+    Until: 10:00,             !- Field 119
+    0,                        !- Field 120
+    Until: 11:00,             !- Field 121
+    0,                        !- Field 122
+    Until: 12:00,             !- Field 123
+    0,                        !- Field 124
+    Until: 13:00,             !- Field 125
+    0,                        !- Field 126
+    Until: 14:00,             !- Field 127
+    0,                        !- Field 128
+    Until: 15:00,             !- Field 129
+    0,                        !- Field 130
+    Until: 16:00,             !- Field 131
+    0,                        !- Field 132
+    Until: 17:00,             !- Field 133
+    0,                        !- Field 134
+    Until: 18:00,             !- Field 135
+    0,                        !- Field 136
+    Until: 19:00,             !- Field 137
+    0,                        !- Field 138
+    Until: 20:00,             !- Field 139
+    0,                        !- Field 140
+    Until: 21:00,             !- Field 141
+    0,                        !- Field 142
+    Until: 22:00,             !- Field 143
+    0,                        !- Field 144
+    Until: 23:00,             !- Field 145
+    0,                        !- Field 146
+    Until: 24:00,             !- Field 147
+    0;                        !- Field 148
+
+Schedule:Compact,
+    Block4:Zone1 Cooling SP Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    100,                      !- Field 4
+    Until: 02:00,             !- Field 5
+    100,                      !- Field 6
+    Until: 03:00,             !- Field 7
+    100,                      !- Field 8
+    Until: 04:00,             !- Field 9
+    100,                      !- Field 10
+    Until: 05:00,             !- Field 11
+    100,                      !- Field 12
+    Until: 06:00,             !- Field 13
+    100,                      !- Field 14
+    Until: 07:00,             !- Field 15
+    27.3497,                  !- Field 16
+    Until: 08:00,             !- Field 17
+    27.3497,                  !- Field 18
+    Until: 09:00,             !- Field 19
+    27.3497,                  !- Field 20
+    Until: 10:00,             !- Field 21
+    27.3497,                  !- Field 22
+    Until: 11:00,             !- Field 23
+    27.3497,                  !- Field 24
+    Until: 12:00,             !- Field 25
+    27.3497,                  !- Field 26
+    Until: 13:00,             !- Field 27
+    27.3497,                  !- Field 28
+    Until: 14:00,             !- Field 29
+    27.3497,                  !- Field 30
+    Until: 15:00,             !- Field 31
+    27.3497,                  !- Field 32
+    Until: 16:00,             !- Field 33
+    27.3497,                  !- Field 34
+    Until: 17:00,             !- Field 35
+    27.3497,                  !- Field 36
+    Until: 18:00,             !- Field 37
+    27.3497,                  !- Field 38
+    Until: 19:00,             !- Field 39
+    27.3497,                  !- Field 40
+    Until: 20:00,             !- Field 41
+    27.3497,                  !- Field 42
+    Until: 21:00,             !- Field 43
+    27.3497,                  !- Field 44
+    Until: 22:00,             !- Field 45
+    27.3497,                  !- Field 46
+    Until: 23:00,             !- Field 47
+    100,                      !- Field 48
+    Until: 24:00,             !- Field 49
+    100,                      !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    100,                      !- Field 53
+    Until: 02:00,             !- Field 54
+    100,                      !- Field 55
+    Until: 03:00,             !- Field 56
+    100,                      !- Field 57
+    Until: 04:00,             !- Field 58
+    100,                      !- Field 59
+    Until: 05:00,             !- Field 60
+    100,                      !- Field 61
+    Until: 06:00,             !- Field 62
+    100,                      !- Field 63
+    Until: 07:00,             !- Field 64
+    27.3497,                  !- Field 65
+    Until: 08:00,             !- Field 66
+    27.3497,                  !- Field 67
+    Until: 09:00,             !- Field 68
+    27.3497,                  !- Field 69
+    Until: 10:00,             !- Field 70
+    27.3497,                  !- Field 71
+    Until: 11:00,             !- Field 72
+    27.3497,                  !- Field 73
+    Until: 12:00,             !- Field 74
+    27.3497,                  !- Field 75
+    Until: 13:00,             !- Field 76
+    27.3497,                  !- Field 77
+    Until: 14:00,             !- Field 78
+    27.3497,                  !- Field 79
+    Until: 15:00,             !- Field 80
+    27.3497,                  !- Field 81
+    Until: 16:00,             !- Field 82
+    27.3497,                  !- Field 83
+    Until: 17:00,             !- Field 84
+    27.3497,                  !- Field 85
+    Until: 18:00,             !- Field 86
+    27.3497,                  !- Field 87
+    Until: 19:00,             !- Field 88
+    100,                      !- Field 89
+    Until: 20:00,             !- Field 90
+    100,                      !- Field 91
+    Until: 21:00,             !- Field 92
+    100,                      !- Field 93
+    Until: 22:00,             !- Field 94
+    100,                      !- Field 95
+    Until: 23:00,             !- Field 96
+    100,                      !- Field 97
+    Until: 24:00,             !- Field 98
+    100,                      !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    100,                      !- Field 102
+    Until: 02:00,             !- Field 103
+    100,                      !- Field 104
+    Until: 03:00,             !- Field 105
+    100,                      !- Field 106
+    Until: 04:00,             !- Field 107
+    100,                      !- Field 108
+    Until: 05:00,             !- Field 109
+    100,                      !- Field 110
+    Until: 06:00,             !- Field 111
+    100,                      !- Field 112
+    Until: 07:00,             !- Field 113
+    100,                      !- Field 114
+    Until: 08:00,             !- Field 115
+    100,                      !- Field 116
+    Until: 09:00,             !- Field 117
+    100,                      !- Field 118
+    Until: 10:00,             !- Field 119
+    100,                      !- Field 120
+    Until: 11:00,             !- Field 121
+    100,                      !- Field 122
+    Until: 12:00,             !- Field 123
+    100,                      !- Field 124
+    Until: 13:00,             !- Field 125
+    100,                      !- Field 126
+    Until: 14:00,             !- Field 127
+    100,                      !- Field 128
+    Until: 15:00,             !- Field 129
+    100,                      !- Field 130
+    Until: 16:00,             !- Field 131
+    100,                      !- Field 132
+    Until: 17:00,             !- Field 133
+    100,                      !- Field 134
+    Until: 18:00,             !- Field 135
+    100,                      !- Field 136
+    Until: 19:00,             !- Field 137
+    100,                      !- Field 138
+    Until: 20:00,             !- Field 139
+    100,                      !- Field 140
+    Until: 21:00,             !- Field 141
+    100,                      !- Field 142
+    Until: 22:00,             !- Field 143
+    100,                      !- Field 144
+    Until: 23:00,             !- Field 145
+    100,                      !- Field 146
+    Until: 24:00,             !- Field 147
+    100;                      !- Field 148
+
+Schedule:Compact,
+    Block4:Zone1 Cooling Availability Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:12/31,            !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    0,                        !- Field 4
+    Until: 02:00,             !- Field 5
+    0,                        !- Field 6
+    Until: 03:00,             !- Field 7
+    0,                        !- Field 8
+    Until: 04:00,             !- Field 9
+    0,                        !- Field 10
+    Until: 05:00,             !- Field 11
+    0,                        !- Field 12
+    Until: 06:00,             !- Field 13
+    0,                        !- Field 14
+    Until: 07:00,             !- Field 15
+    1,                        !- Field 16
+    Until: 08:00,             !- Field 17
+    1,                        !- Field 18
+    Until: 09:00,             !- Field 19
+    1,                        !- Field 20
+    Until: 10:00,             !- Field 21
+    1,                        !- Field 22
+    Until: 11:00,             !- Field 23
+    1,                        !- Field 24
+    Until: 12:00,             !- Field 25
+    1,                        !- Field 26
+    Until: 13:00,             !- Field 27
+    1,                        !- Field 28
+    Until: 14:00,             !- Field 29
+    1,                        !- Field 30
+    Until: 15:00,             !- Field 31
+    1,                        !- Field 32
+    Until: 16:00,             !- Field 33
+    1,                        !- Field 34
+    Until: 17:00,             !- Field 35
+    1,                        !- Field 36
+    Until: 18:00,             !- Field 37
+    1,                        !- Field 38
+    Until: 19:00,             !- Field 39
+    1,                        !- Field 40
+    Until: 20:00,             !- Field 41
+    1,                        !- Field 42
+    Until: 21:00,             !- Field 43
+    1,                        !- Field 44
+    Until: 22:00,             !- Field 45
+    1,                        !- Field 46
+    Until: 23:00,             !- Field 47
+    0,                        !- Field 48
+    Until: 24:00,             !- Field 49
+    0,                        !- Field 50
+    For: Saturday winterdesignday,    !- Field 51
+    Until: 01:00,             !- Field 52
+    0,                        !- Field 53
+    Until: 02:00,             !- Field 54
+    0,                        !- Field 55
+    Until: 03:00,             !- Field 56
+    0,                        !- Field 57
+    Until: 04:00,             !- Field 58
+    0,                        !- Field 59
+    Until: 05:00,             !- Field 60
+    0,                        !- Field 61
+    Until: 06:00,             !- Field 62
+    0,                        !- Field 63
+    Until: 07:00,             !- Field 64
+    1,                        !- Field 65
+    Until: 08:00,             !- Field 66
+    1,                        !- Field 67
+    Until: 09:00,             !- Field 68
+    1,                        !- Field 69
+    Until: 10:00,             !- Field 70
+    1,                        !- Field 71
+    Until: 11:00,             !- Field 72
+    1,                        !- Field 73
+    Until: 12:00,             !- Field 74
+    1,                        !- Field 75
+    Until: 13:00,             !- Field 76
+    1,                        !- Field 77
+    Until: 14:00,             !- Field 78
+    1,                        !- Field 79
+    Until: 15:00,             !- Field 80
+    1,                        !- Field 81
+    Until: 16:00,             !- Field 82
+    1,                        !- Field 83
+    Until: 17:00,             !- Field 84
+    1,                        !- Field 85
+    Until: 18:00,             !- Field 86
+    1,                        !- Field 87
+    Until: 19:00,             !- Field 88
+    0,                        !- Field 89
+    Until: 20:00,             !- Field 90
+    0,                        !- Field 91
+    Until: 21:00,             !- Field 92
+    0,                        !- Field 93
+    Until: 22:00,             !- Field 94
+    0,                        !- Field 95
+    Until: 23:00,             !- Field 96
+    0,                        !- Field 97
+    Until: 24:00,             !- Field 98
+    0,                        !- Field 99
+    For: AllOtherdays,        !- Field 100
+    Until: 01:00,             !- Field 101
+    0,                        !- Field 102
+    Until: 02:00,             !- Field 103
+    0,                        !- Field 104
+    Until: 03:00,             !- Field 105
+    0,                        !- Field 106
+    Until: 04:00,             !- Field 107
+    0,                        !- Field 108
+    Until: 05:00,             !- Field 109
+    0,                        !- Field 110
+    Until: 06:00,             !- Field 111
+    0,                        !- Field 112
+    Until: 07:00,             !- Field 113
+    0,                        !- Field 114
+    Until: 08:00,             !- Field 115
+    0,                        !- Field 116
+    Until: 09:00,             !- Field 117
+    0,                        !- Field 118
+    Until: 10:00,             !- Field 119
+    0,                        !- Field 120
+    Until: 11:00,             !- Field 121
+    0,                        !- Field 122
+    Until: 12:00,             !- Field 123
+    0,                        !- Field 124
+    Until: 13:00,             !- Field 125
+    0,                        !- Field 126
+    Until: 14:00,             !- Field 127
+    0,                        !- Field 128
+    Until: 15:00,             !- Field 129
+    0,                        !- Field 130
+    Until: 16:00,             !- Field 131
+    0,                        !- Field 132
+    Until: 17:00,             !- Field 133
+    0,                        !- Field 134
+    Until: 18:00,             !- Field 135
+    0,                        !- Field 136
+    Until: 19:00,             !- Field 137
+    0,                        !- Field 138
+    Until: 20:00,             !- Field 139
+    0,                        !- Field 140
+    Until: 21:00,             !- Field 141
+    0,                        !- Field 142
+    Until: 22:00,             !- Field 143
+    0,                        !- Field 144
+    Until: 23:00,             !- Field 145
+    0,                        !- Field 146
+    Until: 24:00,             !- Field 147
+    0;                        !- Field 148
+
+Material,
+    M01 100mm brick,          !- Name
+    MediumRough,              !- Roughness
+    0.1016,                   !- Thickness
+    0.89,                     !- Conductivity
+    1920,                     !- Density
+    790;                      !- Specific Heat
+
+Material,
+    I03 75mm insulation board,    !- Name
+    MediumRough,              !- Roughness
+    0.0762,                   !- Thickness
+    0.03,                     !- Conductivity
+    43,                       !- Density
+    1210;                     !- Specific Heat
+
+Material,
+    G01a 19mm gypsum board,    !- Name
+    MediumSmooth,             !- Roughness
+    0.019,                    !- Thickness
+    0.16,                     !- Conductivity
+    800,                      !- Density
+    1090;                     !- Specific Heat
+
+Material,
+    M14a 100mm heavyweight concrete,    !- Name
+    MediumRough,              !- Roughness
+    0.1016,                   !- Thickness
+    1.95,                     !- Conductivity
+    2240,                     !- Density
+    900;                      !- Specific Heat
+
+Material,
+    I02 50mm insulation board,    !- Name
+    MediumRough,              !- Roughness
+    0.0508,                   !- Thickness
+    0.03,                     !- Conductivity
+    43,                       !- Density
+    1210;                     !- Specific Heat
+
+Material,
+    F16 Acoustic tile,        !- Name
+    MediumSmooth,             !- Roughness
+    0.0191,                   !- Thickness
+    0.06,                     !- Conductivity
+    368,                      !- Density
+    590;                      !- Specific Heat
+
+Material,
+    dummy,                    !- Name
+    MediumRough,              !- Roughness
+    0.0508,                   !- Thickness
+    0.03,                     !- Conductivity
+    43,                       !- Density
+    1210;                     !- Specific Heat
+
+Material,
+    dummy_,                   !- Name
+    MediumRough,              !- Roughness
+    0.0508,                   !- Thickness
+    0.03,                     !- Conductivity
+    43,                       !- Density
+    1210;                     !- Specific Heat
+
+Material:AirGap,
+    F04 Wall air space resistance,    !- Name
+    0.15;                     !- Thermal Resistance
+
+Material:AirGap,
+    F05 Ceiling air space resistance,    !- Name
+    0.18;                     !- Thermal Resistance
+
+WindowMaterial:SimpleGlazingSystem,
+    glazing,                  !- Name
+    1,                        !- UFactor
+    0.5;                      !- Solar Heat Gain Coefficient
+
+Construction,
+    window,                   !- Name
+    glazing;                  !- Outside Layer
+
+Construction,
+    wall,                     !- Name
+    M01 100mm brick,          !- Outside Layer
+    I03 75mm insulation board,    !- Layer 2
+    F04 Wall air space resistance,    !- Layer 3
+    G01a 19mm gypsum board;    !- Layer 4
+
+Construction,
+    roof,                     !- Name
+    M14a 100mm heavyweight concrete,    !- Outside Layer
+    I02 50mm insulation board,    !- Layer 2
+    F05 Ceiling air space resistance,    !- Layer 3
+    F16 Acoustic tile;        !- Layer 4
+
+Construction,
+    floor,                    !- Name
+    F16 Acoustic tile,        !- Outside Layer
+    F05 Ceiling air space resistance,    !- Layer 2
+    I02 50mm insulation board,    !- Layer 3
+    M14a 100mm heavyweight concrete;    !- Layer 4
+
+Construction,
+    roof_,                    !- Name
+    M14a 100mm heavyweight concrete,    !- Outside Layer
+    dummy,                    !- Layer 2
+    F05 Ceiling air space resistance,    !- Layer 3
+    F16 Acoustic tile;        !- Layer 4
+
+Construction,
+    floor_,                   !- Name
+    F16 Acoustic tile,        !- Outside Layer
+    F05 Ceiling air space resistance,    !- Layer 2
+    dummy_,                   !- Layer 3
+    M14a 100mm heavyweight concrete;    !- Layer 4
+
+GlobalGeometryRules,
+    UpperLeftCorner,          !- Starting Vertex Position
+    CounterClockWise,         !- Vertex Entry Direction
+    World;                    !- Coordinate System
+
+People,
+    people,                   !- Name
+    ,                         !- Zone or ZoneList Name
+    10034,                    !- Number of People Schedule Name
+    People/Area,              !- Number of People Calculation Method
+    129,                      !- Number of People
+    0.161,                    !- People per Zone Floor Area
+    ,                         !- Zone Floor Area per Person
+    0.3,                      !- Fraction Radiant
+    AUTOCALCULATE,            !- Sensible Heat Fraction
+    Activity Schedule 30917,    !- Activity Level Schedule Name
+    3.82e-08,                 !- Carbon Dioxide Generation Rate
+    No,                       !- Enable ASHRAE 55 Comfort Warnings
+    ZoneAveraged,             !- Mean Radiant Temperature Calculation Type
+    ,                         !- Surface NameAngle Factor List Name
+    Work efficiency,          !- Work Efficiency Schedule Name
+    ClothingInsulationSchedule,    !- Clothing Insulation Calculation Method
+    ,                         !- Clothing Insulation Calculation Method Schedule Name
+    Clothing Schedule 30917,    !- Clothing Insulation Schedule Name
+    AirVelocitySchedule;      !- Air Velocity Schedule Name
+
+Lights,
+    lights,                   !- Name
+    ,                         !- Zone or ZoneList Name
+    10035,                    !- Schedule Name
+    Watts/Area,               !- Design Level Calculation Method
+    3200.1632,                !- Lighting Level
+    15.77,                    !- Watts per Zone Floor Area
+    ,                         !- Watts per Person
+    0,                        !- Return Air Fraction
+    0.37,                     !- Fraction Radiant
+    0.18,                     !- Fraction Visible
+    1,                        !- Fraction Replaceable
+    ELECTRIC EQUIPMENT#Block1:Zone1#GeneralLights;    !- EndUse Subcategory
+
+ElectricEquipment,
+    equipment,                !- Name
+    ,                         !- Zone or ZoneList Name
+    10036,                    !- Schedule Name
+    Watts/Area,               !- Design Level Calculation Method
+    2600.1326,                !- Design Level
+    12.9,                     !- Watts per Zone Floor Area
+    ,                         !- Watts per Person
+    0,                        !- Fraction Latent
+    0.2,                      !- Fraction Radiant
+    0,                        !- Fraction Lost
+    ELECTRIC EQUIPMENT#Block1:Zone1#02;    !- EndUse Subcategory
+
+ZoneInfiltration:DesignFlowRate,
+    infiltration,             !- Name
+    ,                         !- Zone or ZoneList Name
+    2,                        !- Schedule Name
+    airchanges/hour,          !- Design Flow Rate Calculation Method
+    0.233656667,              !- Design Flow Rate
+    ,                         !- Flow per Zone Floor Area
+    ,                         !- Flow per Exterior Surface Area
+    1,                        !- Air Changes per Hour
+    0.1,                      !- Constant Term Coefficient
+    0.1,                      !- Temperature Term Coefficient
+    0,                        !- Velocity Term Coefficient
+    0;                        !- Velocity Squared Term Coefficient
+
+Exterior:FuelEquipment,
+    general power,            !- Name
+    Electricity,              !- Fuel Use Type
+    On,                       !- Schedule Name
+    1773.6,                   !- Design Level
+    General;                  !- EndUse Subcategory
+
+Exterior:FuelEquipment,
+    cooking,                  !- Name
+    NaturalGas,               !- Fuel Use Type
+    On,                       !- Schedule Name
+    656.3,                    !- Design Level
+    General;                  !- EndUse Subcategory
+
+HVACTemplate:Thermostat,
+    thermostat,               !- Name
+    Heating SP Sch,           !- Heating Setpoint Schedule Name
+    ,                         !- Constant Heating Setpoint
+    Cooling SP Sch,           !- Cooling Setpoint Schedule Name
+    ;                         !- Constant Cooling Setpoint
+
+HVACTemplate:Zone:IdealLoadsAirSystem,
+    ,                         !- Zone Name
+    thermostat,               !- Template Thermostat Name
+    ,                         !- System Availability Schedule Name
+    50,                       !- Maximum Heating Supply Air Temperature
+    13,                       !- Minimum Cooling Supply Air Temperature
+    0.0156,                   !- Maximum Heating Supply Air Humidity Ratio
+    0.0077,                   !- Minimum Cooling Supply Air Humidity Ratio
+    NoLimit,                  !- Heating Limit
+    ,                         !- Maximum Heating Air Flow Rate
+    ,                         !- Maximum Sensible Heating Capacity
+    NoLimit,                  !- Cooling Limit
+    ,                         !- Maximum Cooling Air Flow Rate
+    ,                         !- Maximum Total Cooling Capacity
+    ,                         !- Heating Availability Schedule Name
+    ,                         !- Cooling Availability Schedule Name
+    ConstantSensibleHeatRatio,    !- Dehumidification Control Type
+    0.7,                      !- Cooling Sensible Heat Ratio
+    60,                       !- Dehumidification Setpoint
+    None,                     !- Humidification Control Type
+    30,                       !- Humidification Setpoint
+    None,                     !- Outdoor Air Method
+    0.00944,                  !- Outdoor Air Flow Rate per Person
+    ,                         !- Outdoor Air Flow Rate per Zone Floor Area
+    ,                         !- Outdoor Air Flow Rate per Zone
+    OA_design,                !- Design Specification Outdoor Air Object Name
+    None,                     !- Demand Controlled Ventilation Type
+    NoEconomizer,             !- Outdoor Air Economizer Type
+    None,                     !- Heat Recovery Type
+    0.7,                      !- Sensible Heat Recovery Effectiveness
+    0.65;                     !- Latent Heat Recovery Effectiveness
+
+DesignSpecification:OutdoorAir,
+    OA_design,                !- Name
+    Flow/Zone,                !- Outdoor Air Method
+    ,                         !- Outdoor Air Flow per Person
+    ,                         !- Outdoor Air Flow per Zone Floor Area
+    ,                         !- Outdoor Air Flow per Zone
+    ,                         !- Outdoor Air Flow Air Changes per Hour
+    On;                       !- Outdoor Air Schedule Name
+
+Sizing:Parameters,
+    1.2,                      !- Heating Sizing Factor
+    1.2,                      !- Cooling Sizing Factor
+    6;                        !- Timesteps in Averaging Window
+
+Output:VariableDictionary,
+    Regular;                  !- Key Field
+
+Output:Table:SummaryReports,
+    AllSummary;               !- Report 1 Name
+
+OutputControl:Table:Style,
+    HTML,                     !- Column Separator
+    JtoKWH;                   !- Unit Conversion
+
+Output:Variable,
+    *,                        !- Key Value
+    Surface Outside Face Incident Solar Radiation Rate per Area,    !- Variable Name
+    Monthly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                        !- Key Value
+    Surface Outside Face Incident Beam Solar Radiation Rate per Area,    !- Variable Name
+    Monthly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                        !- Key Value
+    Zone Ideal Loads Zone Total Heating Energy,    !- Variable Name
+    Monthly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                        !- Key Value
+    Zone Ideal Loads Zone Total Cooling Energy,    !- Variable Name
+    Monthly;                  !- Reporting Frequency
