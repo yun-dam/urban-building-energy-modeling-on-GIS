@@ -24,18 +24,12 @@ from metaData.insMeta import insMeta
 from metaData.useMeta import load_useMeta
 from pyproj import Proj
 from util import get_epwinfo
-<<<<<<< HEAD
+
 from shapely import Polygon 
 
 class genEnergyPlus():
     
     def __init__(self, shpPath, epwPath, idColumn = 'PNU', floorNumberColumn = 'GRND_FLR', useTypeColumn = 'USABILITY', builtDateColumn = 'USEAPR_DAY', wsg84 = True):
-=======
-
-class genEnergyPlus():
-    
-    def __init__(self, shpPath, epwPath, idColumn = 'BD_MGT_SN', floorNumberColumn = 'GRND_FLR', useTypeColumn = 'USABILITY', builtDateColumn = 'USEAPR_DAY' ):
->>>>>>> 322cdac76a7701810d13e6c7162d0310ca474453
         
         # path
         cpath = os.getcwd() # 작업폴더 (current path)    
@@ -50,13 +44,9 @@ class genEnergyPlus():
         Uvalues = insMeta # 단열기준
         UseType = load_useMeta() # 건물용도
         
-<<<<<<< HEAD
         self.epwFileName = epwPath.split(sep='\\')[-1]
         region, lat, lon, tzone, elev = get_epwinfo(epwPath)
-=======
-        epwfname = epwPath
-        region, lat, lon, tzone, elev = get_epwinfo(epwfname)
->>>>>>> 322cdac76a7701810d13e6c7162d0310ca474453
+
         Projection = Proj(self.data_.crs)
         
         self.floorNumberColumn = floorNumberColumn
@@ -90,11 +80,7 @@ class genEnergyPlus():
             if (idx+1)%int(n_data/10) == 0: # 10%*n -> print
                 print('Data concatenation -> %.1f%%' %( (idx+1)/n_data*100))
            
-<<<<<<< HEAD
             EPWFname[idx] = self.epwFileName # EPW 파일명
-=======
-            EPWFname[idx] = epwfname # EPW 파일명
->>>>>>> 322cdac76a7701810d13e6c7162d0310ca474453
             EPWRegion[idx] = region # EPW 지역명
             EPWLat[idx] = lat # 위도
             EPWLon[idx] = lon # 경도   
@@ -163,7 +149,7 @@ class genEnergyPlus():
         self.my_proj = Proj(self.data_.crs)
         self.data_.reset_index(inplace = True)       
         
-<<<<<<< HEAD
+
         if wsg84:
 
 
@@ -189,12 +175,6 @@ class genEnergyPlus():
         return self.data_ 
     
     def main(self, bldgID,  wwr = 0.3, Z_height = 3.5, boundaryBuffer = 60, run_simluation = False):
-=======
-    def dfdf(self):
-
-        return self.data_ 
-    def main(self, bldgID,  wwr = 0.3, Z_height = 3.5, boundaryBuffer = 60):
->>>>>>> 322cdac76a7701810d13e6c7162d0310ca474453
         
         cpath = os.getcwd() # 작업폴더 (current path)    
         MinimalIDFpath = os.path.join(cpath, 'IDF') # Minimal IDF 디렉토리
@@ -315,21 +295,13 @@ class genEnergyPlus():
         
         
         # epw 파일 찾기      
-<<<<<<< HEAD
         # all_items = os.listdir('.')
         # epwFile = [item for item in all_items if os.path.isfile(os.path.join('.', item)) and item.endswith('.epw')][0]
     
         
         # 대상건물의 IDF 생성
         idf = IDF(os.path.join(MinimalIDFpath, minimalIDF), epw = self.epwFileName) # 할당된 idf 파일 불러오기
-=======
-        all_items = os.listdir('.')
-        epwFile = [item for item in all_items if os.path.isfile(os.path.join('.', item)) and item.endswith('.epw')][0]
-    
-        
-        # 대상건물의 IDF 생성
-        idf = IDF(os.path.join(MinimalIDFpath, minimalIDF), epw = epwFile) # 할당된 idf 파일 불러오기
->>>>>>> 322cdac76a7701810d13e6c7162d0310ca474453
+
         setattr(idf.idfobjects['BUILDING'][0], 'Solar_Distribution', 'FullExterior')
         
         idf = idf_zones(idf, zone_name, zone_height)
@@ -346,9 +318,6 @@ class genEnergyPlus():
         # this_savepath = os.path.join(savepath, EPWRegion)
         this_savepath = '.'
         idf.saveas(os.path.join(this_savepath, newIDF))
-<<<<<<< HEAD
-
-        
         
         if run_simluation: #### in progress ####
             
@@ -378,31 +347,7 @@ class genEnergyPlus():
         else:
             
             print('!!! Done !!!')
-=======
-        
-        def make_eplaunch_options(idf):
-            """Make options for run, so that it runs like EPLaunch on Windows"""
-            idfversion = idf.idfobjects['version'][0].Version_Identifier.split('.')
-            idfversion.extend([0] * (3 - len(idfversion)))
-            idfversionstr = '-'.join([str(item) for item in idfversion])
-            fname = idf.idfname
-            options = {
-                # 'ep_version':idfversionstr, # runIDFs needs the version number
-                    # idf.run does not need the above arg
-                    # you can leave it there and it will be fine :-)
-                'output_prefix':os.path.basename(fname).split('.')[0],
-                'output_suffix':'C',
-                'output_directory':os.path.dirname(fname),
-                'readvars':True,
-                'expandobjects':True
-                }
-            return options
 
-        theoptions = make_eplaunch_options(idf)
-        print('Running... ' + newIDF)   
-        idf.run(**theoptions)
-        
->>>>>>> 322cdac76a7701810d13e6c7162d0310ca474453
         # copy2(os.path.join(epwpath, EPWFname), os.path.join(this_savepath, EPWFname))
 
         
