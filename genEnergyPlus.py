@@ -170,7 +170,7 @@ class genEnergyPlus():
                     
 
         
-    def dfdf(self):
+    def processedDataExport(self):
 
         return self.data_ 
     
@@ -301,7 +301,7 @@ class genEnergyPlus():
         
         # 대상건물의 IDF 생성
         idf = IDF(os.path.join(MinimalIDFpath, minimalIDF), epw = self.epwFileName) # 할당된 idf 파일 불러오기
-
+        
         setattr(idf.idfobjects['BUILDING'][0], 'Solar_Distribution', 'FullExterior')
         
         idf = idf_zones(idf, zone_name, zone_height)
