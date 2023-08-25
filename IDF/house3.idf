@@ -1,0 +1,3388 @@
+!- Windows Line endings 
+
+Version,
+    9.0;                      !- Version Identifier
+
+SimulationControl,
+    No,                       !- Do Zone Sizing Calculation
+    No,                       !- Do System Sizing Calculation
+    No,                       !- Do Plant Sizing Calculation
+    No,                       !- Run Simulation for Sizing Periods
+    Yes;                      !- Run Simulation for Weather File Run Periods
+
+Building,
+    bldg,                     !- Name
+    0,                        !- North Axis
+    City,                     !- Terrain
+    0.04,                     !- Loads Convergence Tolerance Value
+    0.4,                      !- Temperature Convergence Tolerance Value
+    FullInteriorAndExterior,    !- Solar Distribution
+    25,                       !- Maximum Number of Warmup Days
+    6;                        !- Minimum Number of Warmup Days
+
+Timestep,
+    1;                        !- Number of Timesteps per Hour
+
+Site:Location,
+    DENVER_STAPLETON_CO_USA_WMO_724690,    !- Name
+    39.77,                    !- Latitude
+    -104.87,                  !- Longitude
+    -7,                       !- Time Zone
+    1611;                     !- Elevation
+
+SizingPeriod:DesignDay,
+    Summer Design Day in Untitled,    !- Name
+    7,                        !- Month
+    15,                       !- Day of Month
+    SummerDesignDay,          !- Day Type
+    32,                       !- Maximum DryBulb Temperature
+    7.9,                      !- Daily DryBulb Temperature Range
+    ,                         !- DryBulb Temperature Range Modifier Type
+    ,                         !- DryBulb Temperature Range Modifier Day Schedule Name
+    WetBulb,                  !- Humidity Condition Type
+    25.2,                     !- Wetbulb or DewPoint at Maximum DryBulb
+    ,                         !- Humidity Condition Day Schedule Name
+    ,                         !- Humidity Ratio at Maximum DryBulb
+    ,                         !- Enthalpy at Maximum DryBulb
+    ,                         !- Daily WetBulb Temperature Range
+    101097,                   !- Barometric Pressure
+    0,                        !- Wind Speed
+    0,                        !- Wind Direction
+    No,                       !- Rain Indicator
+    No,                       !- Snow Indicator
+    No,                       !- Daylight Saving Time Indicator
+    ,                         !- Solar Model Indicator
+    ,                         !- Beam Solar Day Schedule Name
+    ,                         !- Diffuse Solar Day Schedule Name
+    ,                         !- ASHRAE Clear Sky Optical Depth for Beam Irradiance taub
+    ,                         !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance taud
+    0.98;                     !- Sky Clearness
+
+SizingPeriod:DesignDay,
+    Winter Design Day in Untitled,    !- Name
+    1,                        !- Month
+    15,                       !- Day of Month
+    WinterDesignDay,          !- Day Type
+    -13.9,                    !- Maximum DryBulb Temperature
+    0,                        !- Daily DryBulb Temperature Range
+    ,                         !- DryBulb Temperature Range Modifier Type
+    ,                         !- DryBulb Temperature Range Modifier Day Schedule Name
+    WetBulb,                  !- Humidity Condition Type
+    -13.9,                    !- Wetbulb or DewPoint at Maximum DryBulb
+    ,                         !- Humidity Condition Day Schedule Name
+    ,                         !- Humidity Ratio at Maximum DryBulb
+    ,                         !- Enthalpy at Maximum DryBulb
+    ,                         !- Daily WetBulb Temperature Range
+    101097,                   !- Barometric Pressure
+    9.4,                      !- Wind Speed
+    0,                        !- Wind Direction
+    No,                       !- Rain Indicator
+    No,                       !- Snow Indicator
+    No,                       !- Daylight Saving Time Indicator
+    ,                         !- Solar Model Indicator
+    ,                         !- Beam Solar Day Schedule Name
+    ,                         !- Diffuse Solar Day Schedule Name
+    ,                         !- ASHRAE Clear Sky Optical Depth for Beam Irradiance taub
+    ,                         !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance taud
+    0;                        !- Sky Clearness
+
+RunPeriod,
+    ,                         !- Name
+    1,                        !- Begin Month
+    1,                        !- Begin Day of Month
+    ,                         !- Begin Year
+    12,                       !- End Month
+    31,                       !- End Day of Month
+    ,                         !- End Year
+    Wednesday,                !- Day of Week for Start Day
+    Yes,                      !- Use Weather File Holidays and Special Days
+    Yes,                      !- Use Weather File Daylight Saving Period
+    No,                       !- Apply Weekend Holiday Rule
+    Yes,                      !- Use Weather File Rain Indicators
+    Yes;                      !- Use Weather File Snow Indicators
+
+ScheduleTypeLimits,
+    Any Number;               !- Name
+
+ScheduleTypeLimits,
+    Fraction,                 !- Name
+    0,                        !- Lower Limit Value
+    1,                        !- Upper Limit Value
+    CONTINUOUS;               !- Numeric Type
+
+ScheduleTypeLimits,
+    Temperature,              !- Name
+    -60,                      !- Lower Limit Value
+    200,                      !- Upper Limit Value
+    CONTINUOUS;               !- Numeric Type
+
+ScheduleTypeLimits,
+    Control Type,             !- Name
+    0,                        !- Lower Limit Value
+    4,                        !- Upper Limit Value
+    DISCRETE;                 !- Numeric Type
+
+ScheduleTypeLimits,
+    On/Off,                   !- Name
+    0,                        !- Lower Limit Value
+    1,                        !- Upper Limit Value
+    DISCRETE;                 !- Numeric Type
+
+Schedule:Day:Hourly,
+    0,                        !- Name
+    Any Number,               !- Schedule Type Limits Name
+    0,                        !- Hour 1
+    0,                        !- Hour 2
+    0,                        !- Hour 3
+    0,                        !- Hour 4
+    0,                        !- Hour 5
+    0,                        !- Hour 6
+    0,                        !- Hour 7
+    0,                        !- Hour 8
+    0,                        !- Hour 9
+    0,                        !- Hour 10
+    0,                        !- Hour 11
+    0,                        !- Hour 12
+    0,                        !- Hour 13
+    0,                        !- Hour 14
+    0,                        !- Hour 15
+    0,                        !- Hour 16
+    0,                        !- Hour 17
+    0,                        !- Hour 18
+    0,                        !- Hour 19
+    0,                        !- Hour 20
+    0,                        !- Hour 21
+    0,                        !- Hour 22
+    0,                        !- Hour 23
+    0;                        !- Hour 24
+
+Schedule:Day:Hourly,
+    50,                       !- Name
+    Any Number,               !- Schedule Type Limits Name
+    50,                       !- Hour 1
+    50,                       !- Hour 2
+    50,                       !- Hour 3
+    50,                       !- Hour 4
+    50,                       !- Hour 5
+    50,                       !- Hour 6
+    50,                       !- Hour 7
+    50,                       !- Hour 8
+    50,                       !- Hour 9
+    50,                       !- Hour 10
+    50,                       !- Hour 11
+    50,                       !- Hour 12
+    50,                       !- Hour 13
+    50,                       !- Hour 14
+    50,                       !- Hour 15
+    50,                       !- Hour 16
+    50,                       !- Hour 17
+    50,                       !- Hour 18
+    50,                       !- Hour 19
+    50,                       !- Hour 20
+    50,                       !- Hour 21
+    50,                       !- Hour 22
+    50,                       !- Hour 23
+    50;                       !- Hour 24
+
+Schedule:Day:Hourly,
+    Off,                      !- Name
+    Fraction,                 !- Schedule Type Limits Name
+    0,                        !- Hour 1
+    0,                        !- Hour 2
+    0,                        !- Hour 3
+    0,                        !- Hour 4
+    0,                        !- Hour 5
+    0,                        !- Hour 6
+    0,                        !- Hour 7
+    0,                        !- Hour 8
+    0,                        !- Hour 9
+    0,                        !- Hour 10
+    0,                        !- Hour 11
+    0,                        !- Hour 12
+    0,                        !- Hour 13
+    0,                        !- Hour 14
+    0,                        !- Hour 15
+    0,                        !- Hour 16
+    0,                        !- Hour 17
+    0,                        !- Hour 18
+    0,                        !- Hour 19
+    0,                        !- Hour 20
+    0,                        !- Hour 21
+    0,                        !- Hour 22
+    0,                        !- Hour 23
+    0;                        !- Hour 24
+
+Schedule:Day:Hourly,
+    Summer Control Type Day Sch,    !- Name
+    Control Type,             !- Schedule Type Limits Name
+    4,                        !- Hour 1
+    4,                        !- Hour 2
+    4,                        !- Hour 3
+    4,                        !- Hour 4
+    4,                        !- Hour 5
+    4,                        !- Hour 6
+    4,                        !- Hour 7
+    4,                        !- Hour 8
+    4,                        !- Hour 9
+    4,                        !- Hour 10
+    4,                        !- Hour 11
+    4,                        !- Hour 12
+    4,                        !- Hour 13
+    4,                        !- Hour 14
+    4,                        !- Hour 15
+    4,                        !- Hour 16
+    4,                        !- Hour 17
+    4,                        !- Hour 18
+    4,                        !- Hour 19
+    4,                        !- Hour 20
+    4,                        !- Hour 21
+    4,                        !- Hour 22
+    4,                        !- Hour 23
+    4;                        !- Hour 24
+
+Schedule:Day:Hourly,
+    Winter Control Type Day Sch,    !- Name
+    Control Type,             !- Schedule Type Limits Name
+    4,                        !- Hour 1
+    4,                        !- Hour 2
+    4,                        !- Hour 3
+    4,                        !- Hour 4
+    4,                        !- Hour 5
+    4,                        !- Hour 6
+    4,                        !- Hour 7
+    4,                        !- Hour 8
+    4,                        !- Hour 9
+    4,                        !- Hour 10
+    4,                        !- Hour 11
+    4,                        !- Hour 12
+    4,                        !- Hour 13
+    4,                        !- Hour 14
+    4,                        !- Hour 15
+    4,                        !- Hour 16
+    4,                        !- Hour 17
+    4,                        !- Hour 18
+    4,                        !- Hour 19
+    4,                        !- Hour 20
+    4,                        !- Hour 21
+    4,                        !- Hour 22
+    4,                        !- Hour 23
+    4;                        !- Hour 24
+
+Schedule:Day:Hourly,
+    Summer Control Type Day Sch - cool,    !- Name
+    Control Type,             !- Schedule Type Limits Name
+    2,                        !- Hour 1
+    2,                        !- Hour 2
+    2,                        !- Hour 3
+    2,                        !- Hour 4
+    2,                        !- Hour 5
+    2,                        !- Hour 6
+    2,                        !- Hour 7
+    2,                        !- Hour 8
+    2,                        !- Hour 9
+    2,                        !- Hour 10
+    2,                        !- Hour 11
+    2,                        !- Hour 12
+    2,                        !- Hour 13
+    2,                        !- Hour 14
+    2,                        !- Hour 15
+    2,                        !- Hour 16
+    2,                        !- Hour 17
+    2,                        !- Hour 18
+    2,                        !- Hour 19
+    2,                        !- Hour 20
+    2,                        !- Hour 21
+    2,                        !- Hour 22
+    2,                        !- Hour 23
+    2;                        !- Hour 24
+
+Schedule:Day:Hourly,
+    Winter Control Type Day Sch - heat,    !- Name
+    Control Type,             !- Schedule Type Limits Name
+    1,                        !- Hour 1
+    1,                        !- Hour 2
+    1,                        !- Hour 3
+    1,                        !- Hour 4
+    1,                        !- Hour 5
+    1,                        !- Hour 6
+    1,                        !- Hour 7
+    1,                        !- Hour 8
+    1,                        !- Hour 9
+    1,                        !- Hour 10
+    1,                        !- Hour 11
+    1,                        !- Hour 12
+    1,                        !- Hour 13
+    1,                        !- Hour 14
+    1,                        !- Hour 15
+    1,                        !- Hour 16
+    1,                        !- Hour 17
+    1,                        !- Hour 18
+    1,                        !- Hour 19
+    1,                        !- Hour 20
+    1,                        !- Hour 21
+    1,                        !- Hour 22
+    1,                        !- Hour 23
+    1;                        !- Hour 24
+
+Schedule:Day:Interval,
+    11,                       !- Name
+    Any number,               !- Schedule Type Limits Name
+    No,                       !- Interpolate to Timestep
+    24:00,                    !- Time 1
+    0;                        !- Value Until Time 1
+
+Schedule:Day:Interval,
+    12,                       !- Name
+    Any number,               !- Schedule Type Limits Name
+    No,                       !- Interpolate to Timestep
+    24:00,                    !- Time 1
+    1;                        !- Value Until Time 1
+
+Schedule:Day:Interval,
+    11_-50_12_21,             !- Name
+    Any number,               !- Schedule Type Limits Name
+    No,                       !- Interpolate to Timestep
+    24:00,                    !- Time 1
+    -50;                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+    12_-50_12_21,             !- Name
+    Any number,               !- Schedule Type Limits Name
+    No,                       !- Interpolate to Timestep
+    24:00,                    !- Time 1
+    21;                       !- Value Until Time 1
+
+Schedule:Day:Interval,
+    11_0_1_1,                 !- Name
+    Any number,               !- Schedule Type Limits Name
+    No,                       !- Interpolate to Timestep
+    24:00,                    !- Time 1
+    0;                        !- Value Until Time 1
+
+Schedule:Day:Interval,
+    12_0_1_1,                 !- Name
+    Any number,               !- Schedule Type Limits Name
+    No,                       !- Interpolate to Timestep
+    24:00,                    !- Time 1
+    1;                        !- Value Until Time 1
+
+Schedule:Day:List,
+    10000,                    !- Name
+    Any number,               !- Schedule Type Limits Name
+    No,                       !- Interpolate to Timestep
+    60,                       !- Minutes per Item
+    1,                        !- Value 1
+    1,                        !- Value 2
+    1,                        !- Value 3
+    1,                        !- Value 4
+    1,                        !- Value 5
+    1,                        !- Value 6
+    1,                        !- Value 7
+    0,                        !- Value 8
+    0,                        !- Value 9
+    0,                        !- Value 10
+    0,                        !- Value 11
+    0,                        !- Value 12
+    0,                        !- Value 13
+    0,                        !- Value 14
+    0,                        !- Value 15
+    0,                        !- Value 16
+    0,                        !- Value 17
+    0.35,                     !- Value 18
+    0.35,                     !- Value 19
+    1,                        !- Value 20
+    1,                        !- Value 21
+    1,                        !- Value 22
+    1,                        !- Value 23
+    1;                        !- Value 24
+
+Schedule:Day:List,
+    10001,                    !- Name
+    Any number,               !- Schedule Type Limits Name
+    No,                       !- Interpolate to Timestep
+    60,                       !- Minutes per Item
+    1,                        !- Value 1
+    1,                        !- Value 2
+    1,                        !- Value 3
+    1,                        !- Value 4
+    1,                        !- Value 5
+    1,                        !- Value 6
+    1,                        !- Value 7
+    1,                        !- Value 8
+    1,                        !- Value 9
+    1,                        !- Value 10
+    0,                        !- Value 11
+    0,                        !- Value 12
+    0,                        !- Value 13
+    0,                        !- Value 14
+    0,                        !- Value 15
+    0,                        !- Value 16
+    0,                        !- Value 17
+    1,                        !- Value 18
+    1,                        !- Value 19
+    1,                        !- Value 20
+    1,                        !- Value 21
+    1,                        !- Value 22
+    1,                        !- Value 23
+    1;                        !- Value 24
+
+Schedule:Day:List,
+    10004,                    !- Name
+    Any number,               !- Schedule Type Limits Name
+    No,                       !- Interpolate to Timestep
+    60,                       !- Minutes per Item
+    0,                        !- Value 1
+    0,                        !- Value 2
+    0,                        !- Value 3
+    0,                        !- Value 4
+    0,                        !- Value 5
+    0,                        !- Value 6
+    0,                        !- Value 7
+    0,                        !- Value 8
+    0,                        !- Value 9
+    0,                        !- Value 10
+    0,                        !- Value 11
+    0,                        !- Value 12
+    0,                        !- Value 13
+    0,                        !- Value 14
+    0,                        !- Value 15
+    0,                        !- Value 16
+    0,                        !- Value 17
+    0,                        !- Value 18
+    0,                        !- Value 19
+    0.7,                      !- Value 20
+    1,                        !- Value 21
+    1,                        !- Value 22
+    0,                        !- Value 23
+    0;                        !- Value 24
+
+Schedule:Day:List,
+    10001_-50_12_21,          !- Name
+    Any number,               !- Schedule Type Limits Name
+    No,                       !- Interpolate to Timestep
+    60,                       !- Minutes per Item
+    19.9155,                  !- Value 1
+    19.9155,                  !- Value 2
+    19.9155,                  !- Value 3
+    19.9155,                  !- Value 4
+    19.9155,                  !- Value 5
+    19.9155,                  !- Value 6
+    19.9155,                  !- Value 7
+    19.9155,                  !- Value 8
+    19.9155,                  !- Value 9
+    19.9155,                  !- Value 10
+    -50,                      !- Value 11
+    -50,                      !- Value 12
+    -50,                      !- Value 13
+    -50,                      !- Value 14
+    -50,                      !- Value 15
+    -50,                      !- Value 16
+    -50,                      !- Value 17
+    19.9155,                  !- Value 18
+    19.9155,                  !- Value 19
+    19.9155,                  !- Value 20
+    19.9155,                  !- Value 21
+    19.9155,                  !- Value 22
+    19.9155,                  !- Value 23
+    19.9155;                  !- Value 24
+
+Schedule:Day:List,
+    10000_-50_12_21,          !- Name
+    Any number,               !- Schedule Type Limits Name
+    No,                       !- Interpolate to Timestep
+    60,                       !- Minutes per Item
+    19.9155,                  !- Value 1
+    19.9155,                  !- Value 2
+    19.9155,                  !- Value 3
+    19.9155,                  !- Value 4
+    19.9155,                  !- Value 5
+    19.9155,                  !- Value 6
+    19.9155,                  !- Value 7
+    -50,                      !- Value 8
+    -50,                      !- Value 9
+    -50,                      !- Value 10
+    -50,                      !- Value 11
+    -50,                      !- Value 12
+    -50,                      !- Value 13
+    -50,                      !- Value 14
+    -50,                      !- Value 15
+    -50,                      !- Value 16
+    -50,                      !- Value 17
+    12,                       !- Value 18
+    12,                       !- Value 19
+    19.9155,                  !- Value 20
+    19.9155,                  !- Value 21
+    19.9155,                  !- Value 22
+    19.9155,                  !- Value 23
+    19.9155;                  !- Value 24
+
+Schedule:Day:List,
+    10001_0_1_1,              !- Name
+    Any number,               !- Schedule Type Limits Name
+    No,                       !- Interpolate to Timestep
+    60,                       !- Minutes per Item
+    1,                        !- Value 1
+    1,                        !- Value 2
+    1,                        !- Value 3
+    1,                        !- Value 4
+    1,                        !- Value 5
+    1,                        !- Value 6
+    1,                        !- Value 7
+    1,                        !- Value 8
+    1,                        !- Value 9
+    1,                        !- Value 10
+    0,                        !- Value 11
+    0,                        !- Value 12
+    0,                        !- Value 13
+    0,                        !- Value 14
+    0,                        !- Value 15
+    0,                        !- Value 16
+    0,                        !- Value 17
+    1,                        !- Value 18
+    1,                        !- Value 19
+    1,                        !- Value 20
+    1,                        !- Value 21
+    1,                        !- Value 22
+    1,                        !- Value 23
+    1;                        !- Value 24
+
+Schedule:Day:List,
+    10000_0_1_1,              !- Name
+    Any number,               !- Schedule Type Limits Name
+    No,                       !- Interpolate to Timestep
+    60,                       !- Minutes per Item
+    1,                        !- Value 1
+    1,                        !- Value 2
+    1,                        !- Value 3
+    1,                        !- Value 4
+    1,                        !- Value 5
+    1,                        !- Value 6
+    1,                        !- Value 7
+    0,                        !- Value 8
+    0,                        !- Value 9
+    0,                        !- Value 10
+    0,                        !- Value 11
+    0,                        !- Value 12
+    0,                        !- Value 13
+    0,                        !- Value 14
+    0,                        !- Value 15
+    0,                        !- Value 16
+    0,                        !- Value 17
+    1,                        !- Value 18
+    1,                        !- Value 19
+    1,                        !- Value 20
+    1,                        !- Value 21
+    1,                        !- Value 22
+    1,                        !- Value 23
+    1;                        !- Value 24
+
+Schedule:Week:Daily,
+    Off,                      !- Name
+    Off,                      !- Sunday ScheduleDay Name
+    Off,                      !- Monday ScheduleDay Name
+    Off,                      !- Tuesday ScheduleDay Name
+    Off,                      !- Wednesday ScheduleDay Name
+    Off,                      !- Thursday ScheduleDay Name
+    Off,                      !- Friday ScheduleDay Name
+    Off,                      !- Saturday ScheduleDay Name
+    Off,                      !- Holiday ScheduleDay Name
+    Off,                      !- SummerDesignDay ScheduleDay Name
+    Off,                      !- WinterDesignDay ScheduleDay Name
+    Off,                      !- CustomDay1 ScheduleDay Name
+    Off;                      !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Summer Control Type Week Sch,    !- Name
+    Summer Control Type Day Sch,    !- Sunday ScheduleDay Name
+    Summer Control Type Day Sch,    !- Monday ScheduleDay Name
+    Summer Control Type Day Sch,    !- Tuesday ScheduleDay Name
+    Summer Control Type Day Sch,    !- Wednesday ScheduleDay Name
+    Summer Control Type Day Sch,    !- Thursday ScheduleDay Name
+    Summer Control Type Day Sch,    !- Friday ScheduleDay Name
+    Summer Control Type Day Sch,    !- Saturday ScheduleDay Name
+    Summer Control Type Day Sch,    !- Holiday ScheduleDay Name
+    Summer Control Type Day Sch,    !- SummerDesignDay ScheduleDay Name
+    Summer Control Type Day Sch,    !- WinterDesignDay ScheduleDay Name
+    Summer Control Type Day Sch,    !- CustomDay1 ScheduleDay Name
+    Summer Control Type Day Sch;    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Winter Control Type Week Sch,    !- Name
+    Winter Control Type Day Sch,    !- Sunday ScheduleDay Name
+    Winter Control Type Day Sch,    !- Monday ScheduleDay Name
+    Winter Control Type Day Sch,    !- Tuesday ScheduleDay Name
+    Winter Control Type Day Sch,    !- Wednesday ScheduleDay Name
+    Winter Control Type Day Sch,    !- Thursday ScheduleDay Name
+    Winter Control Type Day Sch,    !- Friday ScheduleDay Name
+    Winter Control Type Day Sch,    !- Saturday ScheduleDay Name
+    Winter Control Type Day Sch,    !- Holiday ScheduleDay Name
+    Winter Control Type Day Sch,    !- SummerDesignDay ScheduleDay Name
+    Winter Control Type Day Sch,    !- WinterDesignDay ScheduleDay Name
+    Winter Control Type Day Sch,    !- CustomDay1 ScheduleDay Name
+    Winter Control Type Day Sch;    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Summer Control Type Week Sch - cool,    !- Name
+    Summer Control Type Day Sch - cool,    !- Sunday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- Monday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- Tuesday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- Wednesday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- Thursday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- Friday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- Saturday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- Holiday ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- SummerDesignDay ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- WinterDesignDay ScheduleDay Name
+    Summer Control Type Day Sch - cool,    !- CustomDay1 ScheduleDay Name
+    Summer Control Type Day Sch - cool;    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Winter Control Type Week Sch - heat,    !- Name
+    Winter Control Type Day Sch - heat,    !- Sunday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- Monday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- Tuesday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- Wednesday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- Thursday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- Friday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- Saturday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- Holiday ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- SummerDesignDay ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- WinterDesignDay ScheduleDay Name
+    Winter Control Type Day Sch - heat,    !- CustomDay1 ScheduleDay Name
+    Winter Control Type Day Sch - heat;    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10000_Jan,                !- Name
+    10001,                    !- Sunday ScheduleDay Name
+    10000,                    !- Monday ScheduleDay Name
+    10000,                    !- Tuesday ScheduleDay Name
+    10000,                    !- Wednesday ScheduleDay Name
+    10000,                    !- Thursday ScheduleDay Name
+    10000,                    !- Friday ScheduleDay Name
+    10001,                    !- Saturday ScheduleDay Name
+    10001,                    !- Holiday ScheduleDay Name
+    10000,                    !- SummerDesignDay ScheduleDay Name
+    11,                       !- WinterDesignDay ScheduleDay Name
+    10000,                    !- CustomDay1 ScheduleDay Name
+    10000;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10000_Feb,                !- Name
+    10001,                    !- Sunday ScheduleDay Name
+    10000,                    !- Monday ScheduleDay Name
+    10000,                    !- Tuesday ScheduleDay Name
+    10000,                    !- Wednesday ScheduleDay Name
+    10000,                    !- Thursday ScheduleDay Name
+    10000,                    !- Friday ScheduleDay Name
+    10001,                    !- Saturday ScheduleDay Name
+    10001,                    !- Holiday ScheduleDay Name
+    10000,                    !- SummerDesignDay ScheduleDay Name
+    11,                       !- WinterDesignDay ScheduleDay Name
+    10000,                    !- CustomDay1 ScheduleDay Name
+    10000;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10000_Mar,                !- Name
+    10001,                    !- Sunday ScheduleDay Name
+    10000,                    !- Monday ScheduleDay Name
+    10000,                    !- Tuesday ScheduleDay Name
+    10000,                    !- Wednesday ScheduleDay Name
+    10000,                    !- Thursday ScheduleDay Name
+    10000,                    !- Friday ScheduleDay Name
+    10001,                    !- Saturday ScheduleDay Name
+    10001,                    !- Holiday ScheduleDay Name
+    10000,                    !- SummerDesignDay ScheduleDay Name
+    11,                       !- WinterDesignDay ScheduleDay Name
+    10000,                    !- CustomDay1 ScheduleDay Name
+    10000;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10000_Apr,                !- Name
+    10001,                    !- Sunday ScheduleDay Name
+    10000,                    !- Monday ScheduleDay Name
+    10000,                    !- Tuesday ScheduleDay Name
+    10000,                    !- Wednesday ScheduleDay Name
+    10000,                    !- Thursday ScheduleDay Name
+    10000,                    !- Friday ScheduleDay Name
+    10001,                    !- Saturday ScheduleDay Name
+    10001,                    !- Holiday ScheduleDay Name
+    10000,                    !- SummerDesignDay ScheduleDay Name
+    11,                       !- WinterDesignDay ScheduleDay Name
+    10000,                    !- CustomDay1 ScheduleDay Name
+    10000;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10000_May,                !- Name
+    10001,                    !- Sunday ScheduleDay Name
+    10000,                    !- Monday ScheduleDay Name
+    10000,                    !- Tuesday ScheduleDay Name
+    10000,                    !- Wednesday ScheduleDay Name
+    10000,                    !- Thursday ScheduleDay Name
+    10000,                    !- Friday ScheduleDay Name
+    10001,                    !- Saturday ScheduleDay Name
+    10001,                    !- Holiday ScheduleDay Name
+    10000,                    !- SummerDesignDay ScheduleDay Name
+    11,                       !- WinterDesignDay ScheduleDay Name
+    10000,                    !- CustomDay1 ScheduleDay Name
+    10000;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10000_Jun,                !- Name
+    10001,                    !- Sunday ScheduleDay Name
+    10000,                    !- Monday ScheduleDay Name
+    10000,                    !- Tuesday ScheduleDay Name
+    10000,                    !- Wednesday ScheduleDay Name
+    10000,                    !- Thursday ScheduleDay Name
+    10000,                    !- Friday ScheduleDay Name
+    10001,                    !- Saturday ScheduleDay Name
+    10001,                    !- Holiday ScheduleDay Name
+    10000,                    !- SummerDesignDay ScheduleDay Name
+    11,                       !- WinterDesignDay ScheduleDay Name
+    10000,                    !- CustomDay1 ScheduleDay Name
+    10000;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10000_Jul,                !- Name
+    10001,                    !- Sunday ScheduleDay Name
+    10000,                    !- Monday ScheduleDay Name
+    10000,                    !- Tuesday ScheduleDay Name
+    10000,                    !- Wednesday ScheduleDay Name
+    10000,                    !- Thursday ScheduleDay Name
+    10000,                    !- Friday ScheduleDay Name
+    10001,                    !- Saturday ScheduleDay Name
+    10001,                    !- Holiday ScheduleDay Name
+    10000,                    !- SummerDesignDay ScheduleDay Name
+    11,                       !- WinterDesignDay ScheduleDay Name
+    10000,                    !- CustomDay1 ScheduleDay Name
+    10000;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10000_Aug,                !- Name
+    10001,                    !- Sunday ScheduleDay Name
+    10000,                    !- Monday ScheduleDay Name
+    10000,                    !- Tuesday ScheduleDay Name
+    10000,                    !- Wednesday ScheduleDay Name
+    10000,                    !- Thursday ScheduleDay Name
+    10000,                    !- Friday ScheduleDay Name
+    10001,                    !- Saturday ScheduleDay Name
+    10001,                    !- Holiday ScheduleDay Name
+    10000,                    !- SummerDesignDay ScheduleDay Name
+    11,                       !- WinterDesignDay ScheduleDay Name
+    10000,                    !- CustomDay1 ScheduleDay Name
+    10000;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10000_Sep,                !- Name
+    10001,                    !- Sunday ScheduleDay Name
+    10000,                    !- Monday ScheduleDay Name
+    10000,                    !- Tuesday ScheduleDay Name
+    10000,                    !- Wednesday ScheduleDay Name
+    10000,                    !- Thursday ScheduleDay Name
+    10000,                    !- Friday ScheduleDay Name
+    10001,                    !- Saturday ScheduleDay Name
+    10001,                    !- Holiday ScheduleDay Name
+    10000,                    !- SummerDesignDay ScheduleDay Name
+    11,                       !- WinterDesignDay ScheduleDay Name
+    10000,                    !- CustomDay1 ScheduleDay Name
+    10000;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10000_Oct,                !- Name
+    10001,                    !- Sunday ScheduleDay Name
+    10000,                    !- Monday ScheduleDay Name
+    10000,                    !- Tuesday ScheduleDay Name
+    10000,                    !- Wednesday ScheduleDay Name
+    10000,                    !- Thursday ScheduleDay Name
+    10000,                    !- Friday ScheduleDay Name
+    10001,                    !- Saturday ScheduleDay Name
+    10001,                    !- Holiday ScheduleDay Name
+    10000,                    !- SummerDesignDay ScheduleDay Name
+    11,                       !- WinterDesignDay ScheduleDay Name
+    10000,                    !- CustomDay1 ScheduleDay Name
+    10000;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10000_Nov,                !- Name
+    10001,                    !- Sunday ScheduleDay Name
+    10000,                    !- Monday ScheduleDay Name
+    10000,                    !- Tuesday ScheduleDay Name
+    10000,                    !- Wednesday ScheduleDay Name
+    10000,                    !- Thursday ScheduleDay Name
+    10000,                    !- Friday ScheduleDay Name
+    10001,                    !- Saturday ScheduleDay Name
+    10001,                    !- Holiday ScheduleDay Name
+    10000,                    !- SummerDesignDay ScheduleDay Name
+    11,                       !- WinterDesignDay ScheduleDay Name
+    10000,                    !- CustomDay1 ScheduleDay Name
+    10000;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10000_Dec,                !- Name
+    10001,                    !- Sunday ScheduleDay Name
+    10000,                    !- Monday ScheduleDay Name
+    10000,                    !- Tuesday ScheduleDay Name
+    10000,                    !- Wednesday ScheduleDay Name
+    10000,                    !- Thursday ScheduleDay Name
+    10000,                    !- Friday ScheduleDay Name
+    10001,                    !- Saturday ScheduleDay Name
+    10001,                    !- Holiday ScheduleDay Name
+    10000,                    !- SummerDesignDay ScheduleDay Name
+    11,                       !- WinterDesignDay ScheduleDay Name
+    10000,                    !- CustomDay1 ScheduleDay Name
+    10000;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10004_Jan,                !- Name
+    12,                       !- Sunday ScheduleDay Name
+    12,                       !- Monday ScheduleDay Name
+    12,                       !- Tuesday ScheduleDay Name
+    12,                       !- Wednesday ScheduleDay Name
+    12,                       !- Thursday ScheduleDay Name
+    12,                       !- Friday ScheduleDay Name
+    12,                       !- Saturday ScheduleDay Name
+    12,                       !- Holiday ScheduleDay Name
+    12,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    12,                       !- CustomDay1 ScheduleDay Name
+    12;                       !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10004_Feb,                !- Name
+    12,                       !- Sunday ScheduleDay Name
+    12,                       !- Monday ScheduleDay Name
+    12,                       !- Tuesday ScheduleDay Name
+    12,                       !- Wednesday ScheduleDay Name
+    12,                       !- Thursday ScheduleDay Name
+    12,                       !- Friday ScheduleDay Name
+    12,                       !- Saturday ScheduleDay Name
+    12,                       !- Holiday ScheduleDay Name
+    12,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    12,                       !- CustomDay1 ScheduleDay Name
+    12;                       !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10004_Mar,                !- Name
+    12,                       !- Sunday ScheduleDay Name
+    12,                       !- Monday ScheduleDay Name
+    12,                       !- Tuesday ScheduleDay Name
+    12,                       !- Wednesday ScheduleDay Name
+    12,                       !- Thursday ScheduleDay Name
+    12,                       !- Friday ScheduleDay Name
+    12,                       !- Saturday ScheduleDay Name
+    12,                       !- Holiday ScheduleDay Name
+    12,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    12,                       !- CustomDay1 ScheduleDay Name
+    12;                       !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10004_Apr,                !- Name
+    12,                       !- Sunday ScheduleDay Name
+    12,                       !- Monday ScheduleDay Name
+    12,                       !- Tuesday ScheduleDay Name
+    12,                       !- Wednesday ScheduleDay Name
+    12,                       !- Thursday ScheduleDay Name
+    12,                       !- Friday ScheduleDay Name
+    12,                       !- Saturday ScheduleDay Name
+    12,                       !- Holiday ScheduleDay Name
+    12,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    12,                       !- CustomDay1 ScheduleDay Name
+    12;                       !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10004_May,                !- Name
+    12,                       !- Sunday ScheduleDay Name
+    12,                       !- Monday ScheduleDay Name
+    12,                       !- Tuesday ScheduleDay Name
+    12,                       !- Wednesday ScheduleDay Name
+    12,                       !- Thursday ScheduleDay Name
+    12,                       !- Friday ScheduleDay Name
+    12,                       !- Saturday ScheduleDay Name
+    12,                       !- Holiday ScheduleDay Name
+    12,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    12,                       !- CustomDay1 ScheduleDay Name
+    12;                       !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10004_Jun,                !- Name
+    12,                       !- Sunday ScheduleDay Name
+    12,                       !- Monday ScheduleDay Name
+    12,                       !- Tuesday ScheduleDay Name
+    12,                       !- Wednesday ScheduleDay Name
+    12,                       !- Thursday ScheduleDay Name
+    12,                       !- Friday ScheduleDay Name
+    12,                       !- Saturday ScheduleDay Name
+    12,                       !- Holiday ScheduleDay Name
+    12,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    12,                       !- CustomDay1 ScheduleDay Name
+    12;                       !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10004_Jul,                !- Name
+    12,                       !- Sunday ScheduleDay Name
+    12,                       !- Monday ScheduleDay Name
+    12,                       !- Tuesday ScheduleDay Name
+    12,                       !- Wednesday ScheduleDay Name
+    12,                       !- Thursday ScheduleDay Name
+    12,                       !- Friday ScheduleDay Name
+    12,                       !- Saturday ScheduleDay Name
+    12,                       !- Holiday ScheduleDay Name
+    12,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    12,                       !- CustomDay1 ScheduleDay Name
+    12;                       !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10004_Aug,                !- Name
+    12,                       !- Sunday ScheduleDay Name
+    12,                       !- Monday ScheduleDay Name
+    12,                       !- Tuesday ScheduleDay Name
+    12,                       !- Wednesday ScheduleDay Name
+    12,                       !- Thursday ScheduleDay Name
+    12,                       !- Friday ScheduleDay Name
+    12,                       !- Saturday ScheduleDay Name
+    12,                       !- Holiday ScheduleDay Name
+    12,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    12,                       !- CustomDay1 ScheduleDay Name
+    12;                       !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10004_Sep,                !- Name
+    12,                       !- Sunday ScheduleDay Name
+    12,                       !- Monday ScheduleDay Name
+    12,                       !- Tuesday ScheduleDay Name
+    12,                       !- Wednesday ScheduleDay Name
+    12,                       !- Thursday ScheduleDay Name
+    12,                       !- Friday ScheduleDay Name
+    12,                       !- Saturday ScheduleDay Name
+    12,                       !- Holiday ScheduleDay Name
+    12,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    12,                       !- CustomDay1 ScheduleDay Name
+    12;                       !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10004_Oct,                !- Name
+    12,                       !- Sunday ScheduleDay Name
+    12,                       !- Monday ScheduleDay Name
+    12,                       !- Tuesday ScheduleDay Name
+    12,                       !- Wednesday ScheduleDay Name
+    12,                       !- Thursday ScheduleDay Name
+    12,                       !- Friday ScheduleDay Name
+    12,                       !- Saturday ScheduleDay Name
+    12,                       !- Holiday ScheduleDay Name
+    12,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    12,                       !- CustomDay1 ScheduleDay Name
+    12;                       !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10004_Nov,                !- Name
+    12,                       !- Sunday ScheduleDay Name
+    12,                       !- Monday ScheduleDay Name
+    12,                       !- Tuesday ScheduleDay Name
+    12,                       !- Wednesday ScheduleDay Name
+    12,                       !- Thursday ScheduleDay Name
+    12,                       !- Friday ScheduleDay Name
+    12,                       !- Saturday ScheduleDay Name
+    12,                       !- Holiday ScheduleDay Name
+    12,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    12,                       !- CustomDay1 ScheduleDay Name
+    12;                       !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10004_Dec,                !- Name
+    12,                       !- Sunday ScheduleDay Name
+    12,                       !- Monday ScheduleDay Name
+    12,                       !- Tuesday ScheduleDay Name
+    12,                       !- Wednesday ScheduleDay Name
+    12,                       !- Thursday ScheduleDay Name
+    12,                       !- Friday ScheduleDay Name
+    12,                       !- Saturday ScheduleDay Name
+    12,                       !- Holiday ScheduleDay Name
+    12,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    12,                       !- CustomDay1 ScheduleDay Name
+    12;                       !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10006_Jan,                !- Name
+    10004,                    !- Sunday ScheduleDay Name
+    10004,                    !- Monday ScheduleDay Name
+    10004,                    !- Tuesday ScheduleDay Name
+    10004,                    !- Wednesday ScheduleDay Name
+    10004,                    !- Thursday ScheduleDay Name
+    10004,                    !- Friday ScheduleDay Name
+    10004,                    !- Saturday ScheduleDay Name
+    10004,                    !- Holiday ScheduleDay Name
+    11,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    10004,                    !- CustomDay1 ScheduleDay Name
+    10004;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10006_Feb,                !- Name
+    10004,                    !- Sunday ScheduleDay Name
+    10004,                    !- Monday ScheduleDay Name
+    10004,                    !- Tuesday ScheduleDay Name
+    10004,                    !- Wednesday ScheduleDay Name
+    10004,                    !- Thursday ScheduleDay Name
+    10004,                    !- Friday ScheduleDay Name
+    10004,                    !- Saturday ScheduleDay Name
+    10004,                    !- Holiday ScheduleDay Name
+    11,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    10004,                    !- CustomDay1 ScheduleDay Name
+    10004;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10006_Mar,                !- Name
+    10004,                    !- Sunday ScheduleDay Name
+    10004,                    !- Monday ScheduleDay Name
+    10004,                    !- Tuesday ScheduleDay Name
+    10004,                    !- Wednesday ScheduleDay Name
+    10004,                    !- Thursday ScheduleDay Name
+    10004,                    !- Friday ScheduleDay Name
+    10004,                    !- Saturday ScheduleDay Name
+    10004,                    !- Holiday ScheduleDay Name
+    11,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    10004,                    !- CustomDay1 ScheduleDay Name
+    10004;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10006_Apr,                !- Name
+    10004,                    !- Sunday ScheduleDay Name
+    10004,                    !- Monday ScheduleDay Name
+    10004,                    !- Tuesday ScheduleDay Name
+    10004,                    !- Wednesday ScheduleDay Name
+    10004,                    !- Thursday ScheduleDay Name
+    10004,                    !- Friday ScheduleDay Name
+    10004,                    !- Saturday ScheduleDay Name
+    10004,                    !- Holiday ScheduleDay Name
+    11,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    10004,                    !- CustomDay1 ScheduleDay Name
+    10004;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10006_May,                !- Name
+    10004,                    !- Sunday ScheduleDay Name
+    10004,                    !- Monday ScheduleDay Name
+    10004,                    !- Tuesday ScheduleDay Name
+    10004,                    !- Wednesday ScheduleDay Name
+    10004,                    !- Thursday ScheduleDay Name
+    10004,                    !- Friday ScheduleDay Name
+    10004,                    !- Saturday ScheduleDay Name
+    10004,                    !- Holiday ScheduleDay Name
+    11,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    10004,                    !- CustomDay1 ScheduleDay Name
+    10004;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10006_Jun,                !- Name
+    11,                       !- Sunday ScheduleDay Name
+    11,                       !- Monday ScheduleDay Name
+    11,                       !- Tuesday ScheduleDay Name
+    11,                       !- Wednesday ScheduleDay Name
+    11,                       !- Thursday ScheduleDay Name
+    11,                       !- Friday ScheduleDay Name
+    11,                       !- Saturday ScheduleDay Name
+    11,                       !- Holiday ScheduleDay Name
+    11,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    11,                       !- CustomDay1 ScheduleDay Name
+    11;                       !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10006_Jul,                !- Name
+    11,                       !- Sunday ScheduleDay Name
+    11,                       !- Monday ScheduleDay Name
+    11,                       !- Tuesday ScheduleDay Name
+    11,                       !- Wednesday ScheduleDay Name
+    11,                       !- Thursday ScheduleDay Name
+    11,                       !- Friday ScheduleDay Name
+    11,                       !- Saturday ScheduleDay Name
+    11,                       !- Holiday ScheduleDay Name
+    11,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    11,                       !- CustomDay1 ScheduleDay Name
+    11;                       !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10006_Aug,                !- Name
+    11,                       !- Sunday ScheduleDay Name
+    11,                       !- Monday ScheduleDay Name
+    11,                       !- Tuesday ScheduleDay Name
+    11,                       !- Wednesday ScheduleDay Name
+    11,                       !- Thursday ScheduleDay Name
+    11,                       !- Friday ScheduleDay Name
+    11,                       !- Saturday ScheduleDay Name
+    11,                       !- Holiday ScheduleDay Name
+    11,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    11,                       !- CustomDay1 ScheduleDay Name
+    11;                       !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10006_Sep,                !- Name
+    10004,                    !- Sunday ScheduleDay Name
+    10004,                    !- Monday ScheduleDay Name
+    10004,                    !- Tuesday ScheduleDay Name
+    10004,                    !- Wednesday ScheduleDay Name
+    10004,                    !- Thursday ScheduleDay Name
+    10004,                    !- Friday ScheduleDay Name
+    10004,                    !- Saturday ScheduleDay Name
+    10004,                    !- Holiday ScheduleDay Name
+    11,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    10004,                    !- CustomDay1 ScheduleDay Name
+    10004;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10006_Oct,                !- Name
+    10004,                    !- Sunday ScheduleDay Name
+    10004,                    !- Monday ScheduleDay Name
+    10004,                    !- Tuesday ScheduleDay Name
+    10004,                    !- Wednesday ScheduleDay Name
+    10004,                    !- Thursday ScheduleDay Name
+    10004,                    !- Friday ScheduleDay Name
+    10004,                    !- Saturday ScheduleDay Name
+    10004,                    !- Holiday ScheduleDay Name
+    11,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    10004,                    !- CustomDay1 ScheduleDay Name
+    10004;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10006_Nov,                !- Name
+    10004,                    !- Sunday ScheduleDay Name
+    10004,                    !- Monday ScheduleDay Name
+    10004,                    !- Tuesday ScheduleDay Name
+    10004,                    !- Wednesday ScheduleDay Name
+    10004,                    !- Thursday ScheduleDay Name
+    10004,                    !- Friday ScheduleDay Name
+    10004,                    !- Saturday ScheduleDay Name
+    10004,                    !- Holiday ScheduleDay Name
+    11,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    10004,                    !- CustomDay1 ScheduleDay Name
+    10004;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    10006_Dec,                !- Name
+    10004,                    !- Sunday ScheduleDay Name
+    10004,                    !- Monday ScheduleDay Name
+    10004,                    !- Tuesday ScheduleDay Name
+    10004,                    !- Wednesday ScheduleDay Name
+    10004,                    !- Thursday ScheduleDay Name
+    10004,                    !- Friday ScheduleDay Name
+    10004,                    !- Saturday ScheduleDay Name
+    10004,                    !- Holiday ScheduleDay Name
+    11,                       !- SummerDesignDay ScheduleDay Name
+    12,                       !- WinterDesignDay ScheduleDay Name
+    10004,                    !- CustomDay1 ScheduleDay Name
+    10004;                    !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Heating SP Sch_Jan,       !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Heating SP Sch_Feb,       !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Heating SP Sch_Mar,       !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Heating SP Sch_Apr,       !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Heating SP Sch_May,       !- Name
+    11_-50_12_21,             !- Sunday ScheduleDay Name
+    11_-50_12_21,             !- Monday ScheduleDay Name
+    11_-50_12_21,             !- Tuesday ScheduleDay Name
+    11_-50_12_21,             !- Wednesday ScheduleDay Name
+    11_-50_12_21,             !- Thursday ScheduleDay Name
+    11_-50_12_21,             !- Friday ScheduleDay Name
+    11_-50_12_21,             !- Saturday ScheduleDay Name
+    11_-50_12_21,             !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    11_-50_12_21,             !- CustomDay1 ScheduleDay Name
+    11_-50_12_21;             !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Heating SP Sch_Jun,       !- Name
+    11_-50_12_21,             !- Sunday ScheduleDay Name
+    11_-50_12_21,             !- Monday ScheduleDay Name
+    11_-50_12_21,             !- Tuesday ScheduleDay Name
+    11_-50_12_21,             !- Wednesday ScheduleDay Name
+    11_-50_12_21,             !- Thursday ScheduleDay Name
+    11_-50_12_21,             !- Friday ScheduleDay Name
+    11_-50_12_21,             !- Saturday ScheduleDay Name
+    11_-50_12_21,             !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    11_-50_12_21,             !- CustomDay1 ScheduleDay Name
+    11_-50_12_21;             !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Heating SP Sch_Jul,       !- Name
+    11_-50_12_21,             !- Sunday ScheduleDay Name
+    11_-50_12_21,             !- Monday ScheduleDay Name
+    11_-50_12_21,             !- Tuesday ScheduleDay Name
+    11_-50_12_21,             !- Wednesday ScheduleDay Name
+    11_-50_12_21,             !- Thursday ScheduleDay Name
+    11_-50_12_21,             !- Friday ScheduleDay Name
+    11_-50_12_21,             !- Saturday ScheduleDay Name
+    11_-50_12_21,             !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    11_-50_12_21,             !- CustomDay1 ScheduleDay Name
+    11_-50_12_21;             !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Heating SP Sch_Aug,       !- Name
+    11_-50_12_21,             !- Sunday ScheduleDay Name
+    11_-50_12_21,             !- Monday ScheduleDay Name
+    11_-50_12_21,             !- Tuesday ScheduleDay Name
+    11_-50_12_21,             !- Wednesday ScheduleDay Name
+    11_-50_12_21,             !- Thursday ScheduleDay Name
+    11_-50_12_21,             !- Friday ScheduleDay Name
+    11_-50_12_21,             !- Saturday ScheduleDay Name
+    11_-50_12_21,             !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    11_-50_12_21,             !- CustomDay1 ScheduleDay Name
+    11_-50_12_21;             !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Heating SP Sch_Sep,       !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Heating SP Sch_Oct,       !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Heating SP Sch_Nov,       !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Heating SP Sch_Dec,       !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block1:Zone1 Heating Availability Sch_Jan,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block1:Zone1 Heating Availability Sch_Feb,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block1:Zone1 Heating Availability Sch_Mar,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block1:Zone1 Heating Availability Sch_Apr,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block1:Zone1 Heating Availability Sch_May,    !- Name
+    11_0_1_1,                 !- Sunday ScheduleDay Name
+    11_0_1_1,                 !- Monday ScheduleDay Name
+    11_0_1_1,                 !- Tuesday ScheduleDay Name
+    11_0_1_1,                 !- Wednesday ScheduleDay Name
+    11_0_1_1,                 !- Thursday ScheduleDay Name
+    11_0_1_1,                 !- Friday ScheduleDay Name
+    11_0_1_1,                 !- Saturday ScheduleDay Name
+    11_0_1_1,                 !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    11_0_1_1,                 !- CustomDay1 ScheduleDay Name
+    11_0_1_1;                 !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block1:Zone1 Heating Availability Sch_Jun,    !- Name
+    11_0_1_1,                 !- Sunday ScheduleDay Name
+    11_0_1_1,                 !- Monday ScheduleDay Name
+    11_0_1_1,                 !- Tuesday ScheduleDay Name
+    11_0_1_1,                 !- Wednesday ScheduleDay Name
+    11_0_1_1,                 !- Thursday ScheduleDay Name
+    11_0_1_1,                 !- Friday ScheduleDay Name
+    11_0_1_1,                 !- Saturday ScheduleDay Name
+    11_0_1_1,                 !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    11_0_1_1,                 !- CustomDay1 ScheduleDay Name
+    11_0_1_1;                 !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block1:Zone1 Heating Availability Sch_Jul,    !- Name
+    11_0_1_1,                 !- Sunday ScheduleDay Name
+    11_0_1_1,                 !- Monday ScheduleDay Name
+    11_0_1_1,                 !- Tuesday ScheduleDay Name
+    11_0_1_1,                 !- Wednesday ScheduleDay Name
+    11_0_1_1,                 !- Thursday ScheduleDay Name
+    11_0_1_1,                 !- Friday ScheduleDay Name
+    11_0_1_1,                 !- Saturday ScheduleDay Name
+    11_0_1_1,                 !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    11_0_1_1,                 !- CustomDay1 ScheduleDay Name
+    11_0_1_1;                 !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block1:Zone1 Heating Availability Sch_Aug,    !- Name
+    11_0_1_1,                 !- Sunday ScheduleDay Name
+    11_0_1_1,                 !- Monday ScheduleDay Name
+    11_0_1_1,                 !- Tuesday ScheduleDay Name
+    11_0_1_1,                 !- Wednesday ScheduleDay Name
+    11_0_1_1,                 !- Thursday ScheduleDay Name
+    11_0_1_1,                 !- Friday ScheduleDay Name
+    11_0_1_1,                 !- Saturday ScheduleDay Name
+    11_0_1_1,                 !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    11_0_1_1,                 !- CustomDay1 ScheduleDay Name
+    11_0_1_1;                 !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block1:Zone1 Heating Availability Sch_Sep,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block1:Zone1 Heating Availability Sch_Oct,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block1:Zone1 Heating Availability Sch_Nov,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block1:Zone1 Heating Availability Sch_Dec,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating SP Sch_Jan,    !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating SP Sch_Feb,    !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating SP Sch_Mar,    !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating SP Sch_Apr,    !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating SP Sch_May,    !- Name
+    11_-50_12_21,             !- Sunday ScheduleDay Name
+    11_-50_12_21,             !- Monday ScheduleDay Name
+    11_-50_12_21,             !- Tuesday ScheduleDay Name
+    11_-50_12_21,             !- Wednesday ScheduleDay Name
+    11_-50_12_21,             !- Thursday ScheduleDay Name
+    11_-50_12_21,             !- Friday ScheduleDay Name
+    11_-50_12_21,             !- Saturday ScheduleDay Name
+    11_-50_12_21,             !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    11_-50_12_21,             !- CustomDay1 ScheduleDay Name
+    11_-50_12_21;             !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating SP Sch_Jun,    !- Name
+    11_-50_12_21,             !- Sunday ScheduleDay Name
+    11_-50_12_21,             !- Monday ScheduleDay Name
+    11_-50_12_21,             !- Tuesday ScheduleDay Name
+    11_-50_12_21,             !- Wednesday ScheduleDay Name
+    11_-50_12_21,             !- Thursday ScheduleDay Name
+    11_-50_12_21,             !- Friday ScheduleDay Name
+    11_-50_12_21,             !- Saturday ScheduleDay Name
+    11_-50_12_21,             !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    11_-50_12_21,             !- CustomDay1 ScheduleDay Name
+    11_-50_12_21;             !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating SP Sch_Jul,    !- Name
+    11_-50_12_21,             !- Sunday ScheduleDay Name
+    11_-50_12_21,             !- Monday ScheduleDay Name
+    11_-50_12_21,             !- Tuesday ScheduleDay Name
+    11_-50_12_21,             !- Wednesday ScheduleDay Name
+    11_-50_12_21,             !- Thursday ScheduleDay Name
+    11_-50_12_21,             !- Friday ScheduleDay Name
+    11_-50_12_21,             !- Saturday ScheduleDay Name
+    11_-50_12_21,             !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    11_-50_12_21,             !- CustomDay1 ScheduleDay Name
+    11_-50_12_21;             !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating SP Sch_Aug,    !- Name
+    11_-50_12_21,             !- Sunday ScheduleDay Name
+    11_-50_12_21,             !- Monday ScheduleDay Name
+    11_-50_12_21,             !- Tuesday ScheduleDay Name
+    11_-50_12_21,             !- Wednesday ScheduleDay Name
+    11_-50_12_21,             !- Thursday ScheduleDay Name
+    11_-50_12_21,             !- Friday ScheduleDay Name
+    11_-50_12_21,             !- Saturday ScheduleDay Name
+    11_-50_12_21,             !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    11_-50_12_21,             !- CustomDay1 ScheduleDay Name
+    11_-50_12_21;             !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating SP Sch_Sep,    !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating SP Sch_Oct,    !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating SP Sch_Nov,    !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating SP Sch_Dec,    !- Name
+    10001_-50_12_21,          !- Sunday ScheduleDay Name
+    10000_-50_12_21,          !- Monday ScheduleDay Name
+    10000_-50_12_21,          !- Tuesday ScheduleDay Name
+    10000_-50_12_21,          !- Wednesday ScheduleDay Name
+    10000_-50_12_21,          !- Thursday ScheduleDay Name
+    10000_-50_12_21,          !- Friday ScheduleDay Name
+    10001_-50_12_21,          !- Saturday ScheduleDay Name
+    10001_-50_12_21,          !- Holiday ScheduleDay Name
+    11_-50_12_21,             !- SummerDesignDay ScheduleDay Name
+    12_-50_12_21,             !- WinterDesignDay ScheduleDay Name
+    10000_-50_12_21,          !- CustomDay1 ScheduleDay Name
+    10000_-50_12_21;          !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating Availability Sch_Jan,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating Availability Sch_Feb,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating Availability Sch_Mar,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating Availability Sch_Apr,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating Availability Sch_May,    !- Name
+    11_0_1_1,                 !- Sunday ScheduleDay Name
+    11_0_1_1,                 !- Monday ScheduleDay Name
+    11_0_1_1,                 !- Tuesday ScheduleDay Name
+    11_0_1_1,                 !- Wednesday ScheduleDay Name
+    11_0_1_1,                 !- Thursday ScheduleDay Name
+    11_0_1_1,                 !- Friday ScheduleDay Name
+    11_0_1_1,                 !- Saturday ScheduleDay Name
+    11_0_1_1,                 !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    11_0_1_1,                 !- CustomDay1 ScheduleDay Name
+    11_0_1_1;                 !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating Availability Sch_Jun,    !- Name
+    11_0_1_1,                 !- Sunday ScheduleDay Name
+    11_0_1_1,                 !- Monday ScheduleDay Name
+    11_0_1_1,                 !- Tuesday ScheduleDay Name
+    11_0_1_1,                 !- Wednesday ScheduleDay Name
+    11_0_1_1,                 !- Thursday ScheduleDay Name
+    11_0_1_1,                 !- Friday ScheduleDay Name
+    11_0_1_1,                 !- Saturday ScheduleDay Name
+    11_0_1_1,                 !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    11_0_1_1,                 !- CustomDay1 ScheduleDay Name
+    11_0_1_1;                 !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating Availability Sch_Jul,    !- Name
+    11_0_1_1,                 !- Sunday ScheduleDay Name
+    11_0_1_1,                 !- Monday ScheduleDay Name
+    11_0_1_1,                 !- Tuesday ScheduleDay Name
+    11_0_1_1,                 !- Wednesday ScheduleDay Name
+    11_0_1_1,                 !- Thursday ScheduleDay Name
+    11_0_1_1,                 !- Friday ScheduleDay Name
+    11_0_1_1,                 !- Saturday ScheduleDay Name
+    11_0_1_1,                 !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    11_0_1_1,                 !- CustomDay1 ScheduleDay Name
+    11_0_1_1;                 !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating Availability Sch_Aug,    !- Name
+    11_0_1_1,                 !- Sunday ScheduleDay Name
+    11_0_1_1,                 !- Monday ScheduleDay Name
+    11_0_1_1,                 !- Tuesday ScheduleDay Name
+    11_0_1_1,                 !- Wednesday ScheduleDay Name
+    11_0_1_1,                 !- Thursday ScheduleDay Name
+    11_0_1_1,                 !- Friday ScheduleDay Name
+    11_0_1_1,                 !- Saturday ScheduleDay Name
+    11_0_1_1,                 !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    11_0_1_1,                 !- CustomDay1 ScheduleDay Name
+    11_0_1_1;                 !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating Availability Sch_Sep,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating Availability Sch_Oct,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating Availability Sch_Nov,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Week:Daily,
+    Block2:Zone1 Heating Availability Sch_Dec,    !- Name
+    10001_0_1_1,              !- Sunday ScheduleDay Name
+    10000_0_1_1,              !- Monday ScheduleDay Name
+    10000_0_1_1,              !- Tuesday ScheduleDay Name
+    10000_0_1_1,              !- Wednesday ScheduleDay Name
+    10000_0_1_1,              !- Thursday ScheduleDay Name
+    10000_0_1_1,              !- Friday ScheduleDay Name
+    10001_0_1_1,              !- Saturday ScheduleDay Name
+    10001_0_1_1,              !- Holiday ScheduleDay Name
+    11_0_1_1,                 !- SummerDesignDay ScheduleDay Name
+    12_0_1_1,                 !- WinterDesignDay ScheduleDay Name
+    10000_0_1_1,              !- CustomDay1 ScheduleDay Name
+    10000_0_1_1;              !- CustomDay2 ScheduleDay Name
+
+Schedule:Year,
+    10000,                    !- Name
+    Any number,               !- Schedule Type Limits Name
+    10000_Jan,                !- ScheduleWeek Name 1
+    1,                        !- Start Month 1
+    1,                        !- Start Day 1
+    1,                        !- End Month 1
+    31,                       !- End Day 1
+    10000_Feb,                !- ScheduleWeek Name 2
+    2,                        !- Start Month 2
+    1,                        !- Start Day 2
+    2,                        !- End Month 2
+    28,                       !- End Day 2
+    10000_Mar,                !- ScheduleWeek Name 3
+    3,                        !- Start Month 3
+    1,                        !- Start Day 3
+    3,                        !- End Month 3
+    31,                       !- End Day 3
+    10000_Apr,                !- ScheduleWeek Name 4
+    4,                        !- Start Month 4
+    1,                        !- Start Day 4
+    4,                        !- End Month 4
+    30,                       !- End Day 4
+    10000_May,                !- ScheduleWeek Name 5
+    5,                        !- Start Month 5
+    1,                        !- Start Day 5
+    5,                        !- End Month 5
+    31,                       !- End Day 5
+    10000_Jun,                !- ScheduleWeek Name 6
+    6,                        !- Start Month 6
+    1,                        !- Start Day 6
+    6,                        !- End Month 6
+    30,                       !- End Day 6
+    10000_Jul,                !- ScheduleWeek Name 7
+    7,                        !- Start Month 7
+    1,                        !- Start Day 7
+    7,                        !- End Month 7
+    31,                       !- End Day 7
+    10000_Aug,                !- ScheduleWeek Name 8
+    8,                        !- Start Month 8
+    1,                        !- Start Day 8
+    8,                        !- End Month 8
+    31,                       !- End Day 8
+    10000_Sep,                !- ScheduleWeek Name 9
+    9,                        !- Start Month 9
+    1,                        !- Start Day 9
+    9,                        !- End Month 9
+    30,                       !- End Day 9
+    10000_Oct,                !- ScheduleWeek Name 10
+    10,                       !- Start Month 10
+    1,                        !- Start Day 10
+    10,                       !- End Month 10
+    31,                       !- End Day 10
+    10000_Nov,                !- ScheduleWeek Name 11
+    11,                       !- Start Month 11
+    1,                        !- Start Day 11
+    11,                       !- End Month 11
+    30,                       !- End Day 11
+    10000_Dec,                !- ScheduleWeek Name 12
+    12,                       !- Start Month 12
+    1,                        !- Start Day 12
+    12,                       !- End Month 12
+    31;                       !- End Day 12
+
+Schedule:Year,
+    10004,                    !- Name
+    Any number,               !- Schedule Type Limits Name
+    10004_Jan,                !- ScheduleWeek Name 1
+    1,                        !- Start Month 1
+    1,                        !- Start Day 1
+    1,                        !- End Month 1
+    31,                       !- End Day 1
+    10004_Feb,                !- ScheduleWeek Name 2
+    2,                        !- Start Month 2
+    1,                        !- Start Day 2
+    2,                        !- End Month 2
+    28,                       !- End Day 2
+    10004_Mar,                !- ScheduleWeek Name 3
+    3,                        !- Start Month 3
+    1,                        !- Start Day 3
+    3,                        !- End Month 3
+    31,                       !- End Day 3
+    10004_Apr,                !- ScheduleWeek Name 4
+    4,                        !- Start Month 4
+    1,                        !- Start Day 4
+    4,                        !- End Month 4
+    30,                       !- End Day 4
+    10004_May,                !- ScheduleWeek Name 5
+    5,                        !- Start Month 5
+    1,                        !- Start Day 5
+    5,                        !- End Month 5
+    31,                       !- End Day 5
+    10004_Jun,                !- ScheduleWeek Name 6
+    6,                        !- Start Month 6
+    1,                        !- Start Day 6
+    6,                        !- End Month 6
+    30,                       !- End Day 6
+    10004_Jul,                !- ScheduleWeek Name 7
+    7,                        !- Start Month 7
+    1,                        !- Start Day 7
+    7,                        !- End Month 7
+    31,                       !- End Day 7
+    10004_Aug,                !- ScheduleWeek Name 8
+    8,                        !- Start Month 8
+    1,                        !- Start Day 8
+    8,                        !- End Month 8
+    31,                       !- End Day 8
+    10004_Sep,                !- ScheduleWeek Name 9
+    9,                        !- Start Month 9
+    1,                        !- Start Day 9
+    9,                        !- End Month 9
+    30,                       !- End Day 9
+    10004_Oct,                !- ScheduleWeek Name 10
+    10,                       !- Start Month 10
+    1,                        !- Start Day 10
+    10,                       !- End Month 10
+    31,                       !- End Day 10
+    10004_Nov,                !- ScheduleWeek Name 11
+    11,                       !- Start Month 11
+    1,                        !- Start Day 11
+    11,                       !- End Month 11
+    30,                       !- End Day 11
+    10004_Dec,                !- ScheduleWeek Name 12
+    12,                       !- Start Month 12
+    1,                        !- Start Day 12
+    12,                       !- End Month 12
+    31;                       !- End Day 12
+
+Schedule:Year,
+    10006,                    !- Name
+    Any number,               !- Schedule Type Limits Name
+    10006_Jan,                !- ScheduleWeek Name 1
+    1,                        !- Start Month 1
+    1,                        !- Start Day 1
+    1,                        !- End Month 1
+    31,                       !- End Day 1
+    10006_Feb,                !- ScheduleWeek Name 2
+    2,                        !- Start Month 2
+    1,                        !- Start Day 2
+    2,                        !- End Month 2
+    28,                       !- End Day 2
+    10006_Mar,                !- ScheduleWeek Name 3
+    3,                        !- Start Month 3
+    1,                        !- Start Day 3
+    3,                        !- End Month 3
+    31,                       !- End Day 3
+    10006_Apr,                !- ScheduleWeek Name 4
+    4,                        !- Start Month 4
+    1,                        !- Start Day 4
+    4,                        !- End Month 4
+    30,                       !- End Day 4
+    10006_May,                !- ScheduleWeek Name 5
+    5,                        !- Start Month 5
+    1,                        !- Start Day 5
+    5,                        !- End Month 5
+    31,                       !- End Day 5
+    10006_Jun,                !- ScheduleWeek Name 6
+    6,                        !- Start Month 6
+    1,                        !- Start Day 6
+    6,                        !- End Month 6
+    30,                       !- End Day 6
+    10006_Jul,                !- ScheduleWeek Name 7
+    7,                        !- Start Month 7
+    1,                        !- Start Day 7
+    7,                        !- End Month 7
+    31,                       !- End Day 7
+    10006_Aug,                !- ScheduleWeek Name 8
+    8,                        !- Start Month 8
+    1,                        !- Start Day 8
+    8,                        !- End Month 8
+    31,                       !- End Day 8
+    10006_Sep,                !- ScheduleWeek Name 9
+    9,                        !- Start Month 9
+    1,                        !- Start Day 9
+    9,                        !- End Month 9
+    30,                       !- End Day 9
+    10006_Oct,                !- ScheduleWeek Name 10
+    10,                       !- Start Month 10
+    1,                        !- Start Day 10
+    10,                       !- End Month 10
+    31,                       !- End Day 10
+    10006_Nov,                !- ScheduleWeek Name 11
+    11,                       !- Start Month 11
+    1,                        !- Start Day 11
+    11,                       !- End Month 11
+    30,                       !- End Day 11
+    10006_Dec,                !- ScheduleWeek Name 12
+    12,                       !- Start Month 12
+    1,                        !- Start Day 12
+    12,                       !- End Month 12
+    31;                       !- End Day 12
+
+Schedule:Year,
+    Zone Control Type Sched,    !- Name
+    Control Type,             !- Schedule Type Limits Name
+    Winter Control Type Week Sch,    !- ScheduleWeek Name 1
+    1,                        !- Start Month 1
+    1,                        !- Start Day 1
+    3,                        !- End Month 1
+    31,                       !- End Day 1
+    Summer Control Type Week Sch,    !- ScheduleWeek Name 2
+    4,                        !- Start Month 2
+    1,                        !- Start Day 2
+    9,                        !- End Month 2
+    30,                       !- End Day 2
+    Winter Control Type Week Sch,    !- ScheduleWeek Name 3
+    10,                       !- Start Month 3
+    1,                        !- Start Day 3
+    12,                       !- End Month 3
+    31;                       !- End Day 3
+
+Schedule:Year,
+    Heating SP Sch,           !- Name
+    Any number,               !- Schedule Type Limits Name
+    Heating SP Sch_Jan,       !- ScheduleWeek Name 1
+    1,                        !- Start Month 1
+    1,                        !- Start Day 1
+    1,                        !- End Month 1
+    31,                       !- End Day 1
+    Heating SP Sch_Feb,       !- ScheduleWeek Name 2
+    2,                        !- Start Month 2
+    1,                        !- Start Day 2
+    2,                        !- End Month 2
+    28,                       !- End Day 2
+    Heating SP Sch_Mar,       !- ScheduleWeek Name 3
+    3,                        !- Start Month 3
+    1,                        !- Start Day 3
+    3,                        !- End Month 3
+    31,                       !- End Day 3
+    Heating SP Sch_Apr,       !- ScheduleWeek Name 4
+    4,                        !- Start Month 4
+    1,                        !- Start Day 4
+    4,                        !- End Month 4
+    30,                       !- End Day 4
+    Heating SP Sch_May,       !- ScheduleWeek Name 5
+    5,                        !- Start Month 5
+    1,                        !- Start Day 5
+    5,                        !- End Month 5
+    31,                       !- End Day 5
+    Heating SP Sch_Jun,       !- ScheduleWeek Name 6
+    6,                        !- Start Month 6
+    1,                        !- Start Day 6
+    6,                        !- End Month 6
+    30,                       !- End Day 6
+    Heating SP Sch_Jul,       !- ScheduleWeek Name 7
+    7,                        !- Start Month 7
+    1,                        !- Start Day 7
+    7,                        !- End Month 7
+    31,                       !- End Day 7
+    Heating SP Sch_Aug,       !- ScheduleWeek Name 8
+    8,                        !- Start Month 8
+    1,                        !- Start Day 8
+    8,                        !- End Month 8
+    31,                       !- End Day 8
+    Heating SP Sch_Sep,       !- ScheduleWeek Name 9
+    9,                        !- Start Month 9
+    1,                        !- Start Day 9
+    9,                        !- End Month 9
+    30,                       !- End Day 9
+    Heating SP Sch_Oct,       !- ScheduleWeek Name 10
+    10,                       !- Start Month 10
+    1,                        !- Start Day 10
+    10,                       !- End Month 10
+    31,                       !- End Day 10
+    Heating SP Sch_Nov,       !- ScheduleWeek Name 11
+    11,                       !- Start Month 11
+    1,                        !- Start Day 11
+    11,                       !- End Month 11
+    30,                       !- End Day 11
+    Heating SP Sch_Dec,       !- ScheduleWeek Name 12
+    12,                       !- Start Month 12
+    1,                        !- Start Day 12
+    12,                       !- End Month 12
+    31;                       !- End Day 12
+
+Schedule:Year,
+    Block1:Zone1 Heating Availability Sch,    !- Name
+    Any number,               !- Schedule Type Limits Name
+    Block1:Zone1 Heating Availability Sch_Jan,    !- ScheduleWeek Name 1
+    1,                        !- Start Month 1
+    1,                        !- Start Day 1
+    1,                        !- End Month 1
+    31,                       !- End Day 1
+    Block1:Zone1 Heating Availability Sch_Feb,    !- ScheduleWeek Name 2
+    2,                        !- Start Month 2
+    1,                        !- Start Day 2
+    2,                        !- End Month 2
+    28,                       !- End Day 2
+    Block1:Zone1 Heating Availability Sch_Mar,    !- ScheduleWeek Name 3
+    3,                        !- Start Month 3
+    1,                        !- Start Day 3
+    3,                        !- End Month 3
+    31,                       !- End Day 3
+    Block1:Zone1 Heating Availability Sch_Apr,    !- ScheduleWeek Name 4
+    4,                        !- Start Month 4
+    1,                        !- Start Day 4
+    4,                        !- End Month 4
+    30,                       !- End Day 4
+    Block1:Zone1 Heating Availability Sch_May,    !- ScheduleWeek Name 5
+    5,                        !- Start Month 5
+    1,                        !- Start Day 5
+    5,                        !- End Month 5
+    31,                       !- End Day 5
+    Block1:Zone1 Heating Availability Sch_Jun,    !- ScheduleWeek Name 6
+    6,                        !- Start Month 6
+    1,                        !- Start Day 6
+    6,                        !- End Month 6
+    30,                       !- End Day 6
+    Block1:Zone1 Heating Availability Sch_Jul,    !- ScheduleWeek Name 7
+    7,                        !- Start Month 7
+    1,                        !- Start Day 7
+    7,                        !- End Month 7
+    31,                       !- End Day 7
+    Block1:Zone1 Heating Availability Sch_Aug,    !- ScheduleWeek Name 8
+    8,                        !- Start Month 8
+    1,                        !- Start Day 8
+    8,                        !- End Month 8
+    31,                       !- End Day 8
+    Block1:Zone1 Heating Availability Sch_Sep,    !- ScheduleWeek Name 9
+    9,                        !- Start Month 9
+    1,                        !- Start Day 9
+    9,                        !- End Month 9
+    30,                       !- End Day 9
+    Block1:Zone1 Heating Availability Sch_Oct,    !- ScheduleWeek Name 10
+    10,                       !- Start Month 10
+    1,                        !- Start Day 10
+    10,                       !- End Month 10
+    31,                       !- End Day 10
+    Block1:Zone1 Heating Availability Sch_Nov,    !- ScheduleWeek Name 11
+    11,                       !- Start Month 11
+    1,                        !- Start Day 11
+    11,                       !- End Month 11
+    30,                       !- End Day 11
+    Block1:Zone1 Heating Availability Sch_Dec,    !- ScheduleWeek Name 12
+    12,                       !- Start Month 12
+    1,                        !- Start Day 12
+    12,                       !- End Month 12
+    31;                       !- End Day 12
+
+Schedule:Year,
+    Block2:Zone1 Heating SP Sch,    !- Name
+    Any number,               !- Schedule Type Limits Name
+    Block2:Zone1 Heating SP Sch_Jan,    !- ScheduleWeek Name 1
+    1,                        !- Start Month 1
+    1,                        !- Start Day 1
+    1,                        !- End Month 1
+    31,                       !- End Day 1
+    Block2:Zone1 Heating SP Sch_Feb,    !- ScheduleWeek Name 2
+    2,                        !- Start Month 2
+    1,                        !- Start Day 2
+    2,                        !- End Month 2
+    28,                       !- End Day 2
+    Block2:Zone1 Heating SP Sch_Mar,    !- ScheduleWeek Name 3
+    3,                        !- Start Month 3
+    1,                        !- Start Day 3
+    3,                        !- End Month 3
+    31,                       !- End Day 3
+    Block2:Zone1 Heating SP Sch_Apr,    !- ScheduleWeek Name 4
+    4,                        !- Start Month 4
+    1,                        !- Start Day 4
+    4,                        !- End Month 4
+    30,                       !- End Day 4
+    Block2:Zone1 Heating SP Sch_May,    !- ScheduleWeek Name 5
+    5,                        !- Start Month 5
+    1,                        !- Start Day 5
+    5,                        !- End Month 5
+    31,                       !- End Day 5
+    Block2:Zone1 Heating SP Sch_Jun,    !- ScheduleWeek Name 6
+    6,                        !- Start Month 6
+    1,                        !- Start Day 6
+    6,                        !- End Month 6
+    30,                       !- End Day 6
+    Block2:Zone1 Heating SP Sch_Jul,    !- ScheduleWeek Name 7
+    7,                        !- Start Month 7
+    1,                        !- Start Day 7
+    7,                        !- End Month 7
+    31,                       !- End Day 7
+    Block2:Zone1 Heating SP Sch_Aug,    !- ScheduleWeek Name 8
+    8,                        !- Start Month 8
+    1,                        !- Start Day 8
+    8,                        !- End Month 8
+    31,                       !- End Day 8
+    Block2:Zone1 Heating SP Sch_Sep,    !- ScheduleWeek Name 9
+    9,                        !- Start Month 9
+    1,                        !- Start Day 9
+    9,                        !- End Month 9
+    30,                       !- End Day 9
+    Block2:Zone1 Heating SP Sch_Oct,    !- ScheduleWeek Name 10
+    10,                       !- Start Month 10
+    1,                        !- Start Day 10
+    10,                       !- End Month 10
+    31,                       !- End Day 10
+    Block2:Zone1 Heating SP Sch_Nov,    !- ScheduleWeek Name 11
+    11,                       !- Start Month 11
+    1,                        !- Start Day 11
+    11,                       !- End Month 11
+    30,                       !- End Day 11
+    Block2:Zone1 Heating SP Sch_Dec,    !- ScheduleWeek Name 12
+    12,                       !- Start Month 12
+    1,                        !- Start Day 12
+    12,                       !- End Month 12
+    31;                       !- End Day 12
+
+Schedule:Year,
+    Block2:Zone1 Heating Availability Sch,    !- Name
+    Any number,               !- Schedule Type Limits Name
+    Block2:Zone1 Heating Availability Sch_Jan,    !- ScheduleWeek Name 1
+    1,                        !- Start Month 1
+    1,                        !- Start Day 1
+    1,                        !- End Month 1
+    31,                       !- End Day 1
+    Block2:Zone1 Heating Availability Sch_Feb,    !- ScheduleWeek Name 2
+    2,                        !- Start Month 2
+    1,                        !- Start Day 2
+    2,                        !- End Month 2
+    28,                       !- End Day 2
+    Block2:Zone1 Heating Availability Sch_Mar,    !- ScheduleWeek Name 3
+    3,                        !- Start Month 3
+    1,                        !- Start Day 3
+    3,                        !- End Month 3
+    31,                       !- End Day 3
+    Block2:Zone1 Heating Availability Sch_Apr,    !- ScheduleWeek Name 4
+    4,                        !- Start Month 4
+    1,                        !- Start Day 4
+    4,                        !- End Month 4
+    30,                       !- End Day 4
+    Block2:Zone1 Heating Availability Sch_May,    !- ScheduleWeek Name 5
+    5,                        !- Start Month 5
+    1,                        !- Start Day 5
+    5,                        !- End Month 5
+    31,                       !- End Day 5
+    Block2:Zone1 Heating Availability Sch_Jun,    !- ScheduleWeek Name 6
+    6,                        !- Start Month 6
+    1,                        !- Start Day 6
+    6,                        !- End Month 6
+    30,                       !- End Day 6
+    Block2:Zone1 Heating Availability Sch_Jul,    !- ScheduleWeek Name 7
+    7,                        !- Start Month 7
+    1,                        !- Start Day 7
+    7,                        !- End Month 7
+    31,                       !- End Day 7
+    Block2:Zone1 Heating Availability Sch_Aug,    !- ScheduleWeek Name 8
+    8,                        !- Start Month 8
+    1,                        !- Start Day 8
+    8,                        !- End Month 8
+    31,                       !- End Day 8
+    Block2:Zone1 Heating Availability Sch_Sep,    !- ScheduleWeek Name 9
+    9,                        !- Start Month 9
+    1,                        !- Start Day 9
+    9,                        !- End Month 9
+    30,                       !- End Day 9
+    Block2:Zone1 Heating Availability Sch_Oct,    !- ScheduleWeek Name 10
+    10,                       !- Start Month 10
+    1,                        !- Start Day 10
+    10,                       !- End Month 10
+    31,                       !- End Day 10
+    Block2:Zone1 Heating Availability Sch_Nov,    !- ScheduleWeek Name 11
+    11,                       !- Start Month 11
+    1,                        !- Start Day 11
+    11,                       !- End Month 11
+    30,                       !- End Day 11
+    Block2:Zone1 Heating Availability Sch_Dec,    !- ScheduleWeek Name 12
+    12,                       !- Start Month 12
+    1,                        !- Start Day 12
+    12,                       !- End Month 12
+    31;                       !- End Day 12
+
+Schedule:Compact,
+    On,                       !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    1;                        !- Field 4
+
+Schedule:Compact,
+    Off,                      !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    0;                        !- Field 4
+
+Schedule:Compact,
+    Work efficiency,          !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    0;                        !- Field 4
+
+Schedule:Compact,
+    OpaqueShade,              !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    0;                        !- Field 4
+
+Schedule:Compact,
+    Zone Comfort Control Type Sched,    !- Name
+    Control Type,             !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    4;                        !- Field 4
+
+Schedule:Compact,
+    Design Days Only,         !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: SummerDesignDay WinterDesignDay,    !- Field 2
+    Until: 24:00,             !- Field 3
+    1,                        !- Field 4
+    For: AllOtherDays,        !- Field 5
+    Until: 24:00,             !- Field 6
+    0;                        !- Field 7
+
+Schedule:Compact,
+    AirVelocitySchedule,      !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    .137;                     !- Field 4
+
+Schedule:Compact,
+    2,                        !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    1;                        !- Field 4
+
+Schedule:Compact,
+    7,                        !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    0;                        !- Field 4
+
+Schedule:Compact,
+    10001,                    !- Name
+    Fraction,                 !- Schedule Type Limits Name
+    Through: 31 Dec,          !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    0.038033633453233,        !- Field 4
+    Until: 02:00,             !- Field 5
+    0.0355669277818765,       !- Field 6
+    Until: 03:00,             !- Field 7
+    0.0349619486311562,       !- Field 8
+    Until: 04:00,             !- Field 9
+    0.0348137015451671,       !- Field 10
+    Until: 05:00,             !- Field 11
+    0.0363961984080076,       !- Field 12
+    Until: 06:00,             !- Field 13
+    0.056472117984289,        !- Field 14
+    Until: 07:00,             !- Field 15
+    0.143236684120683,        !- Field 16
+    Until: 08:00,             !- Field 17
+    0.127592697594641,        !- Field 18
+    Until: 09:00,             !- Field 19
+    0.0949028069694732,       !- Field 20
+    Until: 10:00,             !- Field 21
+    0.0772871293076063,       !- Field 22
+    Until: 11:00,             !- Field 23
+    0.0569871474923448,       !- Field 24
+    Until: 12:00,             !- Field 25
+    0.0543045197842522,       !- Field 26
+    Until: 13:00,             !- Field 27
+    0.0515347184395155,       !- Field 28
+    Until: 14:00,             !- Field 29
+    0.0501556572745802,       !- Field 30
+    Until: 15:00,             !- Field 31
+    0.0501890370950163,       !- Field 32
+    Until: 16:00,             !- Field 33
+    0.0513852314915001,       !- Field 34
+    Until: 17:00,             !- Field 35
+    0.0572975431474318,       !- Field 36
+    Until: 18:00,             !- Field 37
+    0.0925559690873743,       !- Field 38
+    Until: 19:00,             !- Field 39
+    0.108579602331969,        !- Field 40
+    Until: 20:00,             !- Field 41
+    0.0941713121288647,       !- Field 42
+    Until: 21:00,             !- Field 43
+    0.0890513813569069,       !- Field 44
+    Until: 22:00,             !- Field 45
+    0.0838778049814495,       !- Field 46
+    Until: 23:00,             !- Field 47
+    0.0664553287186156,       !- Field 48
+    Until: 24:00,             !- Field 49
+    0.0514108417610479,       !- Field 50
+    For: Saturday,            !- Field 51
+    Until: 01:00,             !- Field 52
+    0.0411742947380633,       !- Field 53
+    Until: 02:00,             !- Field 54
+    0.0380563336920035,       !- Field 55
+    Until: 03:00,             !- Field 56
+    0.0362098256078801,       !- Field 57
+    Until: 04:00,             !- Field 58
+    0.0357638717698611,       !- Field 59
+    Until: 05:00,             !- Field 60
+    0.0376235435790133,       !- Field 61
+    Until: 06:00,             !- Field 62
+    0.0540709210469828,       !- Field 63
+    Until: 07:00,             !- Field 64
+    0.122805121218027,        !- Field 65
+    Until: 08:00,             !- Field 66
+    0.13027842303072,         !- Field 67
+    Until: 09:00,             !- Field 68
+    0.102141598431899,        !- Field 69
+    Until: 10:00,             !- Field 70
+    0.0870843876999613,       !- Field 71
+    Until: 11:00,             !- Field 72
+    0.0655148406694916,       !- Field 73
+    Until: 12:00,             !- Field 74
+    0.06240199604719,         !- Field 75
+    Until: 13:00,             !- Field 76
+    0.0572727106114144,       !- Field 77
+    Until: 14:00,             !- Field 78
+    0.0545946940353063,       !- Field 79
+    Until: 15:00,             !- Field 80
+    0.0538280978104872,       !- Field 81
+    Until: 16:00,             !- Field 82
+    0.0577070523174671,       !- Field 83
+    Until: 17:00,             !- Field 84
+    0.0617132577408955,       !- Field 85
+    Until: 18:00,             !- Field 86
+    0.0919617819892974,       !- Field 87
+    Until: 19:00,             !- Field 88
+    0.107486370677599,        !- Field 89
+    Until: 20:00,             !- Field 90
+    0.0955819343054279,       !- Field 91
+    Until: 21:00,             !- Field 92
+    0.087793389598363,        !- Field 93
+    Until: 22:00,             !- Field 94
+    0.0834733529100884,       !- Field 95
+    Until: 23:00,             !- Field 96
+    0.0698486579593891,       !- Field 97
+    Until: 24:00,             !- Field 98
+    0.0541335475617945,       !- Field 99
+    For: Sunday,              !- Field 100
+    Until: 01:00,             !- Field 101
+    0.0382141580416251,       !- Field 102
+    Until: 02:00,             !- Field 103
+    0.0353331185851703,       !- Field 104
+    Until: 03:00,             !- Field 105
+    0.0344713575066108,       !- Field 106
+    Until: 04:00,             !- Field 107
+    0.0341308863891165,       !- Field 108
+    Until: 05:00,             !- Field 109
+    0.0359927782724641,       !- Field 110
+    Until: 06:00,             !- Field 111
+    0.0487447176066649,       !- Field 112
+    Until: 07:00,             !- Field 113
+    0.107093757723577,        !- Field 114
+    Until: 08:00,             !- Field 115
+    0.122813416658082,        !- Field 116
+    Until: 09:00,             !- Field 117
+    0.106019323029027,        !- Field 118
+    Until: 10:00,             !- Field 119
+    0.0987818390278356,       !- Field 120
+    Until: 11:00,             !- Field 121
+    0.0747967572766633,       !- Field 122
+    Until: 12:00,             !- Field 123
+    0.0693432941900384,       !- Field 124
+    Until: 13:00,             !- Field 125
+    0.0651227712417131,       !- Field 126
+    Until: 14:00,             !- Field 127
+    0.0571810623948182,       !- Field 128
+    Until: 15:00,             !- Field 129
+    0.0570190497406994,       !- Field 130
+    Until: 16:00,             !- Field 131
+    0.0587339267020427,       !- Field 132
+    Until: 17:00,             !- Field 133
+    0.0664994228735742,       !- Field 134
+    Until: 18:00,             !- Field 135
+    0.0875898730830032,       !- Field 136
+    Until: 19:00,             !- Field 137
+    0.112092565412796,        !- Field 138
+    Until: 20:00,             !- Field 139
+    0.0931177591853281,       !- Field 140
+    Until: 21:00,             !- Field 141
+    0.0873001440146875,       !- Field 142
+    Until: 22:00,             !- Field 143
+    0.0805871859299541,       !- Field 144
+    Until: 23:00,             !- Field 145
+    0.0653341018509751,       !- Field 146
+    Until: 24:00,             !- Field 147
+    0.0523458452111446,       !- Field 148
+    For: WinterDesignDay AllOtherDays,    !- Field 149
+    Until: 24:00,             !- Field 150
+    0;                        !- Field 151
+
+Schedule:Compact,
+    10005,                    !- Name
+    Fraction,                 !- Schedule Type Limits Name
+    Through: 31 Dec,          !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 01:00,             !- Field 3
+    0,                        !- Field 4
+    Until: 02:00,             !- Field 5
+    0,                        !- Field 6
+    Until: 03:00,             !- Field 7
+    0,                        !- Field 8
+    Until: 04:00,             !- Field 9
+    0,                        !- Field 10
+    Until: 05:00,             !- Field 11
+    0,                        !- Field 12
+    Until: 06:00,             !- Field 13
+    0.1,                      !- Field 14
+    Until: 07:00,             !- Field 15
+    0.25,                     !- Field 16
+    Until: 08:00,             !- Field 17
+    0.25,                     !- Field 18
+    Until: 09:00,             !- Field 19
+    0,                        !- Field 20
+    Until: 10:00,             !- Field 21
+    0,                        !- Field 22
+    Until: 11:00,             !- Field 23
+    0,                        !- Field 24
+    Until: 12:00,             !- Field 25
+    0,                        !- Field 26
+    Until: 13:00,             !- Field 27
+    0,                        !- Field 28
+    Until: 14:00,             !- Field 29
+    0,                        !- Field 30
+    Until: 15:00,             !- Field 31
+    0,                        !- Field 32
+    Until: 16:00,             !- Field 33
+    0,                        !- Field 34
+    Until: 17:00,             !- Field 35
+    0,                        !- Field 36
+    Until: 18:00,             !- Field 37
+    0.1,                      !- Field 38
+    Until: 19:00,             !- Field 39
+    0.2,                      !- Field 40
+    Until: 20:00,             !- Field 41
+    0.3,                      !- Field 42
+    Until: 21:00,             !- Field 43
+    0.4,                      !- Field 44
+    Until: 22:00,             !- Field 45
+    0.3,                      !- Field 46
+    Until: 23:00,             !- Field 47
+    0.15,                     !- Field 48
+    Until: 24:00,             !- Field 49
+    0,                        !- Field 50
+    For: Saturday,            !- Field 51
+    Until: 01:00,             !- Field 52
+    0,                        !- Field 53
+    Until: 02:00,             !- Field 54
+    0,                        !- Field 55
+    Until: 03:00,             !- Field 56
+    0,                        !- Field 57
+    Until: 04:00,             !- Field 58
+    0,                        !- Field 59
+    Until: 05:00,             !- Field 60
+    0,                        !- Field 61
+    Until: 06:00,             !- Field 62
+    0,                        !- Field 63
+    Until: 07:00,             !- Field 64
+    0,                        !- Field 65
+    Until: 08:00,             !- Field 66
+    0.2,                      !- Field 67
+    Until: 09:00,             !- Field 68
+    0.2,                      !- Field 69
+    Until: 10:00,             !- Field 70
+    0.1,                      !- Field 71
+    Until: 11:00,             !- Field 72
+    0,                        !- Field 73
+    Until: 12:00,             !- Field 74
+    0,                        !- Field 75
+    Until: 13:00,             !- Field 76
+    0,                        !- Field 77
+    Until: 14:00,             !- Field 78
+    0,                        !- Field 79
+    Until: 15:00,             !- Field 80
+    0,                        !- Field 81
+    Until: 16:00,             !- Field 82
+    0,                        !- Field 83
+    Until: 17:00,             !- Field 84
+    0,                        !- Field 85
+    Until: 18:00,             !- Field 86
+    0.1,                      !- Field 87
+    Until: 19:00,             !- Field 88
+    0.15,                     !- Field 89
+    Until: 20:00,             !- Field 90
+    0.3,                      !- Field 91
+    Until: 21:00,             !- Field 92
+    0.4,                      !- Field 93
+    Until: 22:00,             !- Field 94
+    0.5,                      !- Field 95
+    Until: 23:00,             !- Field 96
+    0.1,                      !- Field 97
+    Until: 24:00,             !- Field 98
+    0,                        !- Field 99
+    For: Sunday,              !- Field 100
+    Until: 01:00,             !- Field 101
+    0,                        !- Field 102
+    Until: 02:00,             !- Field 103
+    0,                        !- Field 104
+    Until: 03:00,             !- Field 105
+    0,                        !- Field 106
+    Until: 04:00,             !- Field 107
+    0,                        !- Field 108
+    Until: 05:00,             !- Field 109
+    0,                        !- Field 110
+    Until: 06:00,             !- Field 111
+    0,                        !- Field 112
+    Until: 07:00,             !- Field 113
+    0,                        !- Field 114
+    Until: 08:00,             !- Field 115
+    0.2,                      !- Field 116
+    Until: 09:00,             !- Field 117
+    0.2,                      !- Field 118
+    Until: 10:00,             !- Field 119
+    0.1,                      !- Field 120
+    Until: 11:00,             !- Field 121
+    0,                        !- Field 122
+    Until: 12:00,             !- Field 123
+    0,                        !- Field 124
+    Until: 13:00,             !- Field 125
+    0,                        !- Field 126
+    Until: 14:00,             !- Field 127
+    0,                        !- Field 128
+    Until: 15:00,             !- Field 129
+    0,                        !- Field 130
+    Until: 16:00,             !- Field 131
+    0,                        !- Field 132
+    Until: 17:00,             !- Field 133
+    0,                        !- Field 134
+    Until: 18:00,             !- Field 135
+    0.1,                      !- Field 136
+    Until: 19:00,             !- Field 137
+    0.15,                     !- Field 138
+    Until: 20:00,             !- Field 139
+    0.3,                      !- Field 140
+    Until: 21:00,             !- Field 141
+    0.4,                      !- Field 142
+    Until: 22:00,             !- Field 143
+    0.5,                      !- Field 144
+    Until: 23:00,             !- Field 145
+    0.1,                      !- Field 146
+    Until: 24:00,             !- Field 147
+    0,                        !- Field 148
+    For: WinterDesignDay AllOtherDays,    !- Field 149
+    Until: 24:00,             !- Field 150
+    0;                        !- Field 151
+
+Schedule:Compact,
+    Activity Schedule 47252,    !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    91.8;                     !- Field 4
+
+Schedule:Compact,
+    Clothing Schedule 47252,    !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 4/1,             !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    1,                        !- Field 4
+    Through: 9/30,            !- Field 5
+    For: AllDays,             !- Field 6
+    Until: 24:00,             !- Field 7
+    .5,                       !- Field 8
+    Through: 12/31,           !- Field 9
+    For: AllDays,             !- Field 10
+    Until: 24:00,             !- Field 11
+    1;                        !- Field 12
+
+Schedule:Compact,
+    DHW Supply Temperature Block1:Zone1,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    45;                       !- Field 4
+
+Schedule:Compact,
+    DHW Mains Temperature Block1:Zone1,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    15;                       !- Field 4
+
+Schedule:Compact,
+    Activity Schedule 47341,    !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    91.8;                     !- Field 4
+
+Schedule:Compact,
+    Clothing Schedule 47341,    !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 4/1,             !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    1,                        !- Field 4
+    Through: 9/30,            !- Field 5
+    For: AllDays,             !- Field 6
+    Until: 24:00,             !- Field 7
+    .5,                       !- Field 8
+    Through: 12/31,           !- Field 9
+    For: AllDays,             !- Field 10
+    Until: 24:00,             !- Field 11
+    1;                        !- Field 12
+
+Schedule:Compact,
+    DHW Supply Temperature Block2:Zone1,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    45;                       !- Field 4
+
+Schedule:Compact,
+    DHW Mains Temperature Block2:Zone1,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    15;                       !- Field 4
+
+Schedule:Compact,
+    Transmittance schedule for resd - Component block 1,    !- Name
+    Any Number,               !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    0;                        !- Field 4
+
+Schedule:Compact,
+    Cooling SP Sch,           !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:4/30,             !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 24:00,             !- Field 3
+    100,                      !- Field 4
+    For: Weekends,            !- Field 5
+    Until: 24:00,             !- Field 6
+    100,                      !- Field 7
+    For: Holidays,            !- Field 8
+    Until: 24:00,             !- Field 9
+    100,                      !- Field 10
+    For: WinterDesignDay AllOtherDays,    !- Field 11
+    Until: 24:00,             !- Field 12
+    100,                      !- Field 13
+    Through:9/30,             !- Field 14
+    For: Weekdays SummerDesignDay,    !- Field 15
+    Until: 18:00,             !- Field 16
+    100,                      !- Field 17
+    Until: 20:00,             !- Field 18
+    25.8559,                  !- Field 19
+    Until: 24:00,             !- Field 20
+    100,                      !- Field 21
+    For: Weekends,            !- Field 22
+    Until: 18:00,             !- Field 23
+    100,                      !- Field 24
+    Until: 20:00,             !- Field 25
+    25.8559,                  !- Field 26
+    Until: 24:00,             !- Field 27
+    100,                      !- Field 28
+    For: Holidays,            !- Field 29
+    Until: 18:00,             !- Field 30
+    100,                      !- Field 31
+    Until: 20:00,             !- Field 32
+    25.8559,                  !- Field 33
+    Until: 24:00,             !- Field 34
+    100,                      !- Field 35
+    For: WinterDesignDay AllOtherDays,    !- Field 36
+    Until: 24:00,             !- Field 37
+    100,                      !- Field 38
+    Through:12/31,            !- Field 39
+    For: Weekdays SummerDesignDay,    !- Field 40
+    Until: 24:00,             !- Field 41
+    100,                      !- Field 42
+    For: Weekends,            !- Field 43
+    Until: 24:00,             !- Field 44
+    100,                      !- Field 45
+    For: Holidays,            !- Field 46
+    Until: 24:00,             !- Field 47
+    100,                      !- Field 48
+    For: WinterDesignDay AllOtherDays,    !- Field 49
+    Until: 24:00,             !- Field 50
+    100;                      !- Field 51
+
+Schedule:Compact,
+    Block1:Zone1 Cooling Availability Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:4/30,             !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 24:00,             !- Field 3
+    0,                        !- Field 4
+    For: Weekends,            !- Field 5
+    Until: 24:00,             !- Field 6
+    0,                        !- Field 7
+    For: Holidays,            !- Field 8
+    Until: 24:00,             !- Field 9
+    0,                        !- Field 10
+    For: WinterDesignDay AllOtherDays,    !- Field 11
+    Until: 24:00,             !- Field 12
+    0,                        !- Field 13
+    Through:9/30,             !- Field 14
+    For: Weekdays SummerDesignDay,    !- Field 15
+    Until: 18:00,             !- Field 16
+    0,                        !- Field 17
+    Until: 20:00,             !- Field 18
+    1,                        !- Field 19
+    Until: 24:00,             !- Field 20
+    0,                        !- Field 21
+    For: Weekends,            !- Field 22
+    Until: 18:00,             !- Field 23
+    0,                        !- Field 24
+    Until: 20:00,             !- Field 25
+    1,                        !- Field 26
+    Until: 24:00,             !- Field 27
+    0,                        !- Field 28
+    For: Holidays,            !- Field 29
+    Until: 18:00,             !- Field 30
+    0,                        !- Field 31
+    Until: 20:00,             !- Field 32
+    1,                        !- Field 33
+    Until: 24:00,             !- Field 34
+    0,                        !- Field 35
+    For: WinterDesignDay AllOtherDays,    !- Field 36
+    Until: 24:00,             !- Field 37
+    0,                        !- Field 38
+    Through:12/31,            !- Field 39
+    For: Weekdays SummerDesignDay,    !- Field 40
+    Until: 24:00,             !- Field 41
+    0,                        !- Field 42
+    For: Weekends,            !- Field 43
+    Until: 24:00,             !- Field 44
+    0,                        !- Field 45
+    For: Holidays,            !- Field 46
+    Until: 24:00,             !- Field 47
+    0,                        !- Field 48
+    For: WinterDesignDay AllOtherDays,    !- Field 49
+    Until: 24:00,             !- Field 50
+    0;                        !- Field 51
+
+Schedule:Compact,
+    Block2:Zone1 Cooling SP Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:4/30,             !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 24:00,             !- Field 3
+    100,                      !- Field 4
+    For: Weekends,            !- Field 5
+    Until: 24:00,             !- Field 6
+    100,                      !- Field 7
+    For: Holidays,            !- Field 8
+    Until: 24:00,             !- Field 9
+    100,                      !- Field 10
+    For: WinterDesignDay AllOtherDays,    !- Field 11
+    Until: 24:00,             !- Field 12
+    100,                      !- Field 13
+    Through:9/30,             !- Field 14
+    For: Weekdays SummerDesignDay,    !- Field 15
+    Until: 18:00,             !- Field 16
+    100,                      !- Field 17
+    Until: 20:00,             !- Field 18
+    25.8559,                  !- Field 19
+    Until: 24:00,             !- Field 20
+    100,                      !- Field 21
+    For: Weekends,            !- Field 22
+    Until: 18:00,             !- Field 23
+    100,                      !- Field 24
+    Until: 20:00,             !- Field 25
+    25.8559,                  !- Field 26
+    Until: 24:00,             !- Field 27
+    100,                      !- Field 28
+    For: Holidays,            !- Field 29
+    Until: 18:00,             !- Field 30
+    100,                      !- Field 31
+    Until: 20:00,             !- Field 32
+    25.8559,                  !- Field 33
+    Until: 24:00,             !- Field 34
+    100,                      !- Field 35
+    For: WinterDesignDay AllOtherDays,    !- Field 36
+    Until: 24:00,             !- Field 37
+    100,                      !- Field 38
+    Through:12/31,            !- Field 39
+    For: Weekdays SummerDesignDay,    !- Field 40
+    Until: 24:00,             !- Field 41
+    100,                      !- Field 42
+    For: Weekends,            !- Field 43
+    Until: 24:00,             !- Field 44
+    100,                      !- Field 45
+    For: Holidays,            !- Field 46
+    Until: 24:00,             !- Field 47
+    100,                      !- Field 48
+    For: WinterDesignDay AllOtherDays,    !- Field 49
+    Until: 24:00,             !- Field 50
+    100;                      !- Field 51
+
+Schedule:Compact,
+    Block2:Zone1 Cooling Availability Sch,    !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through:4/30,             !- Field 1
+    For: Weekdays SummerDesignDay,    !- Field 2
+    Until: 24:00,             !- Field 3
+    0,                        !- Field 4
+    For: Weekends,            !- Field 5
+    Until: 24:00,             !- Field 6
+    0,                        !- Field 7
+    For: Holidays,            !- Field 8
+    Until: 24:00,             !- Field 9
+    0,                        !- Field 10
+    For: WinterDesignDay AllOtherDays,    !- Field 11
+    Until: 24:00,             !- Field 12
+    0,                        !- Field 13
+    Through:9/30,             !- Field 14
+    For: Weekdays SummerDesignDay,    !- Field 15
+    Until: 18:00,             !- Field 16
+    0,                        !- Field 17
+    Until: 20:00,             !- Field 18
+    1,                        !- Field 19
+    Until: 24:00,             !- Field 20
+    0,                        !- Field 21
+    For: Weekends,            !- Field 22
+    Until: 18:00,             !- Field 23
+    0,                        !- Field 24
+    Until: 20:00,             !- Field 25
+    1,                        !- Field 26
+    Until: 24:00,             !- Field 27
+    0,                        !- Field 28
+    For: Holidays,            !- Field 29
+    Until: 18:00,             !- Field 30
+    0,                        !- Field 31
+    Until: 20:00,             !- Field 32
+    1,                        !- Field 33
+    Until: 24:00,             !- Field 34
+    0,                        !- Field 35
+    For: WinterDesignDay AllOtherDays,    !- Field 36
+    Until: 24:00,             !- Field 37
+    0,                        !- Field 38
+    Through:12/31,            !- Field 39
+    For: Weekdays SummerDesignDay,    !- Field 40
+    Until: 24:00,             !- Field 41
+    0,                        !- Field 42
+    For: Weekends,            !- Field 43
+    Until: 24:00,             !- Field 44
+    0,                        !- Field 45
+    For: Holidays,            !- Field 46
+    Until: 24:00,             !- Field 47
+    0,                        !- Field 48
+    For: WinterDesignDay AllOtherDays,    !- Field 49
+    Until: 24:00,             !- Field 50
+    0;                        !- Field 51
+
+Schedule:Compact,
+    DHW Temp,                 !- Name
+    Temperature,              !- Schedule Type Limits Name
+    Through: 12/31,           !- Field 1
+    For: AllDays,             !- Field 2
+    Until: 24:00,             !- Field 3
+    45;                       !- Field 4
+
+Material,
+    M01 100mm brick,          !- Name
+    MediumRough,              !- Roughness
+    0.1016,                   !- Thickness
+    0.89,                     !- Conductivity
+    1920,                     !- Density
+    790;                      !- Specific Heat
+
+Material,
+    I03 75mm insulation board,    !- Name
+    MediumRough,              !- Roughness
+    0.0762,                   !- Thickness
+    0.03,                     !- Conductivity
+    43,                       !- Density
+    1210;                     !- Specific Heat
+
+Material,
+    G01a 19mm gypsum board,    !- Name
+    MediumSmooth,             !- Roughness
+    0.019,                    !- Thickness
+    0.16,                     !- Conductivity
+    800,                      !- Density
+    1090;                     !- Specific Heat
+
+Material,
+    M14a 100mm heavyweight concrete,    !- Name
+    MediumRough,              !- Roughness
+    0.1016,                   !- Thickness
+    1.95,                     !- Conductivity
+    2240,                     !- Density
+    900;                      !- Specific Heat
+
+Material,
+    I02 50mm insulation board,    !- Name
+    MediumRough,              !- Roughness
+    0.0508,                   !- Thickness
+    0.03,                     !- Conductivity
+    43,                       !- Density
+    1210;                     !- Specific Heat
+
+Material,
+    F16 Acoustic tile,        !- Name
+    MediumSmooth,             !- Roughness
+    0.0191,                   !- Thickness
+    0.06,                     !- Conductivity
+    368,                      !- Density
+    590;                      !- Specific Heat
+
+Material,
+    dummy,                    !- Name
+    MediumRough,              !- Roughness
+    0.0508,                   !- Thickness
+    0.03,                     !- Conductivity
+    43,                       !- Density
+    1210;                     !- Specific Heat
+
+Material,
+    dummy_,                   !- Name
+    MediumRough,              !- Roughness
+    0.0508,                   !- Thickness
+    0.03,                     !- Conductivity
+    43,                       !- Density
+    1210;                     !- Specific Heat
+
+Material:AirGap,
+    F04 Wall air space resistance,    !- Name
+    0.15;                     !- Thermal Resistance
+
+Material:AirGap,
+    F05 Ceiling air space resistance,    !- Name
+    0.18;                     !- Thermal Resistance
+
+WindowMaterial:SimpleGlazingSystem,
+    glazing,                  !- Name
+    1,                        !- UFactor
+    0.5;                      !- Solar Heat Gain Coefficient
+
+Construction,
+    window,                   !- Name
+    glazing;                  !- Outside Layer
+
+Construction,
+    wall,                     !- Name
+    M01 100mm brick,          !- Outside Layer
+    I03 75mm insulation board,    !- Layer 2
+    F04 Wall air space resistance,    !- Layer 3
+    G01a 19mm gypsum board;    !- Layer 4
+
+Construction,
+    roof,                     !- Name
+    M14a 100mm heavyweight concrete,    !- Outside Layer
+    I02 50mm insulation board,    !- Layer 2
+    F05 Ceiling air space resistance,    !- Layer 3
+    F16 Acoustic tile;        !- Layer 4
+
+Construction,
+    floor,                    !- Name
+    F16 Acoustic tile,        !- Outside Layer
+    F05 Ceiling air space resistance,    !- Layer 2
+    I02 50mm insulation board,    !- Layer 3
+    M14a 100mm heavyweight concrete;    !- Layer 4
+
+Construction,
+    roof_,                    !- Name
+    M14a 100mm heavyweight concrete,    !- Outside Layer
+    dummy,                    !- Layer 2
+    F05 Ceiling air space resistance,    !- Layer 3
+    F16 Acoustic tile;        !- Layer 4
+
+Construction,
+    floor_,                   !- Name
+    F16 Acoustic tile,        !- Outside Layer
+    F05 Ceiling air space resistance,    !- Layer 2
+    dummy_,                   !- Layer 3
+    M14a 100mm heavyweight concrete;    !- Layer 4
+
+GlobalGeometryRules,
+    UpperLeftCorner,          !- Starting Vertex Position
+    CounterClockWise,         !- Vertex Entry Direction
+    World;                    !- Coordinate System
+
+People,
+    people,                   !- Name
+    ,                         !- Zone or ZoneList Name
+    10000,                    !- Number of People Schedule Name
+    People/Area,              !- Number of People Calculation Method
+    2.4837839444831,          !- Number of People
+    0.044999,                 !- People per Zone Floor Area
+    ,                         !- Zone Floor Area per Person
+    0.3,                      !- Fraction Radiant
+    AUTOCALCULATE,            !- Sensible Heat Fraction
+    Activity Schedule 47252,    !- Activity Level Schedule Name
+    3.82e-08,                 !- Carbon Dioxide Generation Rate
+    No,                       !- Enable ASHRAE 55 Comfort Warnings
+    ZoneAveraged,             !- Mean Radiant Temperature Calculation Type
+    ,                         !- Surface NameAngle Factor List Name
+    Work efficiency,          !- Work Efficiency Schedule Name
+    ClothingInsulationSchedule,    !- Clothing Insulation Calculation Method
+    ,                         !- Clothing Insulation Calculation Method Schedule Name
+    Clothing Schedule 47252,    !- Clothing Insulation Schedule Name
+    AirVelocitySchedule;      !- Air Velocity Schedule Name
+
+Lights,
+    lights,                   !- Name
+    ,                         !- Zone or ZoneList Name
+    10005,                    !- Schedule Name
+    Watts/Area,               !- Design Level Calculation Method
+    496.7568,                 !- Lighting Level
+    7.93,                     !- Watts per Zone Floor Area
+    ,                         !- Watts per Person
+    0,                        !- Return Air Fraction
+    0.42,                     !- Fraction Radiant
+    0.18,                     !- Fraction Visible
+    1,                        !- Fraction Replaceable
+    ELECTRIC EQUIPMENT#Block1:Zone1#GeneralLights;    !- EndUse Subcategory
+
+ElectricEquipment,
+    equipment,                !- Name
+    ,                         !- Zone or ZoneList Name
+    10001,                    !- Schedule Name
+    Watts/Area,               !- Design Level Calculation Method
+    3063.3336,                !- Design Level
+    48.86,                    !- Watts per Zone Floor Area
+    ,                         !- Watts per Person
+    0,                        !- Fraction Latent
+    0.2,                      !- Fraction Radiant
+    0,                        !- Fraction Lost
+    ELECTRIC EQUIPMENT#Block1:Zone1#03;    !- EndUse Subcategory
+
+ZoneInfiltration:DesignFlowRate,
+    infiltration,             !- Name
+    ,                         !- Zone or ZoneList Name
+    2,                        !- Schedule Name
+    AirChanges/Hour,          !- Design Flow Rate Calculation Method
+    0.040246,                 !- Design Flow Rate
+    ,                         !- Flow per Zone Floor Area
+    ,                         !- Flow per Exterior Surface Area
+    0.29887,                  !- Air Changes per Hour
+    1,                        !- Constant Term Coefficient
+    0,                        !- Temperature Term Coefficient
+    0,                        !- Velocity Term Coefficient
+    0;                        !- Velocity Squared Term Coefficient
+
+ZoneVentilation:DesignFlowRate,
+    ventilation,              !- Name
+    zonelist,                         !- Zone or ZoneList Name
+    10000,                    !- Schedule Name
+    Flow/zone,                !- Design Flow Rate Calculation Method
+    0.024838,                 !- Design Flow Rate
+    ,                         !- Flow Rate per Zone Floor Area
+    ,                         !- Flow Rate per Person
+    ,                         !- Air Changes per Hour
+    NATURAL,                  !- Ventilation Type
+    0,                        !- Fan Pressure Rise
+    1,                        !- Fan Total Efficiency
+    1,                        !- Constant Term Coefficient
+    0,                        !- Temperature Term Coefficient
+    0,                        !- Velocity Term Coefficient
+    0,                        !- Velocity Squared Term Coefficient
+    24,                       !- Minimum Indoor Temperature
+    ,                         !- Minimum Indoor Temperature Schedule Name
+    100,                      !- Maximum Indoor Temperature
+    ,                         !- Maximum Indoor Temperature Schedule Name
+    -100,                     !- Delta Temperature
+    ,                         !- Delta Temperature Schedule Name
+    -100,                     !- Minimum Outdoor Temperature
+    ,                         !- Minimum Outdoor Temperature Schedule Name
+    100,                      !- Maximum Outdoor Temperature
+    ,                         !- Maximum Outdoor Temperature Schedule Name
+    40;                       !- Maximum Wind Speed
+
+Exterior:FuelEquipment,
+    general power (detached),    !- Name
+    Electricity,              !- Fuel Use Type
+    On,                       !- Schedule Name
+    293.4,                    !- Design Level
+    General;                  !- EndUse Subcategory
+
+Exterior:FuelEquipment,
+    cooking (detached),       !- Name
+    NaturalGas,               !- Fuel Use Type
+    On,                       !- Schedule Name
+    201.4,                    !- Design Level
+    General;                  !- EndUse Subcategory
+
+HVACTemplate:Thermostat,
+    thermostat,               !- Name
+    Heating SP Sch,           !- Heating Setpoint Schedule Name
+    ,                         !- Constant Heating Setpoint
+    Cooling SP Sch,           !- Cooling Setpoint Schedule Name
+    ;                         !- Constant Cooling Setpoint
+
+HVACTemplate:Zone:IdealLoadsAirSystem,
+    ,                         !- Zone Name
+    thermostat,               !- Template Thermostat Name
+    ,                         !- System Availability Schedule Name
+    50,                       !- Maximum Heating Supply Air Temperature
+    13,                       !- Minimum Cooling Supply Air Temperature
+    0.0156,                   !- Maximum Heating Supply Air Humidity Ratio
+    0.0077,                   !- Minimum Cooling Supply Air Humidity Ratio
+    NoLimit,                  !- Heating Limit
+    ,                         !- Maximum Heating Air Flow Rate
+    ,                         !- Maximum Sensible Heating Capacity
+    NoLimit,                  !- Cooling Limit
+    ,                         !- Maximum Cooling Air Flow Rate
+    ,                         !- Maximum Total Cooling Capacity
+    ,                         !- Heating Availability Schedule Name
+    ,                         !- Cooling Availability Schedule Name
+    ConstantSensibleHeatRatio,    !- Dehumidification Control Type
+    0.7,                      !- Cooling Sensible Heat Ratio
+    60,                       !- Dehumidification Setpoint
+    None,                     !- Humidification Control Type
+    30,                       !- Humidification Setpoint
+    None,                     !- Outdoor Air Method
+    0.00944,                  !- Outdoor Air Flow Rate per Person
+    ,                         !- Outdoor Air Flow Rate per Zone Floor Area
+    ,                         !- Outdoor Air Flow Rate per Zone
+    OA_design,                !- Design Specification Outdoor Air Object Name
+    None,                     !- Demand Controlled Ventilation Type
+    NoEconomizer,             !- Outdoor Air Economizer Type
+    None,                     !- Heat Recovery Type
+    0.7,                      !- Sensible Heat Recovery Effectiveness
+    0.65;                     !- Latent Heat Recovery Effectiveness
+
+DesignSpecification:OutdoorAir,
+    OA_design,                !- Name
+    Flow/Zone,                !- Outdoor Air Method
+    ,                         !- Outdoor Air Flow per Person
+    ,                         !- Outdoor Air Flow per Zone Floor Area
+    ,                         !- Outdoor Air Flow per Zone
+    ,                         !- Outdoor Air Flow Air Changes per Hour
+    On;                       !- Outdoor Air Schedule Name
+
+Sizing:Parameters,
+    1.2,                      !- Heating Sizing Factor
+    1.2,                      !- Cooling Sizing Factor
+    2;                        !- Timesteps in Averaging Window
+
+Output:VariableDictionary,
+    Regular;                  !- Key Field
+
+Output:Table:SummaryReports,
+    AllSummary;               !- Report 1 Name
+
+OutputControl:Table:Style,
+    HTML,                     !- Column Separator
+    JtoKWH;                   !- Unit Conversion
+
+Output:Variable,
+    *,                        !- Key Value
+    Surface Outside Face Incident Solar Radiation Rate per Area,    !- Variable Name
+    Monthly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                        !- Key Value
+    Surface Outside Face Incident Beam Solar Radiation Rate per Area,    !- Variable Name
+    Monthly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                        !- Key Value
+    Zone Ideal Loads Zone Total Heating Energy,    !- Variable Name
+    Monthly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                        !- Key Value
+    Zone Ideal Loads Zone Total Cooling Energy,    !- Variable Name
+    Monthly;                  !- Reporting Frequency
