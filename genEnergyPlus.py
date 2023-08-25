@@ -44,8 +44,11 @@ class genEnergyPlus():
         Uvalues = insMeta # 단열기준
         UseType = load_useMeta() # 건물용도
         
-        self.epwFileName = epwPath.split(sep='\\')[-1]
-        region, lat, lon, tzone, elev = get_epwinfo(epwPath)
+        self.epwPath = epwPath
+        
+        
+        self.epwFileName = self.epwPath.split(sep='\\')[-1]
+        region, lat, lon, tzone, elev = get_epwinfo(self.epwPath)
 
         Projection = Proj(self.data_.crs)
         
@@ -316,37 +319,21 @@ class genEnergyPlus():
         idf = set_glazing(idf, Uwindow)
         
         # this_savepath = os.path.join(savepath, EPWRegion)
-        this_savepath = '.'
-        idf.saveas(os.path.join(this_savepath, newIDF))
+        idfSavePath = os.path.join('.', newIDF)
+        idf.saveas(idfSavePath)
+        
         
         if run_simluation: #### in progress ####
-            
-            def make_eplaunch_options(idf):
-                """Make options for run, so that it runs like EPLaunch on Windows"""
-                idfversion = idf.idfobjects['version'][0].Version_Identifier.split('.')
-                idfversion.extend([0] * (3 - len(idfversion)))
-                idfversionstr = '-'.join([str(item) for item in idfversion])
-                fname = idf.idfname
-                options = {
-                    # 'ep_version':idfversionstr, # runIDFs needs the version number
-                        # idf.run does not need the above arg
-                        # you can leave it there and it will be fine :-)
-                    'output_prefix':os.path.basename(fname).split('.')[0],
-                    'output_suffix':'C',
-                    'output_directory':os.path.dirname(fname),
-                    'readvars':True,
-                    'expandobjects':True
-                    }
-                return options
-
-            theoptions = make_eplaunch_options(idf)
-            
-            print('Running... ' + newIDF)   
-            idf.run(**theoptions)
+            print('Running... ' + newIDF)
+            idf2run= IDF(idfSavePath, self.epwPath)
+            idf2run.run(output_prefix = 'Bldg_ID_' + bldgID, output_suffix = 'L')        
         
         else:
             
-            print('!!! Done !!!')
+            pass
+        
+        
+        print('!!! Done !!!')
 
         # copy2(os.path.join(epwpath, EPWFname), os.path.join(this_savepath, EPWFname))
 
