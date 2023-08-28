@@ -14,14 +14,13 @@ from util import (move2Wstation, triangulateEarclip, gen_zones, findSurrBldgs,
 poly2roof, gen_horizontal_vertex, edge2wall, roof2wallNormVec, 
 gen_WallProp, gen_WindowProp, gen_FloorName, gen_RoofName,
 idf_zones, gen_zonelist, idf_walls, idf_windows, idf_roofs,
-idf_floors, idf_shadingObjs, wall2window, set_Ins_thickness, set_glazing)
+idf_floors, idf_shadingObjs, wall2window, set_Ins_thickness, set_glazing, get_epwinfo)
 
 from pyproj import Proj
 
 from geopandas import read_file
 from metaData.insMeta import insMeta
 from metaData.useMeta import load_useMeta
-from util import get_epwinfo
 
 from shapely import Polygon 
 

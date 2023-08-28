@@ -5,15 +5,12 @@ Created on Mon Jul  3 18:20:48 2023
 @author: YUNDAM
 """
 
-import os
+
 from shapely.geometry import Polygon, box
 import numpy as np
 from geopandas import GeoDataFrame, GeoSeries, overlay
 from copy import deepcopy
 from tripy import earclip
-from tkinter import Tk
-from tkinter.filedialog import askdirectory
-
 
 #%%
 
@@ -654,24 +651,12 @@ def gen_horizontal_vertex(poly_triangulated, n_floor, Z_height):
 #%% Polygon 삼각분할 (ear clip 삼각분할)
 
 def triangulateEarclip(polygon): 
+
+
     poly = list(polygon.exterior.coords)
     tri = [Polygon(tr) for tr in earclip(poly) if Polygon(tr).area > 0] # 삼각면 중 면적 0 제거
     return tri
 
-
-#%% 
-def gen_IDFsavepath(data_):
-    regionList = data_.EPWRegion.unique()
-    root = Tk() # UI on
-    UI_title = 'IDF를 생성할 폴더 (디렉토리)를 선택하세요'
-    path = askdirectory(parent = root, title = UI_title)
-    root.destroy() # UI off    
-
-    if path == '':
-        raise Exception("폴더 (디렉토리)를 선택해주세요")
-    [os.mkdir(os.path.join(path, region)) for region in regionList if os.path.isdir(os.path.join(path, region)) == False]        
-    data_.IDFpath = path
-    return path, data_
 
 
 def check_gisdata(data_):
