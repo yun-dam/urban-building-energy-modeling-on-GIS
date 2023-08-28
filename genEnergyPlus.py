@@ -5,10 +5,9 @@ Created on Mon Jul  3 18:20:48 2023
 @author: YUNDAM
 """
 
-import pickle, os
+import os
 
 from eppy.modeleditor import IDF
-from eppy.runner.run_functions import runIDFs
 from IDD.genIDD90 import genIDD
 
 from util import (move2Wstation, triangulateEarclip, gen_zones, findSurrBldgs, 
@@ -22,7 +21,6 @@ from pyproj import Proj
 from geopandas import read_file
 from metaData.insMeta import insMeta
 from metaData.useMeta import load_useMeta
-from pyproj import Proj
 from util import get_epwinfo
 
 from shapely import Polygon 
@@ -30,6 +28,17 @@ from shapely import Polygon
 class genEnergyPlus():
     
     def __init__(self, shpPath, epwPath, idColumn = 'PNU', floorNumberColumn = 'GRND_FLR', useTypeColumn = 'USABILITY', builtDateColumn = 'USEAPR_DAY', wsg84 = True):
+        
+        '''
+        shpPath: .shp 파일 디렉토리
+        epwPath: .epw 파일 디렉토리
+        idColumn: Building ID Column 명
+        floorNumberColumn: 지상층수 Column 명
+        useTypeColumn: 용도코드 Column 명 (예: 03000)
+        builtDateColumn: 승인일자 Column 명                
+        wsg84: 
+            
+        '''
         
         # path
         cpath = os.getcwd() # 작업폴더 (current path)    
@@ -153,7 +162,7 @@ class genEnergyPlus():
         self.data_.reset_index(inplace = True)       
         
 
-        if wsg84:
+        if wsg84: # 좌표가 위경도인 데이터셋은 UTM으로 변환 필요
 
 
             for b in range(len(self.data_)):
@@ -173,11 +182,21 @@ class genEnergyPlus():
                     
 
         
-    def processedDataExport(self):
-
+    def processedDataExport(self): # 전처리된 데이터프레임 출력
+        
         return self.data_ 
     
     def main(self, bldgID,  wwr = 0.3, Z_height = 3.5, boundaryBuffer = 60, run_simluation = False):
+        
+        '''
+        bldgID: Building ID
+        wwr: Wall-to-Window Ratio (창면적비)
+        Z_height: 층고 높이 (m)
+        boundaryBuffer: 입력된 건물로부터 몇 m 건물까지 주변 건물로 모델링하는지
+        run_simluation: 시뮬레이션까지 돌릴지말지
+            
+        '''
+        
         
         cpath = os.getcwd() # 작업폴더 (current path)    
         MinimalIDFpath = os.path.join(cpath, 'IDF') # Minimal IDF 디렉토리
