@@ -26,16 +26,17 @@ from shapely import Polygon
 
 class genEnergyPlus():
     
-    def __init__(self, shpPath, epwPath, idColumn = 'PNU', floorNumberColumn = 'GRND_FLR', useTypeColumn = 'USABILITY', builtDateColumn = 'USEAPR_DAY', wsg84 = True):
+    def __init__(self, shpPath, epwPath, savePath = '.', idColumn = 'PNU', floorNumberColumn = 'GRND_FLR', useTypeColumn = 'USABILITY', builtDateColumn = 'USEAPR_DAY', wsg84 = True):
         
         '''
         shpPath: .shp 파일 디렉토리
         epwPath: .epw 파일 디렉토리
+        savePath: 생성되는 IDF 및 시뮬레이션 결과 파일 저장 디렉토리
         idColumn: Building ID Column 명
         floorNumberColumn: 지상층수 Column 명
         useTypeColumn: 용도코드 Column 명 (예: 03000)
         builtDateColumn: 승인일자 Column 명                
-        wsg84: 
+        wsg84: 데이터 Polygon 좌표가 위경도 좌표일 경우 True
             
         '''
         
@@ -53,7 +54,7 @@ class genEnergyPlus():
         UseType = load_useMeta() # 건물용도
         
         self.epwPath = epwPath
-        
+        self.savePath = savePath
         
         self.epwFileName = self.epwPath.split(sep='\\')[-1]
         region, lat, lon, tzone, elev = get_epwinfo(self.epwPath)
@@ -134,6 +135,7 @@ class genEnergyPlus():
         self.data_['U_roof'] = U_roof
         self.data_['U_floor'] = U_floor
         self.data_['U_window'] = U_window
+        
         self.data_['EPWFname'] = EPWFname
         self.data_['EPWRegion'] = EPWRegion
         self.data_['EPWLat'] = EPWLat
@@ -152,7 +154,6 @@ class genEnergyPlus():
         
         # MultiPolygon 여부 -> 추후 MultiPolygon 처리 추가 개발 예정
         self.data_['is_MultiPolygon'] = (self.data_.geometry.type == 'MultiPolygon').tolist()
-        
         
         target_crs = {'proj': 'tmerc', 'lat_0': 38, 'lon_0': 127.5, 'k': 0.9996, 'x_0': 1000000, 'y_0': 2000000, 'ellps': 'GRS80', 'units': 'm', 'no_defs': True} 
                     
@@ -179,13 +180,14 @@ class genEnergyPlus():
                     
                 self.data_['geometry'].iloc[b] = Polygon([(xx, yy) for xx, yy in zip(xs, ys)])
                     
-
+                
+        # self.data_ = self.data_.dropna(subset = ['BLD_NM'])
         
     def processedDataExport(self): # 전처리된 데이터프레임 출력
         
         return self.data_ 
     
-    def main(self, bldgID,  wwr = 0.3, Z_height = 3.5, boundaryBuffer = 60, run_simluation = False):
+    def main(self, bldgID,  wwr = 0.4, Z_height = 3.0, boundaryBuffer = 30, run_simluation = True):
         
         '''
         bldgID: Building ID
@@ -213,6 +215,8 @@ class genEnergyPlus():
         
         if n_floor == 0:          
             raise Exception('지상층수가 0층입니다.')
+            # print('지상층수가 0층입니다.')
+            # continue
 
         built_year = int(Target_bldg['Date_apply'][:4]) # 승인일자에서 준공연도 추출
         use_type = Target_bldg['IDF_type'] # 용도 (IDF) 
@@ -337,14 +341,14 @@ class genEnergyPlus():
         idf = set_glazing(idf, Uwindow)
         
         # this_savepath = os.path.join(savepath, EPWRegion)
-        idfSavePath = os.path.join('.', newIDF)
+        idfSavePath = os.path.join(self.savePath, newIDF)
         idf.saveas(idfSavePath)
         
         
         if run_simluation: #### in progress ####
             print('Running... ' + newIDF)
             idf2run= IDF(idfSavePath, self.epwPath)
-            idf2run.run(output_prefix = 'Bldg_ID_' + bldgID, output_suffix = 'L')        
+            idf2run.run(output_prefix = 'Bldg_ID_' + str(bldgID), output_suffix = 'L', readvars=True, output_directory = self.savePath, ep_version="9-0-1")        
         
         else:
             
