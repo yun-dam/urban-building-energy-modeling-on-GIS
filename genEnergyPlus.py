@@ -48,7 +48,7 @@ class genEnergyPlus():
         # eppy
         IDF.setiddname(self.iddpath) # IDD path
                                        
-        self.data_ = read_file(shpPath, encoding = 'cp949') # read shapefiles
+        self.data_ = read_file(shpPath) # read shapefiles
         
         Uvalues = insMeta # insulation data according to year built
         UseType = load_useMeta() # use type data
@@ -282,7 +282,7 @@ class genEnergyPlus():
         
         ## 외피 IDF 속성정보 생성 (EnergyPlus)
         # Name: 외피이름
-        # ZoneName: 매칭되는 zone 이름
+        # ZoneName
         # BoundCond: 인접면 조건 (e.g. outdoors, surface)
         # SunExposure, WindExposure: 태양 및 바람 노출여부
         
